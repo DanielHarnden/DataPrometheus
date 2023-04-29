@@ -1,21 +1,20 @@
-# Data Atlas
+# Data Prometheus
 
-The primary repository for the Data Atlas capstone project.
+A tool for mapping and generating visualizations of databases.
 
-## Running Data Atlas
 
-To run Data Atlas, use Python to execute runDataAtlas.py. This will install the flask, flask_cors, and PIL Python libraries before attempting to run the Frontend, Middleware, and Backend Docker containers. A Flask API will then begin running in the prompt that you executed runDataAtlas.py.
+## Before Running...
 
-## Stopping Data Atlas
+Ensure you have [Python](https://www.python.org/downloads/) and [Graphviz](https://graphviz.org/download/) installed and in your PATH.
 
-Manually stop the Flask API, then execute stopDataAtlas.py to stop the Docker containers from running.
+## Running Data Prometheus
+
+Double click on runDataPrometheus.bat. Two command prompts will open (one for hosting the HTML GUI with Python, the other to host the Flask API) and only contain debugging information. Once the Python server and API are running, the main menu of Data Prometheus will open in your browser.
+
+## Stopping Data Prometheus
+
+Simply close the command prompts, ezpz.
 
 ## Finding Generated Files
 
-Data Atlas saves a .db file of the newly generated database, as well as an the image file, to the local machine. Databases can be found in the directory DataAtlas/Dockers/volume/databases in the format originalName_updated.db, and images can be found in the directory DataAtlas/Dockers/volume/generatedPngs in the format originalName_updated.sqlite.png
-
-## Data Atlas Structure
-
-Once Data Atlas is running, the end user is directed to a React webpage that hosts the GUI. The user is prompted to choose a database to be atlased. Once the database is chosen, React will call a Flask API which starts the long process of parsing, mapping, and generating an image based on the database (a visual representation of the process is below). Once the image is generated, the Flask API returns that image to the React webpage, which updates accordingly.
-
-![Data Atlas Flowchard](/Documentation/DataAtlas.png)
+Data Prometheus saves all output to the output folder. Currently, only one image and Graphviz dot document are stored at a time. Or just save them from the GUI.
