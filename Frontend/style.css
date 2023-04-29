@@ -1,0 +1,276 @@
+/* Import custom fonts */
+@font-face {
+    font-family: 'Proggy';
+    font-weight: normal;
+    font-style: normal;
+    src: url('font/ProggyVectorRegular.ttf')
+}
+@font-face {
+    font-family: 'DejaVu';
+    font-weight: normal;
+    font-style: normal;
+    src: url('font/DejaVuSans.ttf')
+}
+
+/* Initialize custom color variables */
+:root {
+    --active-index: 0;
+    --red: #B0413E;
+    --redRGB: 176, 65, 62;
+    --dark-red: #973835;
+    --purple: #4F2984;
+    --dark-purple: #381D5E;
+    --cream: #FFFFEB;
+    --orange: #FCAA67;
+    --dark-orange: #FB8F37;
+}
+
+/* Customizes the scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: var(--cream);
+}
+
+/* Initializes some global visuals */
+* {
+    scroll-behavior: smooth;
+    font-family: 'DejaVu';
+    color: var(--cream);
+}
+
+body {
+    margin: 0px;
+    min-height: 100vh;
+    background-color: var(--dark-purple);
+}
+
+.center { text-align: center; }
+
+h1 {
+    font-size: 32px;
+    margin-top: 0px;
+    padding-top: 5vh;
+}
+
+
+
+/* Main Menu CSS */
+body.mainMenu {
+    background: linear-gradient(-30deg, var(--purple), var(--dark-purple));
+    margin: 0px;
+    min-height: 100vh;
+}
+
+h1.welcome {
+    padding: 0;
+    font-size: 72px;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    top: 60px;
+    left: 20vw;
+    width: 50vw;
+    transform: translateX(-6%);
+    background-color: rgba(var(--redRGB), 0.75);
+    transition: opacity 400ms ease;
+    font-family: 'Proggy';
+}
+
+#menu {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#mainMenu {
+    margin-left: 20vw;
+    position: absolute;
+}
+
+.menuItem {
+    color:var(--cream);
+    font-size: 64px;
+    display: block;
+    text-decoration: none;
+    padding: 0.5vw;
+    transition: opacity 400ms ease;
+}
+
+#menuBackground {
+    height: 100vh;
+    width: 100vw;
+
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.1) 9%,
+        transparent 9%
+    );
+    background-position: 0% 0%;
+    background-size: 12vmin 12vmin;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -100;
+
+    transition: opacity 800ms ease, 
+        background-size 800ms ease,
+        background-position 800ms ease;
+}
+
+#menuBackgroundImage {
+    height: 100%;
+    width: 100%;
+    background-image: url('./img/HeinrichFueger.jpg');
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -150;
+    background-position: center 40%;
+    background-size: 110vmax;
+    opacity: 0.25;
+
+    transition: opacity 800ms ease, 
+        background-size 800ms ease,
+        background-position 800ms ease;
+}
+
+/* Responsive main menu */
+#mainMenu:hover ~ h1 { opacity: 0; }
+#mainMenu:hover > .menuItem { opacity: 0.3; }
+#mainMenu:hover > .menuItem:hover { opacity: 1; }
+#mainMenu:hover ~ #menuBackground {
+    background-size: 11vmin 11vmin;
+    opacity: 0.5;
+}
+#mainMenu:hover ~ #menuBackgroundImage {
+    background-size: 125vmax;
+    opacity: 0.20;
+}
+
+#menu > #menuBackground {
+    background-position: 0% calc(-25% * (var(--active-index, 0) + 1));
+}
+#menu > #menuBackgroundImage {
+    background-position: center calc(45% + 5% * var(--active-index, 0));
+}
+
+
+
+/* Subpage CSS */
+img { 
+    max-width: 95vw; 
+    max-height: auto;
+}
+
+/* Buttoms for submitting and uploading files */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="submit"] {
+    display: none;
+}
+  
+label[for="fileInput"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    background-color: var(--red);
+    width: 500px;
+    padding: 1rem;
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+  
+label[for="fileInput"]:hover {
+    background-color: var(--dark-red);
+}
+
+label[for="fileUpload"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    background-color: var(--dark-orange);
+    width: 300px;
+    padding: 1rem;
+    height: 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+  
+label[for="fileUpload"]:hover {
+    background-color: var(--orange);
+}
+
+/* Modified main menu background to work with pages with scrolling */
+body.static {
+    background: var(--purple);
+    margin: 0px;
+    min-height: 100vh;
+    padding: 0px;
+}
+
+#staticBackground {
+    height: 100vh;
+    width: 100vw;
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.1) 9%,
+        transparent 9%
+    );
+    background-position: 0% 0%;
+    background-size: 12vmin 12vmin;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: -100;
+}
+
+#staticBackgroundImage {
+    height: 100%;
+    width: 100%;
+    background-image: url('./img/HeinrichFueger.jpg');
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: -150;
+    background-position: center 40%;
+    background-size: 125vmax;
+    opacity: 0.05;
+}
+
+/* Button to return to the main menu (returnToMenu.js) */
+.menuButton {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    border-radius: 50%;
+    background-color: var(--red);
+    color: var(--cream);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 48px;
+    width: 48px;
+    height: 48px;
+    text-decoration: none;
+    z-index: 9999;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.2s ease-in-out;
+}
+.menuButton:hover {
+    background-color: var(--dark-red);
+}
