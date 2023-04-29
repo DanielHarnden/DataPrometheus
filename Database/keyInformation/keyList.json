@@ -1,0 +1,128 @@
+{
+    "schedulepositionId": [
+        "schedulepositionId"
+    ],
+    "scheduleId": [
+        "scheduleId"
+    ],
+    "positionId": [
+        "positionId"
+    ],
+    "RecordKey": [
+        "RecordKey"
+    ],
+    "dbOrganization": [
+        "dbOrganization"
+    ],
+    "employer": [
+        "employer",
+        "dbEmployer"
+    ],
+    "day": [
+        "day",
+        "dbDay"
+    ],
+    "scheduleDay": [
+        "scheduleDay"
+    ],
+    "scheduleEnd": [
+        "scheduleEnd"
+    ],
+    "AlbumId": [
+        "AlbumId"
+    ],
+    "Title": [
+        "Title"
+    ],
+    "ArtistId": [
+        "ArtistId"
+    ],
+    "Name": [
+        "Name"
+    ],
+    "CustomerId": [
+        "CustomerId"
+    ],
+    "FirstName": [
+        "FirstName"
+    ],
+    "LastName": [
+        "LastName"
+    ],
+    "Company": [
+        "Company"
+    ],
+    "Address": [
+        "Address"
+    ],
+    "City": [
+        "City"
+    ],
+    "State": [
+        "State"
+    ],
+    "Country": [
+        "Country"
+    ],
+    "PostalCode": [
+        "PostalCode"
+    ],
+    "Phone": [
+        "Phone"
+    ],
+    "Fax": [
+        "Fax"
+    ],
+    "Email": [
+        "Email"
+    ],
+    "SupportRepId": [
+        "SupportRepId"
+    ],
+    "EmployeeId": [
+        "EmployeeId"
+    ],
+    "reports": [
+        "reports",
+        "ReportsTo"
+    ],
+    "BirthDate": [
+        "BirthDate"
+    ],
+    "HireDate": [
+        "HireDate"
+    ],
+    "GenreId": [
+        "GenreId"
+    ],
+    "InvoiceId": [
+        "InvoiceId"
+    ],
+    "Total": [
+        "Total"
+    ],
+    "InvoiceLineId": [
+        "InvoiceLineId"
+    ],
+    "TrackId": [
+        "TrackId"
+    ],
+    "Quantity": [
+        "Quantity"
+    ],
+    "MediaTypeId": [
+        "MediaTypeId"
+    ],
+    "PlaylistId": [
+        "PlaylistId"
+    ],
+    "Composer": [
+        "Composer"
+    ],
+    "Milliseconds": [
+        "Milliseconds"
+    ],
+    "Bytes": [
+        "Bytes"
+    ]
+}

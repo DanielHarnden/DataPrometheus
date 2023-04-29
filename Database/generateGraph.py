@@ -1,7 +1,5 @@
 import graphviz, os
 
-
-
 def generateGraph(parsedText, jsonKeyList, graphName, allowReverseParsing, bannedWords):
     # Initializes variables
     foreignKeyNum = 1
@@ -25,10 +23,8 @@ def generateGraph(parsedText, jsonKeyList, graphName, allowReverseParsing, banne
         nodeInfo = '''<\n\t<table border="1" cellborder="1" cellspacing="0" color="#973835">'''
 
         # Iterates through each table from the original txt of the inputted database
-        # Split into 2 sections; table / variable instantiation and foreign key creation
         for i, key in enumerate(tableList):
 
-            # Section 1: Table and Variable Instantiation
             if i == 0:
                 # Generates the table using the table name
                 nodeInfo += generateTable(key, tableNum)
@@ -55,9 +51,6 @@ def generateGraph(parsedText, jsonKeyList, graphName, allowReverseParsing, banne
         nodeInfo += "\n</table>\n>"
         dot.node(tableList[0], shape='none', label=nodeInfo)
                     
-
-
-        
     for tableList in parsedText:
         # Iterates through each key (again)
         for j, key in enumerate(tableList):
@@ -104,11 +97,6 @@ def generateGraph(parsedText, jsonKeyList, graphName, allowReverseParsing, banne
                 else:
                     primaryKeys[key] = table
 
-
-        
-
-
-    
     # Removes any duplicate edges
     edgesToAdd = set(tuple(edgesToAdd[i:i+3]) for i in range(0, len(edgesToAdd), 3))
 

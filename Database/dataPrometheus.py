@@ -1,4 +1,4 @@
-import os, tempfile
+import os, tempfile, time
 from generateGraph import generateGraph
 from mapTxt import mapTxt
 
@@ -16,6 +16,7 @@ supportedFileTypes = [sqLiteReadable]
 
 # Maps a single database
 def mapDatabase(fileName, file, reversing):
+    beginTime = time.time()
     # Sets the function to None type and determines the extension of the inputted file
     function = None
     extension = determineFileType(fileName)
@@ -33,7 +34,10 @@ def mapDatabase(fileName, file, reversing):
         file.save(temp_file.name)
 
         # The file is sent to its designated parser
+        startTime = time.time()
+        print("Beginning parse...")
         parsedText = function(temp_file)
+        print(f"Parsing completed. Time Elapsed: {time.time() - startTime} seconds.\n\n\n")
 
         # The temporary file is deleted
         temp_file.close()
@@ -42,9 +46,17 @@ def mapDatabase(fileName, file, reversing):
         print("That file type is not yet supported by Data Prometheus.")
         return 0
 
+    startTime = time.time()
+    print("Beginning mapping...")
     keyList, bannedWords = mapTxt(parsedText)
+    print(f"Mapping completed. Time Elapsed: {time.time() - startTime} seconds.\n\n\n")
 
+    startTime = time.time()
+    print("Generating Graphviz png...")
     generateGraph(parsedText, keyList, fileName.split(".")[0], reversing, bannedWords)
+    print(f"PNG generated. Time Elapsed: {time.time() - startTime} seconds.\n\n\n")
+
+    print(f"Total Operational Time: {time.time() - beginTime} seconds.\n\n\n")
 
 
 
