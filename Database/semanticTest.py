@@ -4,7 +4,7 @@ import json, os, re
 
 def semanticTest():
 
-    with open(os.getcwd() + "\Database\keyList.json") as f:
+    with open(os.getcwd() + "\Database\keyInformation\keyList.json") as f:
         try:
             data = json.load(f)
             dataDict = {item: data[item] for item in data}
@@ -47,7 +47,7 @@ def semanticTest():
                 dataDict.update({primaryKey: addKey})
 
     # Write updated data back to json file
-    with open(os.getcwd() + "\Database\keyList.json", 'w') as f:
+    with open(os.getcwd() + "\Database\keyInformation\keyList.json", 'w') as f:
         json.dump(dataDict, f, indent=4, separators=(',', ': '))
 
 

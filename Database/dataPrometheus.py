@@ -1,6 +1,6 @@
 import os, tempfile
-import json
 from generateGraph import generateGraph
+from mapTxt import mapTxt
 
 # Import the various parsers from the parsers folder
 from parsers.sqlite3Parse import sqlite3Parse
@@ -42,13 +42,9 @@ def mapDatabase(fileName, file, reversing):
         print("That file type is not yet supported by Data Prometheus.")
         return 0
 
-    keyList = mapTxt(parsedText)
+    keyList, bannedWords = mapTxt(parsedText)
 
-    
-
-    generateGraph(parsedText, keyList, fileName.split(".")[0], reversing)
-
-    
+    generateGraph(parsedText, keyList, fileName.split(".")[0], reversing, bannedWords)
 
 
 
@@ -58,54 +54,3 @@ def determineFileType(fileName):
         return ""
     extension = fileName.split(".")[-1]
     return extension
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def mapTxt(inputKeys):
-    # Load existing data from database file
-    with open(os.getcwd() + "\Database\keyList.json") as f:
-        try:
-            data = json.load(f)
-            dataDict = {item: data[item] for item in data}
-        except:
-            dataDict = {}
-
-    # Add new keys to dataDict
-    for item in inputKeys:
-        tableName = True
-        for key in item:
-            if tableName:
-                tableName = False
-                continue
-            
-            if key not in dataDict:
-                print(f"Adding {key} as new type of entry.")
-                dataDict.update({key: [key]})
-            else:
-                if key not in dataDict[key]:
-                    addKey = dataDict[key]
-                    addKey.append(key)
-                    dataDict.update({key: addKey})
-
-    # Write updated data back to json file
-    with open(os.getcwd() + "\Database\keyList.json", 'w') as f:
-        json.dump(dataDict, f, indent=4, separators=(',', ': '))
-    
-    # Return the json file for the grapher
-    with open(os.getcwd() + "\Database\keyList.json") as f:
-        return json.load(f)

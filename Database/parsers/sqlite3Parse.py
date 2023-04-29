@@ -17,11 +17,13 @@ def sqlite3Parse(file):
     # Stores and cleans the information
     cleanedTables = []
     for table in tables:
-        tempTable = []
-        cur.execute("SELECT * FROM {} LIMIT 0;".format(table[0]))
-        tempTable += table
-        tempTable += [column[0] for column in cur.description]
-        cleanedTables.append(tempTable)
+        # Excludes SQLite system tables
+        if not table[0].startswith("sqlite_"):
+            tempTable = []
+            cur.execute("SELECT * FROM {} LIMIT 0;".format(table[0]))
+            tempTable += table
+            tempTable += [column[0] for column in cur.description]
+            cleanedTables.append(tempTable)
 
     # Closes the connection and returns the list of cleaned tables
     conn.close()

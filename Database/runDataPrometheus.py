@@ -12,7 +12,7 @@ def checkForPackages():
     print("Determining if the correct Python packages are installed...")
 
     # The list of packages that should be installed using pip
-    packages = ['flask', 'flask-cors', 'Pillow', 'graphviz', 'pydot', 'nltk']
+    packages = ['flask', 'flask-cors', 'Pillow', 'graphviz', 'pydot', 'nltk', 'spellchecker']
 
     for package in packages:
         # Attempts to import the module; if it can not, that means it is not installed.
@@ -21,6 +21,8 @@ def checkForPackages():
                 importlib.import_module("PIL")
             elif package == "flask-cors":
                 importlib.import_module("flask_cors")
+            elif package == "spellchecker":
+                importlib.import_module("pyspellchecker")
             else:
                 importlib.import_module(package)
         except ModuleNotFoundError:
