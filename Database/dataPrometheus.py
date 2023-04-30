@@ -4,13 +4,17 @@ from mapTxt import mapTxt
 
 # Import the various parsers from the parsers folder
 from parsers.sqlite3Parse import sqlite3Parse
+from parsers.sqlParse import sqlParse
+from parsers.pythonParse import pythonParse
 
 # Lists containing the files that Data Prometheus can read. The first item is the name of the  function that will be called and the following items are the extensions that that function supports
 #TODO: Determine all file types supported by sqlite3
 sqLiteReadable = [sqlite3Parse, "db", "sqlite", "db3"]
+sqlParseReadable = [sqlParse, "sql"]
+pythonParseReadable = [pythonParse, "py"]
 
 # A list containing the previous lists, for streamlining later
-supportedFileTypes = [sqLiteReadable]
+supportedFileTypes = [sqLiteReadable, sqlParseReadable, pythonParseReadable]
 
 
 

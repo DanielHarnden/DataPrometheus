@@ -50,7 +50,9 @@ def generateGraph(parsedText, jsonKeyList, graphName, allowReverseParsing, banne
         # Finishes the table then adds the node using the temporary information
         nodeInfo += "\n</table>\n>"
         dot.node(tableList[0], shape='none', label=nodeInfo)
-                    
+
+    print(parsedText)
+
     for tableList in parsedText:
         # Iterates through each key (again)
         for j, key in enumerate(tableList):
@@ -64,6 +66,8 @@ def generateGraph(parsedText, jsonKeyList, graphName, allowReverseParsing, banne
                     values = jsonKeyList[keySynonyms]
                     if key in values:
                         key = keySynonyms
+
+                print(key)
 
                 if key in primaryKeys:
                     # Checks to see if there are any foreign key additions left for this table and checks to ensure the table is not referencing itself
@@ -100,6 +104,8 @@ def generateGraph(parsedText, jsonKeyList, graphName, allowReverseParsing, banne
     # Removes any duplicate edges
     edgesToAdd = set(tuple(edgesToAdd[i:i+3]) for i in range(0, len(edgesToAdd), 3))
 
+    print(edgesToAdd)
+
     # Remove items where first and second elements are swapped but third element is the same
     for firstTriple in edgesToAdd:
         for secondTriple in edgesToAdd:
@@ -109,7 +115,8 @@ def generateGraph(parsedText, jsonKeyList, graphName, allowReverseParsing, banne
     
     # Now that all of the foreign keys are mapped, they're added to the graph in the order they were found
     for referencedTable, tableReferencing, key in edgesToAdd:
-        dot.edge(f"{tableReferencing}:{key}.end", f"{referencedTable}:{key}.start", arrowhead='vee', arrowtail='odot', dir='both', label=f"{tableReferencing} ref.  {referencedTable}", style='solid')
+        if referencedTable != tableReferencing:
+            dot.edge(f"{tableReferencing}:{key}.end", f"{referencedTable}:{key}.start", arrowhead='vee', arrowtail='odot', dir='both', label=f"{tableReferencing} ref.  {referencedTable}", style='solid')
 
     # Does some settings to make it look pwetty
     dot.graph_attr.update({

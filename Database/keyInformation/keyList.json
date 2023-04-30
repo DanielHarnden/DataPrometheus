@@ -1,59 +1,26 @@
 {
-    "schedulepositionId": [
-        "schedulepositionId"
+    "print": [
+        "print"
     ],
-    "scheduleId": [
-        "scheduleId"
+    "i": [
+        "i",
+        "b"
     ],
-    "positionId": [
-        "positionId"
+    "e": [
+        "e"
     ],
-    "RecordKey": [
-        "RecordKey"
+    "said": [
+        "said",
+        "s_id"
     ],
-    "dbOrganization": [
-        "dbOrganization"
+    "States": [
+        "States"
     ],
-    "employer": [
-        "employer",
-        "dbEmployer"
+    "Abbreviation": [
+        "Abbreviation"
     ],
-    "day": [
-        "day",
-        "dbDay"
-    ],
-    "scheduleDay": [
-        "scheduleDay"
-    ],
-    "scheduleEnd": [
-        "scheduleEnd"
-    ],
-    "AlbumId": [
-        "AlbumId"
-    ],
-    "Title": [
-        "Title"
-    ],
-    "ArtistId": [
-        "ArtistId"
-    ],
-    "Name": [
-        "Name"
-    ],
-    "CustomerId": [
-        "CustomerId"
-    ],
-    "FirstName": [
-        "FirstName"
-    ],
-    "LastName": [
-        "LastName"
-    ],
-    "Company": [
-        "Company"
-    ],
-    "Address": [
-        "Address"
+    "Team_id": [
+        "Team_id"
     ],
     "City": [
         "City"
@@ -64,65 +31,76 @@
     "Country": [
         "Country"
     ],
-    "PostalCode": [
-        "PostalCode"
+    "Zip": [
+        "Zip"
     ],
-    "Phone": [
-        "Phone"
+    "zip2": [
+        "zip2"
     ],
-    "Fax": [
-        "Fax"
+    "Advisor": [
+        "Advisor"
     ],
-    "Email": [
-        "Email"
+    "Communicate": [
+        "Communicate"
     ],
-    "SupportRepId": [
-        "SupportRepId"
+    "Status": [
+        "Status"
     ],
-    "EmployeeId": [
-        "EmployeeId"
+    "Archive": [
+        "Archive"
     ],
-    "reports": [
-        "reports",
-        "ReportsTo"
+    "did": [
+        "did",
+        "sd_id"
     ],
-    "BirthDate": [
-        "BirthDate"
+    "team_id": [
+        "team_id"
     ],
-    "HireDate": [
-        "HireDate"
+    "middle": [
+        "middle"
     ],
-    "GenreId": [
-        "GenreId"
+    "gender": [
+        "gender"
     ],
-    "InvoiceId": [
-        "InvoiceId"
+    "hispanic": [
+        "hispanic"
     ],
-    "Total": [
-        "Total"
+    "real": [
+        "real",
+        "r_AA"
     ],
-    "InvoiceLineId": [
-        "InvoiceLineId"
+    "r_AI": [
+        "r_AI"
     ],
-    "TrackId": [
-        "TrackId"
+    "r_AS": [
+        "r_AS"
     ],
-    "Quantity": [
-        "Quantity"
+    "run": [
+        "run",
+        "r_NH"
     ],
-    "MediaTypeId": [
-        "MediaTypeId"
+    "rich": [
+        "rich",
+        "r_WH"
     ],
-    "PlaylistId": [
-        "PlaylistId"
+    "Special": [
+        "Special"
     ],
-    "Composer": [
-        "Composer"
+    "aid": [
+        "aid",
+        "auid"
     ],
-    "Milliseconds": [
-        "Milliseconds"
+    "user_name": [
+        "user_name"
     ],
-    "Bytes": [
-        "Bytes"
+    "maid": [
+        "maid",
+        "m_id"
+    ],
+    "Year": [
+        "Year"
+    ],
+    "c_id": [
+        "c_id"
     ]
 }

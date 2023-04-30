@@ -12,7 +12,7 @@ def checkForPackages():
     print("Determining if the correct Python packages are installed...")
 
     # The list of packages that should be installed using pip
-    packages = ['flask', 'flask-cors', 'Pillow', 'graphviz', 'pydot', 'nltk', 'spellchecker']
+    packages = ['flask', 'flask-cors', 'Pillow', 'graphviz', 'nltk', 'pyspellchecker', 'sqlparse']
 
     for package in packages:
         # Attempts to import the module; if it can not, that means it is not installed.
@@ -21,8 +21,8 @@ def checkForPackages():
                 importlib.import_module("PIL")
             elif package == "flask-cors":
                 importlib.import_module("flask_cors")
-            elif package == "spellchecker":
-                importlib.import_module("pyspellchecker")
+            elif package == "pyspellchecker":
+                importlib.import_module("spellchecker")
             else:
                 importlib.import_module(package)
         except ModuleNotFoundError:
@@ -31,6 +31,14 @@ def checkForPackages():
             # Attempts to execute the command, throws an error and ends the program if the command does not run as intended.
             try:
                 subprocess.check_call(command)
+
+                if command == "pip install nltk":
+                    import nltk
+                    try:
+                        nltk.data.find('corpora/gutenberg')
+                    except LookupError:
+                        nltk.download('gutenberg')
+
             except:
                 print("There was an error importing the " + package + " package. Please make sure that pip is installed.")
                 temp = input()
