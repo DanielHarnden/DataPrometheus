@@ -53,7 +53,7 @@ def openFrontend():
 # Attempts to start the Flask API
 def attemptFlask():
     print("Attempting to start the Flask API...")
-    subprocess.check_call("python .\\Database\\flaskAPI.py")
+    subprocess.check_call("python .\\prometheusMain\\flaskAPI.py")
 
 
 if __name__ == "__main__":

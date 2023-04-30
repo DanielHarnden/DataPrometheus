@@ -1,6 +1,6 @@
 import os, tempfile, time
 from generateGraph import generateGraph
-from mapTxt import mapTxt
+from mapText import mapText
 
 # Import the various parsers from the parsers folder
 from parsers.sqlite3Parse import sqlite3Parse
@@ -50,7 +50,7 @@ def mapDatabase(fileName, file, reversing):
 
     startTime = time.time()
     print("Beginning mapping...")
-    keyList, bannedWords = mapTxt(parsedText)
+    keyList, bannedWords = mapText(parsedText)
     print(f"Mapping completed. Time Elapsed: {time.time() - startTime} seconds.\n\n\n")
 
     startTime = time.time()
