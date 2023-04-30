@@ -1,26 +1,30 @@
 {
-    "print": [
-        "print"
+    "AlbumId": [
+        "AlbumId"
     ],
-    "i": [
-        "i",
-        "b"
+    "Title": [
+        "Title"
     ],
-    "e": [
-        "e"
+    "ArtistId": [
+        "ArtistId"
     ],
-    "said": [
-        "said",
-        "s_id"
+    "Name": [
+        "Name"
     ],
-    "States": [
-        "States"
+    "CustomerId": [
+        "CustomerId"
     ],
-    "Abbreviation": [
-        "Abbreviation"
+    "FirstName": [
+        "FirstName"
     ],
-    "Team_id": [
-        "Team_id"
+    "LastName": [
+        "LastName"
+    ],
+    "Company": [
+        "Company"
+    ],
+    "Address": [
+        "Address"
     ],
     "City": [
         "City"
@@ -31,76 +35,65 @@
     "Country": [
         "Country"
     ],
-    "Zip": [
-        "Zip"
+    "PostalCode": [
+        "PostalCode"
     ],
-    "zip2": [
-        "zip2"
+    "Phone": [
+        "Phone"
     ],
-    "Advisor": [
-        "Advisor"
+    "Fax": [
+        "Fax"
     ],
-    "Communicate": [
-        "Communicate"
+    "Email": [
+        "Email"
     ],
-    "Status": [
-        "Status"
+    "SupportRepId": [
+        "SupportRepId"
     ],
-    "Archive": [
-        "Archive"
+    "EmployeeId": [
+        "EmployeeId"
     ],
-    "did": [
-        "did",
-        "sd_id"
+    "reports": [
+        "reports",
+        "ReportsTo"
     ],
-    "team_id": [
-        "team_id"
+    "BirthDate": [
+        "BirthDate"
     ],
-    "middle": [
-        "middle"
+    "HireDate": [
+        "HireDate"
     ],
-    "gender": [
-        "gender"
+    "GenreId": [
+        "GenreId"
     ],
-    "hispanic": [
-        "hispanic"
+    "InvoiceId": [
+        "InvoiceId"
     ],
-    "real": [
-        "real",
-        "r_AA"
+    "Total": [
+        "Total"
     ],
-    "r_AI": [
-        "r_AI"
+    "InvoiceLineId": [
+        "InvoiceLineId"
     ],
-    "r_AS": [
-        "r_AS"
+    "TrackId": [
+        "TrackId"
     ],
-    "run": [
-        "run",
-        "r_NH"
+    "Quantity": [
+        "Quantity"
     ],
-    "rich": [
-        "rich",
-        "r_WH"
+    "MediaTypeId": [
+        "MediaTypeId"
     ],
-    "Special": [
-        "Special"
+    "PlaylistId": [
+        "PlaylistId"
     ],
-    "aid": [
-        "aid",
-        "auid"
+    "Composer": [
+        "Composer"
     ],
-    "user_name": [
-        "user_name"
+    "Milliseconds": [
+        "Milliseconds"
     ],
-    "maid": [
-        "maid",
-        "m_id"
-    ],
-    "Year": [
-        "Year"
-    ],
-    "c_id": [
-        "c_id"
+    "Bytes": [
+        "Bytes"
     ]
 }

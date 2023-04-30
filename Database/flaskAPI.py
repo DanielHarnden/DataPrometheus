@@ -3,7 +3,6 @@ from flask_cors import CORS
 import dataPrometheus
 from PIL import Image
 import os, io
-from semanticTest import semanticTest
 
 # Flask API, called when file is run
 app = Flask(__name__)
@@ -12,12 +11,12 @@ CORS(app)
 @app.route("/mapDatabase/<db>/<reversing>", methods=["GET", "POST"])
 def mapDatabase(db, reversing):
     # Checks to see if the file was sent properly and can be read
-    if request.method == 'POST':
-        f = request.files['file']
-        dataPrometheus.mapDatabase(f.filename, f, reversing)
-    else:
+    if request.method != 'POST':
         return 0
 
+    f = request.files['file']
+    dataPrometheus.mapDatabase(f.filename, f, reversing)
+        
     # Gets the path of the resulting image
     imgPath = os.getcwd() + "\output\output.png"
     print(imgPath)
@@ -35,13 +34,6 @@ def mapDatabase(db, reversing):
 
     # Returns the image from the new buffer
     return send_file(output_buffer, mimetype='image/png')
-
-
-
-@app.route("/trainMapper", methods=["GET", "POST"])
-def trainMapper():
-    semanticTest()
-    return "Training completed successfully!"
 
 
     

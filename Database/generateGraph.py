@@ -51,69 +51,48 @@ def generateGraph(parsedText, jsonKeyList, graphName, allowReverseParsing, banne
         nodeInfo += "\n</table>\n>"
         dot.node(tableList[0], shape='none', label=nodeInfo)
 
-    print(parsedText)
-
+    # Iterates through each key (again)
     for tableList in parsedText:
-        # Iterates through each key (again)
-        for j, key in enumerate(tableList):
-            # The name of the table is stored
-            if j == 0:
-                foreignKeysRemaining = foreignKeyNum
-                table = key
-            else:
-                # Checks to see if this key has appeared before in the new database. If not, it is set as the primary key of the new database, and any subsequent mentions of the key will reference the key/table it first appears
-                for keySynonyms in jsonKeyList:
-                    values = jsonKeyList[keySynonyms]
-                    if key in values:
-                        key = keySynonyms
+        # The name of the table is stored
+        table = tableList[0]
+        foreignKeysRemaining = foreignKeyNum
 
-                print(key)
+        for key in tableList[1:]:
+            # Checks to see if this key has appeared before in the new database. If not, it is set as the primary key of the new database, and any subsequent mentions of the key will reference the key/table it first appears
+            values = jsonKeyList[keySynonyms]
+            if key in values:
+                key = keySynonyms
 
-                if key in primaryKeys:
-                    # Checks to see if there are any foreign key additions left for this table and checks to ensure the table is not referencing itself
-                    if foreignKeysRemaining > 0 and key not in bannedWords:
-                        edgesToAdd.append(primaryKeys[key])
-                        edgesToAdd.append(table)
-                        edgesToAdd.append(key)
+            if key in primaryKeys:
+                # Checks to see if there are any foreign key additions left for this table and checks to ensure the table is not referencing itself
+                if foreignKeysRemaining > 0 and key not in bannedWords:
+                    temp = [primaryKeys[key], table, key]
+                    if temp not in edgesToAdd:
+                        edgesToAdd.append([primaryKeys[key], table, key])
                         foreignKeysRemaining = foreignKeysRemaining - 1
-                else:
-                    primaryKeys[key] = table
+            else:
+                primaryKeys[key] = table
 
     if allowReverseParsing is True:
-        for temp1, tableList in reversed(list(enumerate(parsedText))):
+        for tableList in reversed(list(parsedText)):
             table = tableList[0]
+            foreignKeysRemaining = foreignKeyNum
 
-            for temp2, key in reversed(list(enumerate(tableList))):
-                if temp2 == len(tableList) - 1:
-                    foreignKeysRemaining = foreignKeyNum
-                
-                for keySynonyms in jsonKeyList:
-                    values = jsonKeyList[keySynonyms]
-                    if key in values:
-                        key = keySynonyms
+            for key in reversed(list(tableList)):
+                values = jsonKeyList[keySynonyms]
+                if key in values:
+                    key = keySynonyms
 
                 if key in primaryKeys and table is not primaryKeys[key]:
                     if foreignKeysRemaining > 0 and key not in bannedWords:
-                        edgesToAdd.append(primaryKeys[key])
-                        edgesToAdd.append(table)
-                        edgesToAdd.append(key)
-                        foreignKeysRemaining = foreignKeysRemaining - 1
+                        temp = [primaryKeys[key], table, key]
+                        if temp not in edgesToAdd:
+                            edgesToAdd.append([primaryKeys[key], table, key])
+                            foreignKeysRemaining = foreignKeysRemaining - 1
                 else:
                     primaryKeys[key] = table
-
-    # Removes any duplicate edges
-    edgesToAdd = set(tuple(edgesToAdd[i:i+3]) for i in range(0, len(edgesToAdd), 3))
-
-    print(edgesToAdd)
-
-    # Remove items where first and second elements are swapped but third element is the same
-    for firstTriple in edgesToAdd:
-        for secondTriple in edgesToAdd:
-            if firstTriple[0] == secondTriple[1] and firstTriple[1] == secondTriple[2] and firstTriple[3] == secondTriple[3]:
-                edgesToAdd.remove(secondTriple)
-        
     
-    # Now that all of the foreign keys are mapped, they're added to the graph in the order they were found
+    # Now that all of the tables are mapped, foreign keys can added to the graph in the order they were found
     for referencedTable, tableReferencing, key in edgesToAdd:
         if referencedTable != tableReferencing:
             dot.edge(f"{tableReferencing}:{key}.end", f"{referencedTable}:{key}.start", arrowhead='vee', arrowtail='odot', dir='both', label=f"{tableReferencing} ref.  {referencedTable}", style='solid')

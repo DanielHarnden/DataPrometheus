@@ -30,25 +30,23 @@ def mapDatabase(fileName, file, reversing):
         if extension in typeList:
             function = typeList[0]
 
-    # If the file type is supported...
-    if function is not None:
-        #... a temporary file is generated to store the database
-        #TODO: Determine a better way of doing this. From what I understand about sending files through APIs, there's no way to read the file directly and instead it has to be saved locally (duplicated) which could be bad for huge files
-        temp_file = tempfile.NamedTemporaryFile(delete=False)
-        file.save(temp_file.name)
-
-        # The file is sent to its designated parser
-        startTime = time.time()
-        print("Beginning parse...")
-        parsedText = function(temp_file)
-        print(f"Parsing completed. Time Elapsed: {time.time() - startTime} seconds.\n\n\n")
-
-        # The temporary file is deleted
-        temp_file.close()
-        os.unlink(temp_file.name)
-    else:
+    if function is None:
         print("That file type is not yet supported by Data Prometheus.")
         return 0
+
+    # Saves a temporary file for the parsers to use
+    temp_file = tempfile.NamedTemporaryFile(delete=False)
+    file.save(temp_file.name)
+
+    # The file is sent to its designated parser
+    startTime = time.time()
+    print("Beginning parse...")
+    parsedText = function(temp_file)
+    print(f"Parsing completed. Time Elapsed: {time.time() - startTime} seconds.\n\n\n")
+
+    # The temporary file is deleted
+    temp_file.close()
+    os.unlink(temp_file.name)
 
     startTime = time.time()
     print("Beginning mapping...")
