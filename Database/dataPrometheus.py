@@ -1,21 +1,26 @@
-import os, tempfile
-import json
+import os, tempfile, time
 from generateGraph import generateGraph
+from mapTxt import mapTxt
 
 # Import the various parsers from the parsers folder
 from parsers.sqlite3Parse import sqlite3Parse
+from parsers.sqlParse import sqlParse
+from parsers.pythonParse import pythonParse
 
 # Lists containing the files that Data Prometheus can read. The first item is the name of the  function that will be called and the following items are the extensions that that function supports
 #TODO: Determine all file types supported by sqlite3
 sqLiteReadable = [sqlite3Parse, "db", "sqlite", "db3"]
+sqlParseReadable = [sqlParse, "sql"]
+pythonParseReadable = [pythonParse, "py"]
 
 # A list containing the previous lists, for streamlining later
-supportedFileTypes = [sqLiteReadable]
+supportedFileTypes = [sqLiteReadable, sqlParseReadable, pythonParseReadable]
 
 
 
 # Maps a single database
 def mapDatabase(fileName, file, reversing):
+    beginTime = time.time()
     # Sets the function to None type and determines the extension of the inputted file
     function = None
     extension = determineFileType(fileName)
@@ -25,30 +30,35 @@ def mapDatabase(fileName, file, reversing):
         if extension in typeList:
             function = typeList[0]
 
-    # If the file type is supported...
-    if function is not None:
-        #... a temporary file is generated to store the database
-        #TODO: Determine a better way of doing this. From what I understand about sending files through APIs, there's no way to read the file directly and instead it has to be saved locally (duplicated) which could be bad for huge files
-        temp_file = tempfile.NamedTemporaryFile(delete=False)
-        file.save(temp_file.name)
-
-        # The file is sent to its designated parser
-        parsedText = function(temp_file)
-
-        # The temporary file is deleted
-        temp_file.close()
-        os.unlink(temp_file.name)
-    else:
+    if function is None:
         print("That file type is not yet supported by Data Prometheus.")
         return 0
 
-    keyList = mapTxt(parsedText)
+    # Saves a temporary file for the parsers to use
+    temp_file = tempfile.NamedTemporaryFile(delete=False)
+    file.save(temp_file.name)
 
-    
+    # The file is sent to its designated parser
+    startTime = time.time()
+    print("Beginning parse...")
+    parsedText = function(temp_file)
+    print(f"Parsing completed. Time Elapsed: {time.time() - startTime} seconds.\n\n\n")
 
-    generateGraph(parsedText, keyList, fileName.split(".")[0], reversing)
+    # The temporary file is deleted
+    temp_file.close()
+    os.unlink(temp_file.name)
 
-    
+    startTime = time.time()
+    print("Beginning mapping...")
+    keyList, bannedWords = mapTxt(parsedText)
+    print(f"Mapping completed. Time Elapsed: {time.time() - startTime} seconds.\n\n\n")
+
+    startTime = time.time()
+    print("Generating Graphviz png...")
+    generateGraph(parsedText, keyList, fileName.split(".")[0], reversing, bannedWords)
+    print(f"PNG generated. Time Elapsed: {time.time() - startTime} seconds.\n\n\n")
+
+    print(f"Total Operational Time: {time.time() - beginTime} seconds.\n\n\n")
 
 
 
@@ -58,54 +68,3 @@ def determineFileType(fileName):
         return ""
     extension = fileName.split(".")[-1]
     return extension
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def mapTxt(inputKeys):
-    # Load existing data from database file
-    with open(os.getcwd() + "\Database\keyList.json") as f:
-        try:
-            data = json.load(f)
-            dataDict = {item: data[item] for item in data}
-        except:
-            dataDict = {}
-
-    # Add new keys to dataDict
-    for item in inputKeys:
-        tableName = True
-        for key in item:
-            if tableName:
-                tableName = False
-                continue
-            
-            if key not in dataDict:
-                print(f"Adding {key} as new type of entry.")
-                dataDict.update({key: [key]})
-            else:
-                if key not in dataDict[key]:
-                    addKey = dataDict[key]
-                    addKey.append(key)
-                    dataDict.update({key: addKey})
-
-    # Write updated data back to json file
-    with open(os.getcwd() + "\Database\keyList.json", 'w') as f:
-        json.dump(dataDict, f, indent=4, separators=(',', ': '))
-    
-    # Return the json file for the grapher
-    with open(os.getcwd() + "\Database\keyList.json") as f:
-        return json.load(f)
