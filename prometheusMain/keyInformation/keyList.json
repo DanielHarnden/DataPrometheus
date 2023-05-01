@@ -1,0 +1,340 @@
+{
+    "eventInfo_startDate": [
+        "eventInfo_startDate"
+    ],
+    "scheduleStart": [
+        "scheduleStart"
+    ],
+    "schedulepositionId": [
+        "schedulepositionId"
+    ],
+    "dbPositionName": [
+        "dbPositionName"
+    ],
+    "employer": [
+        "employer",
+        "dbEmployer"
+    ],
+    "eventInfo_meetingLocation": [
+        "eventInfo_meetingLocation"
+    ],
+    "dbPositionsUsed": [
+        "dbPositionsUsed"
+    ],
+    "day": [
+        "day",
+        "dbDay"
+    ],
+    "eventInfo_meetingDate": [
+        "eventInfo_meetingDate"
+    ],
+    "scheduleEnd": [
+        "scheduleEnd",
+        "scheduleEnd",
+        null,
+        "scheduleEnd",
+        null,
+        "scheduleEnd",
+        null,
+        "scheduleEnd",
+        null
+    ],
+    "dbPositionNumber": [
+        "dbPositionNumber"
+    ],
+    "dbFirstName": [
+        "dbFirstName"
+    ],
+    "dbLastName": [
+        "dbLastName"
+    ],
+    "eventInfo_eventLocation": [
+        "eventInfo_eventLocation"
+    ],
+    "dbEmailAddress": [
+        "dbEmailAddress"
+    ],
+    "dbDDSUserID": [
+        "dbDDSUserID"
+    ],
+    "scheduleDay": [
+        "scheduleDay",
+        "scheduleDay",
+        null,
+        "scheduleDay",
+        null,
+        "scheduleDay",
+        null,
+        "scheduleDay",
+        null
+    ],
+    "schedulepositionNeeded": [
+        "schedulepositionNeeded"
+    ],
+    "positionName": [
+        "positionName"
+    ],
+    "dbPhoneNumber": [
+        "dbPhoneNumber"
+    ],
+    "positionId": [
+        "positionId"
+    ],
+    "eventInfo_id": [
+        "eventInfo_id"
+    ],
+    "dbPositionsInitial": [
+        "dbPositionsInitial"
+    ],
+    "dbParentGuardian": [
+        "dbParentGuardian"
+    ],
+    "organization": [
+        "organization",
+        "dbOrganization"
+    ],
+    "scheduleId": [
+        "scheduleId"
+    ],
+    "RecordKey": [
+        "RecordKey"
+    ],
+    "Company": [
+        "Company"
+    ],
+    "City": [
+        "City"
+    ],
+    "BillingCity": [
+        "BillingCity"
+    ],
+    "PostalCode": [
+        "PostalCode",
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null
+    ],
+    "Total": [
+        "Total"
+    ],
+    "LastName": [
+        "LastName",
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null
+    ],
+    "InvoiceId": [
+        "InvoiceId"
+    ],
+    "InvoiceDate": [
+        "InvoiceDate"
+    ],
+    "State": [
+        "State"
+    ],
+    "Quantity": [
+        "Quantity"
+    ],
+    "reports": [
+        "reports",
+        "ReportsTo"
+    ],
+    "Composer": [
+        "Composer"
+    ],
+    "InvoiceLineId": [
+        "InvoiceLineId"
+    ],
+    "Milliseconds": [
+        "Milliseconds"
+    ],
+    "AlbumId": [
+        "AlbumId"
+    ],
+    "ArtistId": [
+        "ArtistId"
+    ],
+    "Fax": [
+        "Fax"
+    ],
+    "Title": [
+        "Title"
+    ],
+    "BillingState": [
+        "BillingState"
+    ],
+    "UnitPrice": [
+        "UnitPrice"
+    ],
+    "HireDate": [
+        "HireDate",
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null
+    ],
+    "BillingAddress": [
+        "BillingAddress"
+    ],
+    "Address": [
+        "Address"
+    ],
+    "Email": [
+        "Email"
+    ],
+    "EmployeeId": [
+        "EmployeeId"
+    ],
+    "MediaTypeId": [
+        "MediaTypeId"
+    ],
+    "Name": [
+        "Name"
+    ],
+    "FirstName": [
+        "FirstName",
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null
+    ],
+    "Phone": [
+        "Phone"
+    ],
+    "BirthDate": [
+        "BirthDate"
+    ],
+    "SupportRepId": [
+        "SupportRepId"
+    ],
+    "Country": [
+        "Country"
+    ],
+    "BillingCountry": [
+        "BillingCountry"
+    ],
+    "BillingPostalCode": [
+        "BillingPostalCode"
+    ],
+    "GenreId": [
+        "GenreId"
+    ],
+    "PlaylistId": [
+        "PlaylistId"
+    ],
+    "CustomerId": [
+        "CustomerId"
+    ],
+    "TrackId": [
+        "TrackId"
+    ],
+    "Bytes": [
+        "Bytes"
+    ]
+}
