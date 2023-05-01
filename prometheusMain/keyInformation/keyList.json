@@ -37,6 +37,12 @@
         "scheduleEnd",
         null,
         "scheduleEnd",
+        null,
+        "scheduleEnd",
+        null,
+        "scheduleEnd",
+        null,
+        "scheduleEnd",
         null
     ],
     "dbPositionNumber": [
@@ -59,6 +65,12 @@
     ],
     "scheduleDay": [
         "scheduleDay",
+        "scheduleDay",
+        null,
+        "scheduleDay",
+        null,
+        "scheduleDay",
+        null,
         "scheduleDay",
         null,
         "scheduleDay",
@@ -139,6 +151,74 @@
         "PostalCode",
         null,
         "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
+        null,
+        "PostalCode",
         null
     ],
     "Total": [
@@ -146,6 +226,78 @@
     ],
     "LastName": [
         "LastName",
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
+        "LastName",
+        null,
         "LastName",
         null,
         "LastName",
@@ -251,6 +403,76 @@
         "HireDate",
         null,
         "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
+        null,
+        "HireDate",
         null
     ],
     "BillingAddress": [
@@ -273,6 +495,78 @@
     ],
     "FirstName": [
         "FirstName",
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
+        "FirstName",
+        null,
         "FirstName",
         null,
         "FirstName",
@@ -336,5 +630,524 @@
     ],
     "Bytes": [
         "Bytes"
+    ],
+    "eventInfo_registrationStart": [
+        "eventInfo_registrationStart"
+    ],
+    "dbPosition2": [
+        "dbPosition2",
+        "dbPosition2",
+        null,
+        "dbPosition2",
+        null
+    ],
+    "type": [
+        "type",
+        "dbType"
+    ],
+    "dbPosition1": [
+        "dbPosition1",
+        "dbPosition1",
+        null,
+        "dbPosition1",
+        null
+    ],
+    "dbPosition3": [
+        "dbPosition3",
+        "dbPosition3",
+        null,
+        "dbPosition3",
+        null
+    ],
+    "eventInfo_POCEmail": [
+        "eventInfo_POCEmail"
+    ],
+    "dbYearsVolunteered": [
+        "dbYearsVolunteered"
+    ],
+    "dbTsize": [
+        "dbTsize"
+    ],
+    "eventInfo_registrationEnd": [
+        "eventInfo_registrationEnd"
+    ],
+    "eventInfo_POC": [
+        "eventInfo_POC"
+    ],
+    "eventInfo_nasaOwnerEmail": [
+        "eventInfo_nasaOwnerEmail"
+    ],
+    "eventInfo_nasaOwner": [
+        "eventInfo_nasaOwner"
+    ],
+    "eventInfo_meetingStartTime": [
+        "eventInfo_meetingStartTime"
+    ],
+    "dbPosition4": [
+        "dbPosition4",
+        "dbPosition4",
+        null,
+        "dbPosition4",
+        null
+    ],
+    "eventInfo_meetingEndTime": [
+        "eventInfo_meetingEndTime"
+    ],
+    "i": [
+        "i",
+        ""
+    ],
+    "TABLE": [
+        "TABLE"
+    ],
+    "Table": [
+        "Table"
+    ],
+    "--------------------------------------------------------": [
+        "--------------------------------------------------------"
+    ],
+    "NOT": [
+        "NOT"
+    ],
+    "status": [
+        "status"
+    ],
+    "KEY": [
+        "KEY"
+    ],
+    "DEFAULT": [
+        "DEFAULT"
+    ],
+    "for": [
+        "for"
+    ],
+    "`username`": [
+        "`username`"
+    ],
+    "last_name": [
+        "last_name"
+    ],
+    "int(11)": [
+        "int(11)"
+    ],
+    "varchar(10)": [
+        "varchar(10)"
+    ],
+    "Database:": [
+        "Database:",
+        "Database:",
+        null
+    ],
+    "structure": [
+        "structure"
+    ],
+    "(`user_id`)": [
+        "(`user_id`)"
+    ],
+    "CREATE": [
+        "CREATE"
+    ],
+    "password": [
+        "password"
+    ],
+    "AUTO_INCREMENT=10001": [
+        "AUTO_INCREMENT=10001"
+    ],
+    "varchar(255)": [
+        "varchar(255)"
+    ],
+    "`samplevideo_db`": [
+        "`samplevideo_db`"
+    ],
+    "`user_details`": [
+        "`user_details`"
+    ],
+    "AUTO_INCREMENT,": [
+        "AUTO_INCREMENT,"
+    ],
+    ")": [
+        ")"
+    ],
+    "PRIMARY": [
+        "PRIMARY"
+    ],
+    "varchar(50)": [
+        "varchar(50)"
+    ],
+    "ENGINE=MyISAM": [
+        "ENGINE=MyISAM"
+    ],
+    "table": [
+        "table"
+    ],
+    "`first_name`": [
+        "`first_name`"
+    ],
+    "tinyint(10)": [
+        "tinyint(10)"
+    ],
+    "first_name": [
+        "first_name"
+    ],
+    "null": [
+        "null",
+        "NULL,"
+    ],
+    "CHARSET=latin1": [
+        "CHARSET=latin1"
+    ],
+    "user_id": [
+        "user_id"
+    ],
+    "IF": [
+        "IF"
+    ],
+    "(": [
+        "("
+    ],
+    "EXISTS": [
+        "EXISTS"
+    ],
+    "gender": [
+        "gender",
+        "`gender`"
+    ],
+    "NULL": [
+        "NULL"
+    ],
+    "`user_id`": [
+        "`user_id`"
+    ],
+    "`last_name`": [
+        "`last_name`"
+    ],
+    "username": [
+        "username"
+    ],
+    "print": [
+        "print"
+    ],
+    "e": [
+        "e"
+    ],
+    "CompanyName": [
+        "CompanyName"
+    ],
+    "OrderDate": [
+        "OrderDate"
+    ],
+    "ProductId": [
+        "ProductId"
+    ],
+    "TotalAmount": [
+        "TotalAmount"
+    ],
+    "ContactName": [
+        "ContactName"
+    ],
+    "discontinued": [
+        "discontinued",
+        "IsDiscontinued"
+    ],
+    "ProductName": [
+        "ProductName"
+    ],
+    "Package": [
+        "Package"
+    ],
+    "OrderId": [
+        "OrderId"
+    ],
+    "OrderNumber": [
+        "OrderNumber"
+    ],
+    "SupplierId": [
+        "SupplierId"
+    ],
+    "Id": [
+        "Id"
+    ],
+    "(SupplierId)": [
+        "(SupplierId)"
+    ],
+    "Category(Id)": [
+        "Category(Id)"
+    ],
+    "Supplier": [
+        "Supplier"
+    ],
+    "ManagerId": [
+        "ManagerId"
+    ],
+    "(ManagerId)": [
+        "(ManagerId)"
+    ],
+    "key": [
+        "key",
+        "KEY,"
+    ],
+    "OrderItem": [
+        "OrderItem"
+    ],
+    "Employee": [
+        "Employee"
+    ],
+    "Employee(Id),": [
+        "Employee(Id),"
+    ],
+    "Price": [
+        "Price"
+    ],
+    "Product(Id),": [
+        "Product(Id),"
+    ],
+    "(ProductId)": [
+        "(ProductId)"
+    ],
+    "DepartmentId": [
+        "DepartmentId"
+    ],
+    "DECIMAL(10,": [
+        "DECIMAL(10,"
+    ],
+    "Order": [
+        "Order"
+    ],
+    "ProductCategory": [
+        "ProductCategory"
+    ],
+    "FOREIGN": [
+        "FOREIGN"
+    ],
+    "Product": [
+        "Product"
+    ],
+    "Order(Id),": [
+        "Order(Id),"
+    ],
+    "Product(Id)": [
+        "Product(Id)"
+    ],
+    "Department(Id)": [
+        "Department(Id)"
+    ],
+    "VARCHAR(50),": [
+        "VARCHAR(50),"
+    ],
+    "Supplier(Id),": [
+        "Supplier(Id),"
+    ],
+    "SupplierProduct": [
+        "SupplierProduct"
+    ],
+    "(CategoryId)": [
+        "(CategoryId)"
+    ],
+    "into": [
+        "into",
+        "INT,"
+    ],
+    "VARCHAR(50)": [
+        "VARCHAR(50)"
+    ],
+    "Customer": [
+        "Customer"
+    ],
+    "VARCHAR(100)": [
+        "VARCHAR(100)"
+    ],
+    "CategoryId": [
+        "CategoryId"
+    ],
+    "Category": [
+        "Category"
+    ],
+    "date": [
+        "date",
+        "DATE,"
+    ],
+    "Department": [
+        "Department"
+    ],
+    "(DepartmentId)": [
+        "(DepartmentId)"
+    ],
+    "(OrderId)": [
+        "(OrderId)"
+    ],
+    "Customer(Id)": [
+        "Customer(Id)"
+    ],
+    "INT": [
+        "INT"
+    ],
+    "(CustomerId)": [
+        "(CustomerId)"
+    ],
+    "REFERENCES": [
+        "REFERENCES"
+    ],
+    "function": [
+        "function"
+    ],
+    "determineFileType": [
+        "determineFileType"
+    ],
+    "save": [
+        "save"
+    ],
+    "generateGraph": [
+        "generateGraph"
+    ],
+    "split": [
+        "split"
+    ],
+    "time": [
+        "time"
+    ],
+    "NamedTemporaryFile": [
+        "NamedTemporaryFile"
+    ],
+    "mapText": [
+        "mapText"
+    ],
+    "close": [
+        "close"
+    ],
+    "unlink": [
+        "unlink"
+    ],
+    "getcwd": [
+        "getcwd"
+    ],
+    "seek": [
+        "seek"
+    ],
+    "open": [
+        "open"
+    ],
+    "send_file": [
+        "send_file"
+    ],
+    "run": [
+        "run"
+    ],
+    "BytesIO": [
+        "BytesIO"
+    ],
+    "Digraph": [
+        "Digraph",
+        "Digraph",
+        null
+    ],
+    "enumerate": [
+        "enumerate"
+    ],
+    "generateKey": [
+        "generateKey"
+    ],
+    "node": [
+        "node"
+    ],
+    "update": [
+        "update"
+    ],
+    "set": [
+        "set"
+    ],
+    "archer": [
+        "archer",
+        "varchar"
+    ],
+    "generateForeignKeys": [
+        "generateForeignKeys"
+    ],
+    "edge": [
+        "edge"
+    ],
+    "happened": [
+        "happened",
+        "append"
+    ],
+    "reverse": [
+        "reverse"
+    ],
+    "add": [
+        "add"
+    ],
+    "generateTable": [
+        "generateTable"
+    ],
+    "sorted": [
+        "sorted"
+    ],
+    "list": [
+        "list"
+    ],
+    "render": [
+        "render"
+    ],
+    "exit": [
+        "exit"
+    ],
+    "openFrontend": [
+        "openFrontend"
+    ],
+    "checkForPackages": [
+        "checkForPackages"
+    ],
+    "attemptFlask": [
+        "attemptFlask"
+    ],
+    "find": [
+        "find"
+    ],
+    "main": [
+        "main"
+    ],
+    "check_call": [
+        "check_call"
+    ],
+    "download": [
+        "download"
+    ],
+    "input": [
+        "input"
+    ],
+    "import_module": [
+        "import_module"
+    ],
+    "SpellChecker": [
+        "SpellChecker"
+    ],
+    "values": [
+        "values"
+    ],
+    "addKey": [
+        "addKey"
+    ],
+    "dump": [
+        "dump"
+    ],
+    "load": [
+        "load"
+    ],
+    "strip": [
+        "strip"
+    ],
+    "getFreqDist": [
+        "getFreqDist"
+    ],
+    "FreqDist": [
+        "FreqDist"
+    ],
+    "@lru_cache": [
+        "@lru_cache"
+    ],
+    "write": [
+        "write"
+    ],
+    "correction": [
+        "correction"
     ]
 }
