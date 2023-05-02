@@ -41,7 +41,7 @@ def mapDatabase(fileName, file, reversing):
     # The file is sent to its designated parser
     startTime = time.time()
     print("Beginning parse...")
-    parsedText = function(temp_file)
+    parsedText = function(temp_file, fileName)
     print(f"Parsing completed. Time Elapsed: {time.time() - startTime} seconds.\n\n\n")
 
     # The temporary file is deleted
