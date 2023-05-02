@@ -423,10 +423,5 @@ digraph {
 	"invoices [table]":"CustomerId.end" -> "customers [table]":"CustomerId.start" [label="invoices [table] ref.  customers [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
 	"invoice_items [table]":"InvoiceId.end" -> "invoices [table]":"InvoiceId.start" [label="invoice_items [table] ref.  invoices [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
 	"invoice_items [table]":"TrackId.end" -> "tracks [table]":"TrackId.start" [label="invoice_items [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"albums [table]":"AlbumId.end" -> "tracks [table]":"AlbumId.start" [label="albums [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"playlist_track [table]":"TrackId.end" -> "tracks [table]":"TrackId.start" [label="playlist_track [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"playlists [table]":"PlaylistId.end" -> "playlist_track [table]":"PlaylistId.start" [label="playlists [table] ref.  playlist_track [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"media_types [table]":"MediaTypeId.end" -> "tracks [table]":"MediaTypeId.start" [label="media_types [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"genres [table]":"GenreId.end" -> "tracks [table]":"GenreId.start" [label="genres [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"artists [table]":"ArtistId.end" -> "albums [table]":"ArtistId.start" [label="artists [table] ref.  albums [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
+	"playlist_track [table]":"PlaylistId.end" -> "albums [table]":"PlaylistId.start" [label="playlist_track [table] ref.  albums [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
 }

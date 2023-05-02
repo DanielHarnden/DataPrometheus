@@ -25,7 +25,7 @@ def mapText(inputKeys):
             bannedWords = []
 
 
-    for fileTables in inputKeys[1:]:
+    for fileTables in inputKeys:
         # Only get unique keys (minus table names)
         fileTables = list(set(item for sublist in fileTables for item in sublist[1:]))
 

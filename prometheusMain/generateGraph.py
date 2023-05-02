@@ -18,45 +18,55 @@ def generateGraph(parsedText, jsonKeyList, graphName, allowReverseParsing, banne
     # Creates the graphviz object that will hold the graph
     dot = graphviz.Digraph()
 
-    # Sorts the parsed text from biggest to smallest table
-    parsedText = sorted(parsedText, key=lambda x: len(x))
-    parsedText.reverse()
+    print(parsedText)
 
-    # Adds each table to the database
-    for i, tableList in enumerate(parsedText):
-        tempTables.append('''<\n\t<table border="1" cellborder="1" cellspacing="0" color="#973835">''')
+    for fileTables in parsedText:
 
-        # Generates the table using the table name
-        tableNames.append(tableList[0] + " [table]")
-        tempTables[i] += generateTable(tableNames[i], tableNum)
-        primaryKeys[tableNames[i]] = tableNames[i]
-        tableNum += 1
+        #tempTables.append('''<\n\t<table border="1" cellborder="1" cellspacing="0" color="#973835">''')
 
-    # Iterates through all of the tables from the original txt of the inputted database
-    for i, tableList in enumerate(parsedText):
-        # A temp list of added keys to avoid duplicates
-        tempKeys = set()
-        # Iterates through each table from the original text of the inputted database
-        for key in tableList[1:]:
-            # Determines if they key has to be renamed based on the mapping
-            # Iterates through each key...
-            for keySynonyms in jsonKeyList:
-                # ...compares the current key to the values. If the key is a synonym...
-                if key in jsonKeyList[keySynonyms]:
-                    # ...the current key is replaced with the synonym (the key from the table)
-                    key = keySynonyms
+        #fileTables[0]
 
-            # Prevents duplicate keys
-            if key not in tempKeys:
-                tempKeys.add(key)
-                # Adds every key as a varchar(50)
-                # TODO: Use VARCHAR(50) as a fallback and impliment type stealing (when applicable)
-                tempTables[i] += generateKey(key, "VARCHAR(50)")
-                nodes.append(f"{tableNames[i]}:{key}")
+        fileTables.pop(0)
 
-        # Finishes the table then adds the node using the temporary information
-        tempTables[i] += "\n</table>\n>"
-        dot.node(tableNames[i], shape='none', label=tempTables[i])
+        # Sorts the parsed text from biggest to smallest table
+        fileTables = sorted(fileTables, key=lambda x: len(x))
+        fileTables.reverse()
+
+        # Adds each table to the database
+        for i, tableList in enumerate(fileTables):
+            tempTables.append('''<\n\t<table border="1" cellborder="1" cellspacing="0" color="#973835">''')
+
+            # Generates the table using the table name
+            tableNames.append(tableList[0] + " [table]")
+            tempTables[i] += generateTable(tableNames[i], tableNum)
+            primaryKeys[tableNames[i]] = tableNames[i]
+            tableNum += 1
+
+        # Iterates through all of the tables from the original txt of the inputted database
+        for i, tableList in enumerate(fileTables):
+            # A temp list of added keys to avoid duplicates
+            tempKeys = set()
+            # Iterates through each table from the original text of the inputted database
+            for key in tableList[1:]:
+                # Determines if they key has to be renamed based on the mapping
+                # Iterates through each key...
+                for keySynonyms in jsonKeyList:
+                    # ...compares the current key to the values. If the key is a synonym...
+                    if key in jsonKeyList[keySynonyms]:
+                        # ...the current key is replaced with the synonym (the key from the table)
+                        key = keySynonyms
+
+                # Prevents duplicate keys
+                if key not in tempKeys:
+                    tempKeys.add(key)
+                    # Adds every key as a varchar(50)
+                    # TODO: Use VARCHAR(50) as a fallback and impliment type stealing (when applicable)
+                    tempTables[i] += generateKey(key, "VARCHAR(50)")
+                    nodes.append(f"{tableNames[i]}:{key}")
+
+            # Finishes the table then adds the node using the temporary information
+            tempTables[i] += "\n</table>\n>"
+            dot.node(tableNames[i], shape='none', label=tempTables[i])
 
     tablesVisited = []
     # Created a nested function since reverse parsing changes very little code
@@ -93,12 +103,19 @@ def generateGraph(parsedText, jsonKeyList, graphName, allowReverseParsing, banne
                 else:
                     primaryKeys[key] = table
 
-    # Calls the function
-    generateForeignKeys(parsedText, False)
+    for fileTables in parsedText:
+        fileTables.pop(0)
 
-    if allowReverseParsing:
-        tablesVisited = list(reversed(tablesVisited))
-        generateForeignKeys(parsedText, True)
+        # Sorts the parsed text from biggest to smallest table
+        fileTables = sorted(fileTables, key=lambda x: len(x))
+        fileTables.reverse()
+        
+        # Calls the function
+        generateForeignKeys(fileTables, False)
+
+        if allowReverseParsing:
+            tablesVisited = list(reversed(tablesVisited))
+            generateForeignKeys(fileTables, True)
 
     # Now that all of the tables are mapped, foreign keys can added to the graph in the order they were found
     for tableReferencing, keyReferencing, referencedTable, referencedKey, referencingTable in edgesToAdd:
