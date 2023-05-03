@@ -1,427 +1,469 @@
 digraph {
-	graph [dpi=200 label="chinook as parsed by Data Prometheus (copyright me do not steal!!!)" labelloc=t rankdir=LR table="style=invis"]
-	"employees [table]" [label=<
-	<table border="1" cellborder="1" cellspacing="0" color="#973835">
-    	<tr>
-        	<td colspan='2' bgcolor='#B0413E' port="employees [table].start" align='left'><font color="#FFFFEB"><b><i>employees [table]</i></b></font></td>
-        	<td bgcolor='#B0413E' align='right' port="employees [table].end" ><font color="#FFFFEB"><b><i>0</i></b></font></td>
-    	</tr>
+	graph [dpi=200 label=" LABEL TEMPORARY NAME!!!!!!!!!!!!! as parsed by Data Prometheus (copyright me do not steal!!!)" labelloc=t rankdir=LR table="style=invis"]
+	subgraph "Cluster-945" {
+		bgcolor=lightblue color=blue label="chinook.db" style=solid
+		"employees [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#973835">
+  <tr>
+    <td colspan='2' bgcolor='#B0413E' port="employees [table].start" align='left'><font color="#FFFFEB"><b><i>employees [table]</i></b></font></td>
+    <td bgcolor='#B0413E' align='right' port="employees [table].end" ><font color="#FFFFEB"><b><i>0</i></b></font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="EmployeeId.start" align='left'><font color="#FFFFEB"><b><i>EmployeeId</i></b></font></td>
-        	<td bgcolor='#973835' port="EmployeeId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="EmployeeId.start" align='left'><font color="#FFFFEB"><b><i>EmployeeId</i></b></font></td>
+    <td bgcolor='#973835' port="EmployeeId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="LastName.start" align='left'><font color="#FFFFEB"><b><i>LastName</i></b></font></td>
-        	<td bgcolor='#973835' port="LastName.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="LastName.start" align='left'><font color="#FFFFEB"><b><i>LastName</i></b></font></td>
+    <td bgcolor='#973835' port="LastName.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="FirstName.start" align='left'><font color="#FFFFEB"><b><i>FirstName</i></b></font></td>
-        	<td bgcolor='#973835' port="FirstName.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="FirstName.start" align='left'><font color="#FFFFEB"><b><i>FirstName</i></b></font></td>
+    <td bgcolor='#973835' port="FirstName.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Title.start" align='left'><font color="#FFFFEB"><b><i>Title</i></b></font></td>
-        	<td bgcolor='#973835' port="Title.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Title.start" align='left'><font color="#FFFFEB"><b><i>Title</i></b></font></td>
+    <td bgcolor='#973835' port="Title.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="reports.start" align='left'><font color="#FFFFEB"><b><i>reports</i></b></font></td>
-        	<td bgcolor='#973835' port="reports.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="reports.start" align='left'><font color="#FFFFEB"><b><i>reports</i></b></font></td>
+    <td bgcolor='#973835' port="reports.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="BirthDate.start" align='left'><font color="#FFFFEB"><b><i>BirthDate</i></b></font></td>
-        	<td bgcolor='#973835' port="BirthDate.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="BirthDate.start" align='left'><font color="#FFFFEB"><b><i>BirthDate</i></b></font></td>
+    <td bgcolor='#973835' port="BirthDate.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="HireDate.start" align='left'><font color="#FFFFEB"><b><i>HireDate</i></b></font></td>
-        	<td bgcolor='#973835' port="HireDate.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="HireDate.start" align='left'><font color="#FFFFEB"><b><i>HireDate</i></b></font></td>
+    <td bgcolor='#973835' port="HireDate.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Address.start" align='left'><font color="#FFFFEB"><b><i>Address</i></b></font></td>
-        	<td bgcolor='#973835' port="Address.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Address.start" align='left'><font color="#FFFFEB"><b><i>Address</i></b></font></td>
+    <td bgcolor='#973835' port="Address.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="City.start" align='left'><font color="#FFFFEB"><b><i>City</i></b></font></td>
-        	<td bgcolor='#973835' port="City.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="City.start" align='left'><font color="#FFFFEB"><b><i>City</i></b></font></td>
+    <td bgcolor='#973835' port="City.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="State.start" align='left'><font color="#FFFFEB"><b><i>State</i></b></font></td>
-        	<td bgcolor='#973835' port="State.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="State.start" align='left'><font color="#FFFFEB"><b><i>State</i></b></font></td>
+    <td bgcolor='#973835' port="State.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Country.start" align='left'><font color="#FFFFEB"><b><i>Country</i></b></font></td>
-        	<td bgcolor='#973835' port="Country.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Country.start" align='left'><font color="#FFFFEB"><b><i>Country</i></b></font></td>
+    <td bgcolor='#973835' port="Country.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="PostalCode.start" align='left'><font color="#FFFFEB"><b><i>PostalCode</i></b></font></td>
-        	<td bgcolor='#973835' port="PostalCode.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="PostalCode.start" align='left'><font color="#FFFFEB"><b><i>PostalCode</i></b></font></td>
+    <td bgcolor='#973835' port="PostalCode.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Phone.start" align='left'><font color="#FFFFEB"><b><i>Phone</i></b></font></td>
-        	<td bgcolor='#973835' port="Phone.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Phone.start" align='left'><font color="#FFFFEB"><b><i>Phone</i></b></font></td>
+    <td bgcolor='#973835' port="Phone.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Fax.start" align='left'><font color="#FFFFEB"><b><i>Fax</i></b></font></td>
-        	<td bgcolor='#973835' port="Fax.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Fax.start" align='left'><font color="#FFFFEB"><b><i>Fax</i></b></font></td>
+    <td bgcolor='#973835' port="Fax.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Email.start" align='left'><font color="#FFFFEB"><b><i>Email</i></b></font></td>
-        	<td bgcolor='#973835' port="Email.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
-    
-</table>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Email.start" align='left'><font color="#FFFFEB"><b><i>Email</i></b></font></td>
+    <td bgcolor='#973835' port="Email.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
+    </table>
 > shape=none]
-	"customers [table]" [label=<
-	<table border="1" cellborder="1" cellspacing="0" color="#973835">
-    	<tr>
-        	<td colspan='2' bgcolor='#B0413E' port="customers [table].start" align='left'><font color="#FFFFEB"><b><i>customers [table]</i></b></font></td>
-        	<td bgcolor='#B0413E' align='right' port="customers [table].end" ><font color="#FFFFEB"><b><i>1</i></b></font></td>
-    	</tr>
+		bgcolor=lightblue color=blue label="chinook.db" style=solid
+		"customers [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#973835">
+  <tr>
+    <td colspan='2' bgcolor='#B0413E' port="customers [table].start" align='left'><font color="#FFFFEB"><b><i>customers [table]</i></b></font></td>
+    <td bgcolor='#B0413E' align='right' port="customers [table].end" ><font color="#FFFFEB"><b><i>1</i></b></font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="CustomerId.start" align='left'><font color="#FFFFEB"><b><i>CustomerId</i></b></font></td>
-        	<td bgcolor='#973835' port="CustomerId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="CustomerId.start" align='left'><font color="#FFFFEB"><b><i>CustomerId</i></b></font></td>
+    <td bgcolor='#973835' port="CustomerId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="FirstName.start" align='left'><font color="#FFFFEB"><b><i>FirstName</i></b></font></td>
-        	<td bgcolor='#973835' port="FirstName.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="FirstName.start" align='left'><font color="#FFFFEB"><b><i>FirstName</i></b></font></td>
+    <td bgcolor='#973835' port="FirstName.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="LastName.start" align='left'><font color="#FFFFEB"><b><i>LastName</i></b></font></td>
-        	<td bgcolor='#973835' port="LastName.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="LastName.start" align='left'><font color="#FFFFEB"><b><i>LastName</i></b></font></td>
+    <td bgcolor='#973835' port="LastName.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Company.start" align='left'><font color="#FFFFEB"><b><i>Company</i></b></font></td>
-        	<td bgcolor='#973835' port="Company.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Company.start" align='left'><font color="#FFFFEB"><b><i>Company</i></b></font></td>
+    <td bgcolor='#973835' port="Company.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Address.start" align='left'><font color="#FFFFEB"><b><i>Address</i></b></font></td>
-        	<td bgcolor='#973835' port="Address.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Address.start" align='left'><font color="#FFFFEB"><b><i>Address</i></b></font></td>
+    <td bgcolor='#973835' port="Address.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="City.start" align='left'><font color="#FFFFEB"><b><i>City</i></b></font></td>
-        	<td bgcolor='#973835' port="City.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="City.start" align='left'><font color="#FFFFEB"><b><i>City</i></b></font></td>
+    <td bgcolor='#973835' port="City.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="State.start" align='left'><font color="#FFFFEB"><b><i>State</i></b></font></td>
-        	<td bgcolor='#973835' port="State.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="State.start" align='left'><font color="#FFFFEB"><b><i>State</i></b></font></td>
+    <td bgcolor='#973835' port="State.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Country.start" align='left'><font color="#FFFFEB"><b><i>Country</i></b></font></td>
-        	<td bgcolor='#973835' port="Country.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Country.start" align='left'><font color="#FFFFEB"><b><i>Country</i></b></font></td>
+    <td bgcolor='#973835' port="Country.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="PostalCode.start" align='left'><font color="#FFFFEB"><b><i>PostalCode</i></b></font></td>
-        	<td bgcolor='#973835' port="PostalCode.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="PostalCode.start" align='left'><font color="#FFFFEB"><b><i>PostalCode</i></b></font></td>
+    <td bgcolor='#973835' port="PostalCode.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Phone.start" align='left'><font color="#FFFFEB"><b><i>Phone</i></b></font></td>
-        	<td bgcolor='#973835' port="Phone.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Phone.start" align='left'><font color="#FFFFEB"><b><i>Phone</i></b></font></td>
+    <td bgcolor='#973835' port="Phone.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Fax.start" align='left'><font color="#FFFFEB"><b><i>Fax</i></b></font></td>
-        	<td bgcolor='#973835' port="Fax.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Fax.start" align='left'><font color="#FFFFEB"><b><i>Fax</i></b></font></td>
+    <td bgcolor='#973835' port="Fax.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Email.start" align='left'><font color="#FFFFEB"><b><i>Email</i></b></font></td>
-        	<td bgcolor='#973835' port="Email.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Email.start" align='left'><font color="#FFFFEB"><b><i>Email</i></b></font></td>
+    <td bgcolor='#973835' port="Email.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="SupportRepId.start" align='left'><font color="#FFFFEB"><b><i>SupportRepId</i></b></font></td>
-        	<td bgcolor='#973835' port="SupportRepId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
-    
-</table>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="SupportRepId.start" align='left'><font color="#FFFFEB"><b><i>SupportRepId</i></b></font></td>
+    <td bgcolor='#973835' port="SupportRepId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
+    </table>
 > shape=none]
-	"tracks [table]" [label=<
-	<table border="1" cellborder="1" cellspacing="0" color="#973835">
-    	<tr>
-        	<td colspan='2' bgcolor='#B0413E' port="tracks [table].start" align='left'><font color="#FFFFEB"><b><i>tracks [table]</i></b></font></td>
-        	<td bgcolor='#B0413E' align='right' port="tracks [table].end" ><font color="#FFFFEB"><b><i>2</i></b></font></td>
-    	</tr>
+		bgcolor=lightblue color=blue label="chinook.db" style=solid
+		"tracks [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#973835">
+  <tr>
+    <td colspan='2' bgcolor='#B0413E' port="tracks [table].start" align='left'><font color="#FFFFEB"><b><i>tracks [table]</i></b></font></td>
+    <td bgcolor='#B0413E' align='right' port="tracks [table].end" ><font color="#FFFFEB"><b><i>2</i></b></font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="TrackId.start" align='left'><font color="#FFFFEB"><b><i>TrackId</i></b></font></td>
-        	<td bgcolor='#973835' port="TrackId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="TrackId.start" align='left'><font color="#FFFFEB"><b><i>TrackId</i></b></font></td>
+    <td bgcolor='#973835' port="TrackId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
-        	<td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
+    <td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="AlbumId.start" align='left'><font color="#FFFFEB"><b><i>AlbumId</i></b></font></td>
-        	<td bgcolor='#973835' port="AlbumId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="AlbumId.start" align='left'><font color="#FFFFEB"><b><i>AlbumId</i></b></font></td>
+    <td bgcolor='#973835' port="AlbumId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="MediaTypeId.start" align='left'><font color="#FFFFEB"><b><i>MediaTypeId</i></b></font></td>
-        	<td bgcolor='#973835' port="MediaTypeId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="MediaTypeId.start" align='left'><font color="#FFFFEB"><b><i>MediaTypeId</i></b></font></td>
+    <td bgcolor='#973835' port="MediaTypeId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="GenreId.start" align='left'><font color="#FFFFEB"><b><i>GenreId</i></b></font></td>
-        	<td bgcolor='#973835' port="GenreId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="GenreId.start" align='left'><font color="#FFFFEB"><b><i>GenreId</i></b></font></td>
+    <td bgcolor='#973835' port="GenreId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Composer.start" align='left'><font color="#FFFFEB"><b><i>Composer</i></b></font></td>
-        	<td bgcolor='#973835' port="Composer.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Composer.start" align='left'><font color="#FFFFEB"><b><i>Composer</i></b></font></td>
+    <td bgcolor='#973835' port="Composer.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Milliseconds.start" align='left'><font color="#FFFFEB"><b><i>Milliseconds</i></b></font></td>
-        	<td bgcolor='#973835' port="Milliseconds.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Milliseconds.start" align='left'><font color="#FFFFEB"><b><i>Milliseconds</i></b></font></td>
+    <td bgcolor='#973835' port="Milliseconds.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Bytes.start" align='left'><font color="#FFFFEB"><b><i>Bytes</i></b></font></td>
-        	<td bgcolor='#973835' port="Bytes.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Bytes.start" align='left'><font color="#FFFFEB"><b><i>Bytes</i></b></font></td>
+    <td bgcolor='#973835' port="Bytes.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="UnitPrice.start" align='left'><font color="#FFFFEB"><b><i>UnitPrice</i></b></font></td>
-        	<td bgcolor='#973835' port="UnitPrice.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
-    
-</table>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="UnitPrice.start" align='left'><font color="#FFFFEB"><b><i>UnitPrice</i></b></font></td>
+    <td bgcolor='#973835' port="UnitPrice.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
+    </table>
 > shape=none]
-	"invoices [table]" [label=<
-	<table border="1" cellborder="1" cellspacing="0" color="#973835">
-    	<tr>
-        	<td colspan='2' bgcolor='#B0413E' port="invoices [table].start" align='left'><font color="#FFFFEB"><b><i>invoices [table]</i></b></font></td>
-        	<td bgcolor='#B0413E' align='right' port="invoices [table].end" ><font color="#FFFFEB"><b><i>3</i></b></font></td>
-    	</tr>
+		bgcolor=lightblue color=blue label="chinook.db" style=solid
+		"invoices [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#973835">
+  <tr>
+    <td colspan='2' bgcolor='#B0413E' port="invoices [table].start" align='left'><font color="#FFFFEB"><b><i>invoices [table]</i></b></font></td>
+    <td bgcolor='#B0413E' align='right' port="invoices [table].end" ><font color="#FFFFEB"><b><i>3</i></b></font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="InvoiceId.start" align='left'><font color="#FFFFEB"><b><i>InvoiceId</i></b></font></td>
-        	<td bgcolor='#973835' port="InvoiceId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="InvoiceId.start" align='left'><font color="#FFFFEB"><b><i>InvoiceId</i></b></font></td>
+    <td bgcolor='#973835' port="InvoiceId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="CustomerId.start" align='left'><font color="#FFFFEB"><b><i>CustomerId</i></b></font></td>
-        	<td bgcolor='#973835' port="CustomerId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="CustomerId.start" align='left'><font color="#FFFFEB"><b><i>CustomerId</i></b></font></td>
+    <td bgcolor='#973835' port="CustomerId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="InvoiceDate.start" align='left'><font color="#FFFFEB"><b><i>InvoiceDate</i></b></font></td>
-        	<td bgcolor='#973835' port="InvoiceDate.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="InvoiceDate.start" align='left'><font color="#FFFFEB"><b><i>InvoiceDate</i></b></font></td>
+    <td bgcolor='#973835' port="InvoiceDate.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="BillingAddress.start" align='left'><font color="#FFFFEB"><b><i>BillingAddress</i></b></font></td>
-        	<td bgcolor='#973835' port="BillingAddress.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="BillingAddress.start" align='left'><font color="#FFFFEB"><b><i>BillingAddress</i></b></font></td>
+    <td bgcolor='#973835' port="BillingAddress.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="BillingCity.start" align='left'><font color="#FFFFEB"><b><i>BillingCity</i></b></font></td>
-        	<td bgcolor='#973835' port="BillingCity.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="BillingCity.start" align='left'><font color="#FFFFEB"><b><i>BillingCity</i></b></font></td>
+    <td bgcolor='#973835' port="BillingCity.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="BillingState.start" align='left'><font color="#FFFFEB"><b><i>BillingState</i></b></font></td>
-        	<td bgcolor='#973835' port="BillingState.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="BillingState.start" align='left'><font color="#FFFFEB"><b><i>BillingState</i></b></font></td>
+    <td bgcolor='#973835' port="BillingState.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="BillingCountry.start" align='left'><font color="#FFFFEB"><b><i>BillingCountry</i></b></font></td>
-        	<td bgcolor='#973835' port="BillingCountry.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="BillingCountry.start" align='left'><font color="#FFFFEB"><b><i>BillingCountry</i></b></font></td>
+    <td bgcolor='#973835' port="BillingCountry.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="BillingPostalCode.start" align='left'><font color="#FFFFEB"><b><i>BillingPostalCode</i></b></font></td>
-        	<td bgcolor='#973835' port="BillingPostalCode.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="BillingPostalCode.start" align='left'><font color="#FFFFEB"><b><i>BillingPostalCode</i></b></font></td>
+    <td bgcolor='#973835' port="BillingPostalCode.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Total.start" align='left'><font color="#FFFFEB"><b><i>Total</i></b></font></td>
-        	<td bgcolor='#973835' port="Total.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
-    
-</table>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Total.start" align='left'><font color="#FFFFEB"><b><i>Total</i></b></font></td>
+    <td bgcolor='#973835' port="Total.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
+    </table>
 > shape=none]
-	"invoice_items [table]" [label=<
-	<table border="1" cellborder="1" cellspacing="0" color="#973835">
-    	<tr>
-        	<td colspan='2' bgcolor='#B0413E' port="invoice_items [table].start" align='left'><font color="#FFFFEB"><b><i>invoice_items [table]</i></b></font></td>
-        	<td bgcolor='#B0413E' align='right' port="invoice_items [table].end" ><font color="#FFFFEB"><b><i>4</i></b></font></td>
-    	</tr>
+		bgcolor=lightblue color=blue label="chinook.db" style=solid
+		"invoice_items [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#973835">
+  <tr>
+    <td colspan='2' bgcolor='#B0413E' port="invoice_items [table].start" align='left'><font color="#FFFFEB"><b><i>invoice_items [table]</i></b></font></td>
+    <td bgcolor='#B0413E' align='right' port="invoice_items [table].end" ><font color="#FFFFEB"><b><i>4</i></b></font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="InvoiceLineId.start" align='left'><font color="#FFFFEB"><b><i>InvoiceLineId</i></b></font></td>
-        	<td bgcolor='#973835' port="InvoiceLineId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="InvoiceLineId.start" align='left'><font color="#FFFFEB"><b><i>InvoiceLineId</i></b></font></td>
+    <td bgcolor='#973835' port="InvoiceLineId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="InvoiceId.start" align='left'><font color="#FFFFEB"><b><i>InvoiceId</i></b></font></td>
-        	<td bgcolor='#973835' port="InvoiceId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="InvoiceId.start" align='left'><font color="#FFFFEB"><b><i>InvoiceId</i></b></font></td>
+    <td bgcolor='#973835' port="InvoiceId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="TrackId.start" align='left'><font color="#FFFFEB"><b><i>TrackId</i></b></font></td>
-        	<td bgcolor='#973835' port="TrackId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="TrackId.start" align='left'><font color="#FFFFEB"><b><i>TrackId</i></b></font></td>
+    <td bgcolor='#973835' port="TrackId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="UnitPrice.start" align='left'><font color="#FFFFEB"><b><i>UnitPrice</i></b></font></td>
-        	<td bgcolor='#973835' port="UnitPrice.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="UnitPrice.start" align='left'><font color="#FFFFEB"><b><i>UnitPrice</i></b></font></td>
+    <td bgcolor='#973835' port="UnitPrice.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Quantity.start" align='left'><font color="#FFFFEB"><b><i>Quantity</i></b></font></td>
-        	<td bgcolor='#973835' port="Quantity.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
-    
-</table>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Quantity.start" align='left'><font color="#FFFFEB"><b><i>Quantity</i></b></font></td>
+    <td bgcolor='#973835' port="Quantity.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
+    </table>
 > shape=none]
-	"albums [table]" [label=<
-	<table border="1" cellborder="1" cellspacing="0" color="#973835">
-    	<tr>
-        	<td colspan='2' bgcolor='#B0413E' port="albums [table].start" align='left'><font color="#FFFFEB"><b><i>albums [table]</i></b></font></td>
-        	<td bgcolor='#B0413E' align='right' port="albums [table].end" ><font color="#FFFFEB"><b><i>5</i></b></font></td>
-    	</tr>
+		bgcolor=lightblue color=blue label="chinook.db" style=solid
+		"albums [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#973835">
+  <tr>
+    <td colspan='2' bgcolor='#B0413E' port="albums [table].start" align='left'><font color="#FFFFEB"><b><i>albums [table]</i></b></font></td>
+    <td bgcolor='#B0413E' align='right' port="albums [table].end" ><font color="#FFFFEB"><b><i>5</i></b></font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="AlbumId.start" align='left'><font color="#FFFFEB"><b><i>AlbumId</i></b></font></td>
-        	<td bgcolor='#973835' port="AlbumId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="AlbumId.start" align='left'><font color="#FFFFEB"><b><i>AlbumId</i></b></font></td>
+    <td bgcolor='#973835' port="AlbumId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Title.start" align='left'><font color="#FFFFEB"><b><i>Title</i></b></font></td>
-        	<td bgcolor='#973835' port="Title.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Title.start" align='left'><font color="#FFFFEB"><b><i>Title</i></b></font></td>
+    <td bgcolor='#973835' port="Title.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="ArtistId.start" align='left'><font color="#FFFFEB"><b><i>ArtistId</i></b></font></td>
-        	<td bgcolor='#973835' port="ArtistId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
-    
-</table>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="ArtistId.start" align='left'><font color="#FFFFEB"><b><i>ArtistId</i></b></font></td>
+    <td bgcolor='#973835' port="ArtistId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
+    </table>
 > shape=none]
-	"playlist_track [table]" [label=<
-	<table border="1" cellborder="1" cellspacing="0" color="#973835">
-    	<tr>
-        	<td colspan='2' bgcolor='#B0413E' port="playlist_track [table].start" align='left'><font color="#FFFFEB"><b><i>playlist_track [table]</i></b></font></td>
-        	<td bgcolor='#B0413E' align='right' port="playlist_track [table].end" ><font color="#FFFFEB"><b><i>6</i></b></font></td>
-    	</tr>
+		bgcolor=lightblue color=blue label="chinook.db" style=solid
+		"playlist_track [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#973835">
+  <tr>
+    <td colspan='2' bgcolor='#B0413E' port="playlist_track [table].start" align='left'><font color="#FFFFEB"><b><i>playlist_track [table]</i></b></font></td>
+    <td bgcolor='#B0413E' align='right' port="playlist_track [table].end" ><font color="#FFFFEB"><b><i>6</i></b></font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="PlaylistId.start" align='left'><font color="#FFFFEB"><b><i>PlaylistId</i></b></font></td>
-        	<td bgcolor='#973835' port="PlaylistId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="PlaylistId.start" align='left'><font color="#FFFFEB"><b><i>PlaylistId</i></b></font></td>
+    <td bgcolor='#973835' port="PlaylistId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="TrackId.start" align='left'><font color="#FFFFEB"><b><i>TrackId</i></b></font></td>
-        	<td bgcolor='#973835' port="TrackId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
-    
-</table>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="TrackId.start" align='left'><font color="#FFFFEB"><b><i>TrackId</i></b></font></td>
+    <td bgcolor='#973835' port="TrackId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
+    </table>
 > shape=none]
-	"playlists [table]" [label=<
-	<table border="1" cellborder="1" cellspacing="0" color="#973835">
-    	<tr>
-        	<td colspan='2' bgcolor='#B0413E' port="playlists [table].start" align='left'><font color="#FFFFEB"><b><i>playlists [table]</i></b></font></td>
-        	<td bgcolor='#B0413E' align='right' port="playlists [table].end" ><font color="#FFFFEB"><b><i>7</i></b></font></td>
-    	</tr>
+		bgcolor=lightblue color=blue label="chinook.db" style=solid
+		"playlists [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#973835">
+  <tr>
+    <td colspan='2' bgcolor='#B0413E' port="playlists [table].start" align='left'><font color="#FFFFEB"><b><i>playlists [table]</i></b></font></td>
+    <td bgcolor='#B0413E' align='right' port="playlists [table].end" ><font color="#FFFFEB"><b><i>7</i></b></font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="PlaylistId.start" align='left'><font color="#FFFFEB"><b><i>PlaylistId</i></b></font></td>
-        	<td bgcolor='#973835' port="PlaylistId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="PlaylistId.start" align='left'><font color="#FFFFEB"><b><i>PlaylistId</i></b></font></td>
+    <td bgcolor='#973835' port="PlaylistId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
-        	<td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
-    
-</table>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
+    <td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
+    </table>
 > shape=none]
-	"media_types [table]" [label=<
-	<table border="1" cellborder="1" cellspacing="0" color="#973835">
-    	<tr>
-        	<td colspan='2' bgcolor='#B0413E' port="media_types [table].start" align='left'><font color="#FFFFEB"><b><i>media_types [table]</i></b></font></td>
-        	<td bgcolor='#B0413E' align='right' port="media_types [table].end" ><font color="#FFFFEB"><b><i>8</i></b></font></td>
-    	</tr>
+		bgcolor=lightblue color=blue label="chinook.db" style=solid
+		"media_types [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#973835">
+  <tr>
+    <td colspan='2' bgcolor='#B0413E' port="media_types [table].start" align='left'><font color="#FFFFEB"><b><i>media_types [table]</i></b></font></td>
+    <td bgcolor='#B0413E' align='right' port="media_types [table].end" ><font color="#FFFFEB"><b><i>8</i></b></font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="MediaTypeId.start" align='left'><font color="#FFFFEB"><b><i>MediaTypeId</i></b></font></td>
-        	<td bgcolor='#973835' port="MediaTypeId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="MediaTypeId.start" align='left'><font color="#FFFFEB"><b><i>MediaTypeId</i></b></font></td>
+    <td bgcolor='#973835' port="MediaTypeId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
-        	<td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
-    
-</table>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
+    <td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
+    </table>
 > shape=none]
-	"genres [table]" [label=<
-	<table border="1" cellborder="1" cellspacing="0" color="#973835">
-    	<tr>
-        	<td colspan='2' bgcolor='#B0413E' port="genres [table].start" align='left'><font color="#FFFFEB"><b><i>genres [table]</i></b></font></td>
-        	<td bgcolor='#B0413E' align='right' port="genres [table].end" ><font color="#FFFFEB"><b><i>9</i></b></font></td>
-    	</tr>
+		bgcolor=lightblue color=blue label="chinook.db" style=solid
+		"genres [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#973835">
+  <tr>
+    <td colspan='2' bgcolor='#B0413E' port="genres [table].start" align='left'><font color="#FFFFEB"><b><i>genres [table]</i></b></font></td>
+    <td bgcolor='#B0413E' align='right' port="genres [table].end" ><font color="#FFFFEB"><b><i>9</i></b></font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="GenreId.start" align='left'><font color="#FFFFEB"><b><i>GenreId</i></b></font></td>
-        	<td bgcolor='#973835' port="GenreId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="GenreId.start" align='left'><font color="#FFFFEB"><b><i>GenreId</i></b></font></td>
+    <td bgcolor='#973835' port="GenreId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
-        	<td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
-    
-</table>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
+    <td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
+    </table>
 > shape=none]
-	"artists [table]" [label=<
-	<table border="1" cellborder="1" cellspacing="0" color="#973835">
-    	<tr>
-        	<td colspan='2' bgcolor='#B0413E' port="artists [table].start" align='left'><font color="#FFFFEB"><b><i>artists [table]</i></b></font></td>
-        	<td bgcolor='#B0413E' align='right' port="artists [table].end" ><font color="#FFFFEB"><b><i>10</i></b></font></td>
-    	</tr>
+		bgcolor=lightblue color=blue label="chinook.db" style=solid
+		"artists [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#973835">
+  <tr>
+    <td colspan='2' bgcolor='#B0413E' port="artists [table].start" align='left'><font color="#FFFFEB"><b><i>artists [table]</i></b></font></td>
+    <td bgcolor='#B0413E' align='right' port="artists [table].end" ><font color="#FFFFEB"><b><i>10</i></b></font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="ArtistId.start" align='left'><font color="#FFFFEB"><b><i>ArtistId</i></b></font></td>
-        	<td bgcolor='#973835' port="ArtistId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="ArtistId.start" align='left'><font color="#FFFFEB"><b><i>ArtistId</i></b></font></td>
+    <td bgcolor='#973835' port="ArtistId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
     
-    	<tr>
-        	<td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
-        	<td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-    	</tr>
-    
-</table>
+  <tr>
+    <td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
+    <td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+  </tr>
+    </table>
 > shape=none]
+	}
 	"customers [table]":"FirstName.end" -> "employees [table]":"FirstName.start" [label="customers [table] ref.  employees [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
 	"invoices [table]":"CustomerId.end" -> "customers [table]":"CustomerId.start" [label="invoices [table] ref.  customers [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
 	"invoice_items [table]":"InvoiceId.end" -> "invoices [table]":"InvoiceId.start" [label="invoice_items [table] ref.  invoices [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
 	"invoice_items [table]":"TrackId.end" -> "tracks [table]":"TrackId.start" [label="invoice_items [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"playlist_track [table]":"PlaylistId.end" -> "albums [table]":"PlaylistId.start" [label="playlist_track [table] ref.  albums [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
+	"albums [table]":"AlbumId.end" -> "tracks [table]":"AlbumId.start" [label="albums [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
+	"playlist_track [table]":"TrackId.end" -> "tracks [table]":"TrackId.start" [label="playlist_track [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
+	"playlists [table]":"PlaylistId.end" -> "playlist_track [table]":"PlaylistId.start" [label="playlists [table] ref.  playlist_track [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
+	"media_types [table]":"MediaTypeId.end" -> "tracks [table]":"MediaTypeId.start" [label="media_types [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
+	"genres [table]":"GenreId.end" -> "tracks [table]":"GenreId.start" [label="genres [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
+	"artists [table]":"ArtistId.end" -> "albums [table]":"ArtistId.start" [label="artists [table] ref.  albums [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
+	"customers [table]":"LastName.end" -> "employees [table]":"LastName.start" [label="customers [table] ref.  employees [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
+	"invoice_items [table]":"UnitPrice.end" -> "tracks [table]":"UnitPrice.start" [label="invoice_items [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
 }

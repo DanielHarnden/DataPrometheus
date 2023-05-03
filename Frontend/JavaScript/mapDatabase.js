@@ -10,10 +10,10 @@ class mapDatabase extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <form method="POST" enctype="multipart/form-data">
-                <label for="fileInput" id="fileInputLabel">Choose File to Upload</label>
-                <input id="fileInput" type="file" name="file" onchange="updateLabel">
-                <label for="allowReversing">Allow Reverse Database Mapping (may result in worse output in less complicated databases)</label>
-                <input id="allowReversing" type="checkbox">
+                <label for="fileInput" id="fileInputLabel">Upload File(s)</label>
+                <input id="fileInput" type="file" multiple name="file" onchange="updateLabel">
+                <!--<label for="allowReversing">Allow Reverse Database Mapping (may result in worse output in less complicated databases)</label>
+                <input id="allowReversing" type="checkbox">-->
                 <label for="fileUpload">Map Database</label>
                 <input id="fileUpload" type="submit">
             </form>
@@ -39,11 +39,11 @@ class mapDatabase extends HTMLElement {
     handleFormSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
-        const db = formData.get('file');
-        const allowReversing = event.target.allowReversing.checked;
+        const dbFiles = document.querySelector('#fileInput').files;
+        /*const allowReversing = event.target.allowReversing.checked;*/
         this.showLoading();
 
-        fetch(`http://localhost:5000/mapDatabase/${db}/${allowReversing}`, {
+        fetch(`http://localhost:5000/mapDatabase/${dbFiles}/true`, {
             method: 'POST',
             body: formData
         })

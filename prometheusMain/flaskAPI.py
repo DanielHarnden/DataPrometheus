@@ -14,8 +14,8 @@ def mapDatabase(db, reversing):
     if request.method != 'POST':
         return 0
 
-    f = request.files['file']
-    dataPrometheus.mapDatabase(f.filename, f, reversing)
+    files = request.files.getlist('file')
+    dataPrometheus.mapDatabase(files, reversing)
         
     # Gets the path of the resulting image
     imgPath = os.getcwd() + "\output\output.png"
