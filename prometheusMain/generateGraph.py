@@ -2,7 +2,7 @@ import graphviz, os, random
 
 dot = graphviz.Digraph()
 
-def generateGraph(parsedText, keyList, allowReverseParsing, bannedWords):
+def generateGraph(parsedText, keyList, bannedWords):
     global dot 
     dot = graphviz.Digraph()
 
@@ -79,16 +79,11 @@ def generateGraph(parsedText, keyList, allowReverseParsing, bannedWords):
     for file in parsedText:
         #
         addForeignKeys(file, totalTables)
-        print(file)
         totalTables += len(file)
-
-
-    print("\n\n\n")
 
     totalTables = 0
     for file in reversed(parsedText):
         #
-        print(file)
         addForeignKeys(file, totalTables)
         totalTables += len(file)
 

@@ -43,7 +43,7 @@ class mapDatabase extends HTMLElement {
         /*const allowReversing = event.target.allowReversing.checked;*/
         this.showLoading();
 
-        fetch(`http://localhost:5000/mapDatabase/${dbFiles}/true`, {
+        fetch(`http://localhost:5000/mapDatabase/${dbFiles}`, {
             method: 'POST',
             body: formData
         })

@@ -1,5 +1,4 @@
-import nltk, os
-from nltk.corpus import gutenberg
+import os
 from spellchecker import SpellChecker
 import json
 from functools import lru_cache
@@ -7,8 +6,6 @@ from functools import lru_cache
 commonIdentifiers = ["Key", "Id"]
 
 def mapText(inputKeys):
-    # Load or generate NLTK information from cache
-    freqDist = getFreqDist() 
     spell = SpellChecker()
 
     # Load existing key and banned word data
@@ -47,22 +44,7 @@ def mapText(inputKeys):
 
             # Checks if the new key exists before attempting any of the complex stuff
             if tempKey not in dataDict and tempKey not in dataDict.values():
-                useNewKey = False
-                inFreqDist = False
-
-                # Checks to see if the key exists in the Gutenberg Corpus. If it does, it is assumed that the key is a good replacement.
-                if tempKey in freqDist:
-                    inFreqDist = True
-                    print(f'\nThe word "{tempKey}" appears in the Gutenberg Corpus at least once.')
-
-                    if tempKey != key:
-                        print(f'Replacing old key {key} with {tempKey}')
-                        useNewKey = True
-                else:
-                    print(f'\nThe word "{tempKey}" does not appear in the Gutenberg Corpus.')
-                    print(f'Retaining old key: {key}')
-                    
-                if useNewKey:
+                if tempKey != key:
                     dataDict = addKey(tempKey, key, dataDict)
                 else:
                     dataDict = addKey(key, None, dataDict)
@@ -79,24 +61,20 @@ def mapText(inputKeys):
 
 
 
-def addKey(key, keyTwo, dataDict):
-    if key not in dataDict:
-        print(f"Adding {key} as new type of entry.")
-        dataDict.update({key: [key]})
+def addKey(primaryKey, keySynonym, dataDict):
+    if primaryKey not in dataDict:
+        print(f"Adding {primaryKey} as new type of entry.")
+        dataDict.update({primaryKey: [primaryKey]})
 
-        if keyTwo is not None:
-            addKey = dataDict[key]
-            addKey.append(keyTwo)
+        if keySynonym is not None:
+            print(f"Adding {keySynonym} as a synonym of {primaryKey}.")
+            appendKey = dataDict[primaryKey]
+            appendKey.append(keySynonym)
     else:
-        addKey = dataDict[key]
-        addKey.append(key)
-        addKey.append(keyTwo)
-        dataDict.update({key: addKey})
+        print(f"Adding {keySynonym} as a synonym of {primaryKey}.")
+        appendKey = dataDict[primaryKey]
+        appendKey.append(primaryKey)
+        appendKey.append(keySynonym)
+        dataDict.update({primaryKey: appendKey})
 
     return dataDict
-
-
-
-@lru_cache(maxsize=None)
-def getFreqDist():
-    return nltk.FreqDist(gutenberg.words())

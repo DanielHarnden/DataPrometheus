@@ -8,14 +8,14 @@ import os, io
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/mapDatabase/<db>/<reversing>", methods=["GET", "POST"])
-def mapDatabase(db, reversing):
+@app.route("/mapDatabase/<db>", methods=["GET", "POST"])
+def mapDatabase(db):
     # Checks to see if the file was sent properly and can be read
     if request.method != 'POST':
         return 0
 
     files = request.files.getlist('file')
-    dataPrometheus.mapDatabase(files, reversing)
+    dataPrometheus.mapDatabase(files)
         
     # Gets the path of the resulting image
     imgPath = os.getcwd() + "\output\output.png"

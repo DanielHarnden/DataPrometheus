@@ -18,11 +18,8 @@ supportedFileTypes = [sqLiteReadable, sqlParseReadable, pythonParseReadable]
 
 
 
-# Maps a single database
-def mapDatabase(files, reversing):
+def mapDatabase(files):
     beginTime = time.time()
-
-    # Sets the function to None type and determines the extension of the inputted file
     function = None
     fileTypes = set()
 
@@ -46,9 +43,7 @@ def mapDatabase(files, reversing):
         print("That file type is not yet supported by Data Prometheus.")
         return 0
 
-    # Holds the text parsed from the input files
     parsedText = []
-
     # Parse each of the sent files and append it to parsedText
     for i, file in enumerate(files):
         # Saves a temporary file for the parsers to use
@@ -56,26 +51,24 @@ def mapDatabase(files, reversing):
         file.save(temp_file.name)
 
         # The file is sent to its designated parser
-        startTime = time.time()
+        tempStartTime = time.time()
         print(f"Beginning parse {i+1} of {len(files)}...")
         parsedText.append(function(temp_file, file.filename))
-        print(f"Parse {i+1} completed. Time Elapsed: {time.time() - startTime} seconds.\n")
+        print(f"Parse {i+1} completed. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
         # The temporary file is deleted
         temp_file.close()
         os.unlink(temp_file.name)
 
-    # Maps the parsed text
-    startTime = time.time()
+    tempStartTime = time.time()
     print("Beginning mapping...")
     keyList, bannedWords = mapText(parsedText)
-    print(f"Mapping completed. Time Elapsed: {time.time() - startTime} seconds.\n")
+    print(f"Mapping completed. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
-    # Generates a graph based on th parsed text
-    startTime = time.time()
+    tempStartTime = time.time()
     print("Generating Graphviz png...")
-    generateGraph(parsedText, keyList, reversing, bannedWords)
-    print(f"PNG generated. Time Elapsed: {time.time() - startTime} seconds.\n")
+    generateGraph(parsedText, keyList, bannedWords)
+    print(f"PNG generated. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
     print(f"Total Operational Time: {time.time() - beginTime} seconds.\n")
 
