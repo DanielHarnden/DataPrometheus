@@ -1,5 +1,5 @@
-output/
-prometheusMain/keyInformation/
+output/output
+prometheusMain/keyInformation/keyList.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -134,7 +134,7 @@ def initializeGraphGeneration(parsedText, fileNames):
 def addTables(file, primaryKeys, newTables, tableNames):
     # Adds each table to the database
     for i, tableList in enumerate(file):
-        newTables.append('''<\n\n\n\n<table border="1" cellborder="1" cellspacing="0" color="#973835">''')
+        newTables.append('''<\n\n\n\n<table border="1" cellborder="1" cellspacing="0" color="#932525">''')
 
         # Generates the table using the table name
         tableNames.append(tableList[0] + " [table]")
@@ -176,7 +176,7 @@ def addKeys(file, keyList, newTables, tableNames, fileName, nodes):
 
     with dot.subgraph(name=f'Cluster-{random.randint(1,1000)}') as subDot:
         for i, tableList in enumerate(file):
-            subDot.attr(label=fileName, color='blue', bgcolor='lightblue', style='solid')
+            subDot.attr(label=fileName, color='#FFA07A', bgcolor='#FFC6A5', style='solid')
             subDot.node(tableNames[i], shape='none', label=newTables[i])
 
     return newTables, nodes
@@ -187,8 +187,8 @@ def addKeys(file, keyList, newTables, tableNames, fileName, nodes):
 def generateTable(tableName, tableNumber):
     return f'''
   <tr>
-    <td colspan='2' bgcolor='#B0413E' port="{tableName}.start" align='left'><font color="#FFFFEB"><b><i>{tableName}</i></b></font></td>
-    <td bgcolor='#B0413E' align='right' port="{tableName}.end" ><font color="#FFFFEB"><b><i>{tableNumber}</i></b></font></td>
+    <td colspan='2' bgcolor='#932525' port="{tableName}.start" align='left'><font color="#FFFFEB"><b><i>{tableName}</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="{tableName}.end" ><font color="#FFFFEB"><b><i>{tableNumber}</i></b></font></td>
   </tr>
     '''
 
@@ -196,8 +196,8 @@ def generateTable(tableName, tableNumber):
 def generateKey(keyName, varType):
     return f'''
   <tr>
-    <td colspan='2' bgcolor='#973835' port="{keyName}.start" align='left'><font color="#FFFFEB"><b><i>{keyName}</i></b></font></td>
-    <td bgcolor='#973835' port="{keyName}.end" align='right'><font color="#FFFFEB">{varType}</font></td>
+    <td colspan='2' bgcolor='#C43131' port="{keyName}.start" align='left'><font color="#FFFFEB"><b><i>{keyName}</i></b></font></td>
+    <td bgcolor='#C43131' port="{keyName}.end" align='right'><font color="#FFFFEB">{varType}</font></td>
   </tr>
     '''
 
