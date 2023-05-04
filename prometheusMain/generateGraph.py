@@ -1,10 +1,11 @@
-import graphviz, os, random
+import graphviz, os, random, snowballstemmer
 
 dot = graphviz.Digraph()
 
 def generateGraph(parsedText, keyList, bannedWords):
     global dot 
     dot = graphviz.Digraph()
+    stemmer = snowballstemmer.stemmer('english')
 
     # This is an embedded function because if it wasn't you'd have to send literally every other variable as an argument and I'm not about thta life
     edgesToAdd = []
@@ -17,8 +18,6 @@ def generateGraph(parsedText, keyList, bannedWords):
 
 
     def addForeignKeys(parsedText, totalTables):
-
-        tablesVisited = []
 
         # Iterates through each key (again)
         for i, tableList in enumerate(parsedText):
@@ -37,10 +36,23 @@ def generateGraph(parsedText, keyList, bannedWords):
                     # Checks to see if there are any foreign key additions left for this table and checks to ensure the table is not referencing itself
                     if primaryKeys[key] not in tablesVisited[i] and key not in bannedWords:
 
+                        stem = stemmer.stemWord(table.replace(" [table]", ""))
+
+                        
+
+
                         if key + " [table]" in tableNames:
-                            temp = (table, key, primaryKeys[key], primaryKeys[key], True)
+                            if stem in key.lower():
+                                print(stem, key, primaryKeys[key], " ref ", table)
+                                temp = (primaryKeys[key], primaryKeys[key], table, key, True)
+                            else:
+                                temp = (table, key, primaryKeys[key], primaryKeys[key], True)
                         else:
-                            temp = (table, key, primaryKeys[key], key, False)
+                            if stem in key.lower():
+                                print(stem, key, primaryKeys[key], " ref ", table)
+                                temp = (primaryKeys[key], key, table, key, False)
+                            else:
+                                temp = (table, key, primaryKeys[key], key, False)
 
                         if temp not in edgesToAdd:
                             edgesToAdd.append(temp)
@@ -82,6 +94,7 @@ def generateGraph(parsedText, keyList, bannedWords):
         totalTables += len(file)
 
     totalTables = 0
+    tablesVisited = list(reversed(tablesVisited))
     for file in reversed(parsedText):
         #
         addForeignKeys(file, totalTables)
@@ -193,6 +206,8 @@ def generateForeignKeys(edgesToAdd, nodes):
     global dot
 
     for tableReferencing, keyReferencing, referencedTable, referencedKey, referencingTable in edgesToAdd:
+
+        
         if referencedTable != tableReferencing:
             if f"{tableReferencing}:{keyReferencing}" in nodes:
                 dot.edge(f"{tableReferencing}:{keyReferencing}.end", f"{referencedTable}:{referencedKey}.start", arrowhead='vee', arrowtail='odot', dir='both', label=f"{tableReferencing} ref.  {referencedTable}", style='solid')

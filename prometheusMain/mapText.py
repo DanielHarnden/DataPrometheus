@@ -1,12 +1,10 @@
 import os
-from spellchecker import SpellChecker
 import json
 from functools import lru_cache
 
 commonIdentifiers = ["Key", "Id"]
 
 def mapText(inputKeys):
-    spell = SpellChecker()
 
     # Load existing key and banned word data
     with open(os.getcwd() + "\prometheusMain\keyInformation\keyList.json") as f:
@@ -28,26 +26,10 @@ def mapText(inputKeys):
 
         # Add new keys to dataDict
         for key in fileTables:
-            # Does an entire song and dance to determine if there are any spell checks that can be made
-            tempKey = None
-            # Identifiers like "key" or "id" are technically incorrect, but we still want them
-            for identifier in commonIdentifiers:
-                if identifier in key:
-                    tempKey = key
-                    break
-            # If there are no identifiers, replace with corrected word
-            if tempKey is None:
-                tempKey = spell.correction(key)
-                # Word may not always have a correction. In that case, default to original key
-                if tempKey is None:
-                    tempKey = key
 
             # Checks if the new key exists before attempting any of the complex stuff
-            if tempKey not in dataDict and tempKey not in dataDict.values():
-                if tempKey != key:
-                    dataDict = addKey(tempKey, key, dataDict)
-                else:
-                    dataDict = addKey(key, None, dataDict)
+            if key not in dataDict and key not in dataDict.values():
+                dataDict = addKey(key, None, dataDict)
 
         # Write updated data back to json and banned word files
         with open(os.getcwd() + "\prometheusMain\keyInformation\keyList.json", 'w') as f:

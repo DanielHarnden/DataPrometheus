@@ -21,22 +21,22 @@ supportedFileTypes = [sqLiteReadable, sqlParseReadable, pythonParseReadable]
 def mapDatabase(files):
     beginTime = time.time()
     function = None
-    fileTypes = set()
+    functionSet = set()
 
     # Checks the extensions to see if they're compatable
     for file in files:
         extension = determineFileType(file.filename)
-        fileTypes.add(extension)
-
-    # If the extensions are not compatable, exit the program
-    if len(fileTypes) != 1:
-        print("Multi file type parsing is not yet supported by Data Prometheus.")
-        return 0
 
     # Goes through the list of supported files. If the extension is supported, the function is marked
     for typeList in supportedFileTypes:
         if extension in typeList:
             function = typeList[0]
+            functionSet.add(extension)
+
+    # If the extensions are not compatable, exit the program
+    if len(functionSet) != 1:
+        print("Multi file type parsing is not yet supported by Data Prometheus.")
+        return 0
 
     # If no supported function is found, exit the program
     if function is None:
