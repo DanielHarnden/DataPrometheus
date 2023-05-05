@@ -20,3 +20,14 @@ append
 set
 update
 add
+exit
+split
+index
+pop
+load
+popen
+system
+input
+exists
+read
+remove
