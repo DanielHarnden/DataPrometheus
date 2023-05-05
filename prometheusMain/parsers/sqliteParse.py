@@ -6,7 +6,8 @@ import sqlite3
 #    rows = cur.execute(f"SELECT * FROM {table_name}").fetchall()
 #    print(f"Data from {table_name}: {rows}")
 
-def sqlite3Parse(file):
+def sqliteParse(file, originalFileName):
+
     # Connect to the sqlite3 database. file is a FileObject type or something like that, so the .name is necessary 
     conn = sqlite3.connect(file.name)
     cur = conn.cursor()
@@ -15,7 +16,7 @@ def sqlite3Parse(file):
     tables = cur.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()
     
     # Stores and cleans the information
-    cleanedTables = []
+    cleanedTables = [[originalFileName]]
     for table in tables:
         # Excludes SQLite system tables
         if not table[0].startswith("sqlite_"):
@@ -27,4 +28,5 @@ def sqlite3Parse(file):
 
     # Closes the connection and returns the list of cleaned tables
     conn.close()
+
     return cleanedTables

@@ -1,0 +1,405 @@
+{
+    "e": [
+        "e"
+    ],
+    "i": [
+        "i",
+        "P"
+    ],
+    "a": [
+        "a"
+    ],
+    "o": [
+        "o"
+    ],
+    "u": [
+        "u"
+    ],
+    "_": [
+        "_"
+    ],
+    "y": [
+        "y"
+    ],
+    "I": [
+        "I"
+    ],
+    "O": [
+        "O"
+    ],
+    "A": [
+        "A"
+    ],
+    "split": [
+        "split"
+    ],
+    "add": [
+        "add"
+    ],
+    "determineFileType": [
+        "determineFileType"
+    ],
+    "unlink": [
+        "unlink"
+    ],
+    "generateGraph": [
+        "generateGraph"
+    ],
+    "happened": [
+        "happened",
+        "append"
+    ],
+    "mapText": [
+        "mapText"
+    ],
+    "set": [
+        "set"
+    ],
+    "close": [
+        "close"
+    ],
+    "len": [
+        "len"
+    ],
+    "NamedTemporaryFile": [
+        "NamedTemporaryFile"
+    ],
+    "print": [
+        "print"
+    ],
+    "time": [
+        "time"
+    ],
+    "save": [
+        "save"
+    ],
+    "BytesIO": [
+        "BytesIO",
+        "BytesIO",
+        null,
+        "BytesIO",
+        null,
+        "BytesIO",
+        null,
+        "BytesIO",
+        null,
+        "BytesIO",
+        null,
+        "BytesIO",
+        null
+    ],
+    "open": [
+        "open"
+    ],
+    "enlist": [
+        "enlist",
+        "getlist"
+    ],
+    "getcwd": [
+        "getcwd",
+        "getcwd",
+        null,
+        "getcwd",
+        null,
+        "getcwd",
+        null,
+        "getcwd",
+        null,
+        "getcwd",
+        null,
+        "getcwd",
+        null
+    ],
+    "send_file": [
+        "send_file"
+    ],
+    "seek": [
+        "seek"
+    ],
+    "run": [
+        "run"
+    ],
+    "enumerate": [
+        "enumerate"
+    ],
+    "exit": [
+        "exit"
+    ],
+    "checkForPackages": [
+        "checkForPackages"
+    ],
+    "check_call": [
+        "check_call"
+    ],
+    "find": [
+        "find"
+    ],
+    "openFrontend": [
+        "openFrontend"
+    ],
+    "attemptFlask": [
+        "attemptFlask"
+    ],
+    "main": [
+        "main"
+    ],
+    "import_module": [
+        "import_module"
+    ],
+    "input": [
+        "input"
+    ],
+    "download": [
+        "download"
+    ],
+    "mapDatabase": [
+        "mapDatabase"
+    ],
+    "generateTable": [
+        "generateTable"
+    ],
+    "archer": [
+        "archer",
+        "varchar"
+    ],
+    "Digraph": [
+        "Digraph",
+        "Digraph",
+        null,
+        "Digraph",
+        null,
+        "Digraph",
+        null,
+        "Digraph",
+        null,
+        "Digraph",
+        null,
+        "Digraph",
+        null
+    ],
+    "generateForeignKeys": [
+        "generateForeignKeys"
+    ],
+    "attr": [
+        "attr",
+        "attr",
+        null,
+        "attr",
+        null,
+        "attr",
+        null,
+        "attr",
+        null,
+        "attr",
+        null,
+        "attr",
+        null
+    ],
+    "subgraph": [
+        "subgraph"
+    ],
+    "initializeGraphGeneration": [
+        "initializeGraphGeneration"
+    ],
+    "addTables": [
+        "addTables"
+    ],
+    "addKeys": [
+        "addKeys"
+    ],
+    "sorted": [
+        "sorted"
+    ],
+    "reverse": [
+        "reverse"
+    ],
+    "list": [
+        "list"
+    ],
+    "render": [
+        "render"
+    ],
+    "node": [
+        "node"
+    ],
+    "update": [
+        "update"
+    ],
+    "generateKey": [
+        "generateKey"
+    ],
+    "edge": [
+        "edge"
+    ],
+    "addForeignKeys": [
+        "addForeignKeys"
+    ],
+    "SpellChecker": [
+        "SpellChecker"
+    ],
+    "dump": [
+        "dump"
+    ],
+    "FreqDist": [
+        "FreqDist"
+    ],
+    "addKey": [
+        "addKey"
+    ],
+    "strip": [
+        "strip"
+    ],
+    "values": [
+        "values"
+    ],
+    "write": [
+        "write"
+    ],
+    "getFreqDist": [
+        "getFreqDist"
+    ],
+    "@lru_cache": [
+        "@lru_cache"
+    ],
+    "correction": [
+        "correction"
+    ],
+    "load": [
+        "load"
+    ],
+    "route": [
+        "route"
+    ],
+    "CORS": [
+        "CORS",
+        "CORS",
+        null,
+        "CORS",
+        null,
+        "CORS",
+        null,
+        "CORS",
+        null
+    ],
+    "Flask": [
+        "Flask"
+    ],
+    "TrackId": [
+        "TrackId"
+    ],
+    "BillingCity": [
+        "BillingCity"
+    ],
+    "InvoiceLineId": [
+        "InvoiceLineId"
+    ],
+    "LastName": [
+        "LastName"
+    ],
+    "CustomerId": [
+        "CustomerId"
+    ],
+    "ArtistId": [
+        "ArtistId"
+    ],
+    "City": [
+        "City"
+    ],
+    "InvoiceDate": [
+        "InvoiceDate"
+    ],
+    "Quantity": [
+        "Quantity"
+    ],
+    "BillingState": [
+        "BillingState"
+    ],
+    "InvoiceId": [
+        "InvoiceId"
+    ],
+    "EmployeeId": [
+        "EmployeeId"
+    ],
+    "Total": [
+        "Total"
+    ],
+    "reports": [
+        "reports",
+        "ReportsTo"
+    ],
+    "Composer": [
+        "Composer"
+    ],
+    "PostalCode": [
+        "PostalCode"
+    ],
+    "UnitPrice": [
+        "UnitPrice"
+    ],
+    "GenreId": [
+        "GenreId"
+    ],
+    "Fax": [
+        "Fax"
+    ],
+    "Phone": [
+        "Phone"
+    ],
+    "Email": [
+        "Email"
+    ],
+    "HireDate": [
+        "HireDate"
+    ],
+    "BillingCountry": [
+        "BillingCountry"
+    ],
+    "BillingAddress": [
+        "BillingAddress"
+    ],
+    "FirstName": [
+        "FirstName"
+    ],
+    "BirthDate": [
+        "BirthDate"
+    ],
+    "PlaylistId": [
+        "PlaylistId"
+    ],
+    "BillingPostalCode": [
+        "BillingPostalCode"
+    ],
+    "Title": [
+        "Title"
+    ],
+    "Milliseconds": [
+        "Milliseconds"
+    ],
+    "Bytes": [
+        "Bytes"
+    ],
+    "Company": [
+        "Company"
+    ],
+    "MediaTypeId": [
+        "MediaTypeId"
+    ],
+    "Address": [
+        "Address"
+    ],
+    "Country": [
+        "Country"
+    ],
+    "Name": [
+        "Name"
+    ],
+    "AlbumId": [
+        "AlbumId"
+    ],
+    "State": [
+        "State"
+    ],
+    "SupportRepId": [
+        "SupportRepId"
+    ]
+}

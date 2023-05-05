@@ -14,15 +14,24 @@
 
 /* Initialize custom color variables */
 :root {
+
     --active-index: 0;
-    --red: #B0413E;
-    --redRGB: 176, 65, 62;
-    --dark-red: #973835;
-    --purple: #4F2984;
-    --dark-purple: #381D5E;
-    --cream: #FFFFEB;
-    --orange: #FCAA67;
+
+    --light-red: #D65C5C;
+    --red: #C43131;
+    --dark-red: #932525;
+    --darkRedRGB: 147, 37, 37;
+
+    --light-orange: #FCAA67;
+    --orange: #FB8F37;
     --dark-orange: #FB8F37;
+
+    --light-peach: #FFDAB9;
+    --peach: #FFC6A5;
+    --dark-peach: #FFA07A;
+
+    --cream: #FFFFEB;
+    --dark-cream: #141414;
 }
 
 /* Customizes the scrollbar */
@@ -32,7 +41,7 @@
 }
 ::-webkit-scrollbar-thumb {
     border-radius: 50px;
-    background-color: var(--cream);
+    background-color: var(--dark-cream);
 }
 
 /* Initializes some global visuals */
@@ -45,22 +54,29 @@
 body {
     margin: 0px;
     min-height: 100vh;
-    background-color: var(--dark-purple);
+    background-color: var(--dark-red);
 }
 
 .center { text-align: center; }
 
 h1 {
-    font-size: 32px;
-    margin-top: 0px;
-    padding-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-size: 72px;
+    text-align: center;
+    top: 60px;
+    background-color: rgba(var(--darkRedRGB), 0.75);
+    font-family: 'Proggy';
+    height: 15vh;
 }
 
 
 
 /* Main Menu CSS */
 body.mainMenu {
-    background: linear-gradient(-30deg, var(--purple), var(--dark-purple));
+    background: linear-gradient(150deg, var(--dark-peach), var(--light-red) 25%, var(--dark-red));
     margin: 0px;
     min-height: 100vh;
 }
@@ -75,7 +91,7 @@ h1.welcome {
     left: 20vw;
     width: 50vw;
     transform: translateX(-6%);
-    background-color: rgba(var(--redRGB), 0.75);
+    background-color: rgba(var(--darkRedRGB), 0.50);
     transition: opacity 400ms ease;
     font-family: 'Proggy';
 }
@@ -84,6 +100,7 @@ h1.welcome {
     height: 100vh;
     display: flex;
     align-items: center;
+    max-height: 85vh;
 }
 
 #mainMenu {
@@ -98,26 +115,6 @@ h1.welcome {
     text-decoration: none;
     padding: 0.5vw;
     transition: opacity 400ms ease;
-}
-
-#menuBackground {
-    height: 100vh;
-    width: 100vw;
-
-    background-image: radial-gradient(
-        rgba(255, 255, 255, 0.1) 9%,
-        transparent 9%
-    );
-    background-position: 0% 0%;
-    background-size: 12vmin 12vmin;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: -100;
-
-    transition: opacity 800ms ease, 
-        background-size 800ms ease,
-        background-position 800ms ease;
 }
 
 #menuBackgroundImage {
@@ -141,18 +138,11 @@ h1.welcome {
 #mainMenu:hover ~ h1 { opacity: 0; }
 #mainMenu:hover > .menuItem { opacity: 0.3; }
 #mainMenu:hover > .menuItem:hover { opacity: 1; }
-#mainMenu:hover ~ #menuBackground {
-    background-size: 11vmin 11vmin;
-    opacity: 0.5;
-}
 #mainMenu:hover ~ #menuBackgroundImage {
     background-size: 125vmax;
     opacity: 0.20;
 }
 
-#menu > #menuBackground {
-    background-position: 0% calc(-25% * (var(--active-index, 0) + 1));
-}
 #menu > #menuBackgroundImage {
     background-position: center calc(45% + 5% * var(--active-index, 0));
 }
@@ -185,17 +175,19 @@ label[for="fileInput"] {
     align-items: center;
     justify-content: center;
     font-size: 32px;
-    background-color: var(--red);
+    background-color: var(--peach);
+    color: var(--dark-cream);
     width: 500px;
     padding: 1rem;
     height: 50px;
     border-radius: 5px;
     margin-bottom: 20px;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
   
 label[for="fileInput"]:hover {
-    background-color: var(--dark-red);
+    background-color: var(--dark-peach);
 }
 
 label[for="fileUpload"] {
@@ -203,40 +195,71 @@ label[for="fileUpload"] {
     align-items: center;
     justify-content: center;
     font-size: 32px;
-    background-color: var(--dark-orange);
+    background-color: var(--light-orange);
+    color: var(--dark-cream);
     width: 300px;
     padding: 1rem;
     height: 30px;
     border-radius: 5px;
     margin-bottom: 20px;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
   
 label[for="fileUpload"]:hover {
     background-color: var(--orange);
 }
 
+.mapDatabaseInstructionsTop {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(var(--darkRedRGB), 0.40);
+    text-align: center;
+    align-items: center;
+}
+
+.mapDatabaseInstructions {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(var(--darkRedRGB), 0.40);
+    text-align: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.mapDatabaseInstructions > * {
+    padding: 1rem;
+    border-left: 2px solid var(--light-orange);
+    width: 30%;
+}
+  
+.mapDatabaseInstructions > :first-child {
+    border-left: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Modified main menu background to work with pages with scrolling */
 body.static {
-    background: var(--purple);
+    background: linear-gradient(150deg, var(--dark-peach), var(--light-red) 25%, var(--dark-red));
     margin: 0px;
     min-height: 100vh;
     padding: 0px;
-}
-
-#staticBackground {
-    height: 100vh;
-    width: 100vw;
-    background-image: radial-gradient(
-        rgba(255, 255, 255, 0.1) 9%,
-        transparent 9%
-    );
-    background-position: 0% 0%;
-    background-size: 12vmin 12vmin;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    z-index: -100;
 }
 
 #staticBackgroundImage {
@@ -249,7 +272,7 @@ body.static {
     z-index: -150;
     background-position: center 40%;
     background-size: 125vmax;
-    opacity: 0.05;
+    opacity: 0.10;
 }
 
 /* Button to return to the main menu (returnToMenu.js) */
@@ -268,9 +291,10 @@ body.static {
     height: 48px;
     text-decoration: none;
     z-index: 9999;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 0 10px 5px var(--peach);
     transition: all 0.2s ease-in-out;
 }
 .menuButton:hover {
     background-color: var(--dark-red);
+    box-shadow: 0 0 10px 5px var(--dark-peach);
 }

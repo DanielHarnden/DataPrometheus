@@ -1,34 +1,33 @@
 import re
 
-def pythonParse(file):
+def pythonParse(file, originalFileName):
+
+    cleanedTables = [[originalFileName]]
 
     with open(file.name, 'r') as f:
         pythonText = f.read()
 
-    cols = []
-
     for line in pythonText.split("\n"):
-        if "def" in line:
+        if "def " in line:
             line = line.split(" ")[1]
             line = line.split("(")[0]
 
-            temp = []
-            temp.append(line)
-            cols.append(temp)
+            temp = [line]
+            cleanedTables.append(temp)
 
 
-    i = -1
+    i = 0
     for line in pythonText.split("\n"):
         if "(" in line:
             line = line.split("(")[0]
             line = line.split(".")[-1]
 
-            if "def" in line:
+            if "def " in line:
                 i += 1
 
             if i >= 0:
                 line = line.split(" ")[-1]
-                if line != cols[i][0] and line != "":
-                    cols[i].append(line)
+                if line != cleanedTables[i][0] and line != "":
+                    cleanedTables[i].append(line)
 
-    return cols
+    return cleanedTables

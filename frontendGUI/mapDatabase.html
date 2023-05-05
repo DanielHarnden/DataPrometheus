@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Data Prometheus</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="./JavaScript/mapDatabase.js" type="text/javascript" defer></script>
+    <script src="./JavaScript/returnToMenu.js" type="text/javascript" defer></script>
+</head>
+
+<body class="static center">
+    <div class="center">
+        <h1>Database Mapping</h1>
+        <div class="mapDatabaseInstructionsTop">
+            <h2>Generate a visualization of one or more mapped databases.</h2>
+        </div>
+
+        <div class="mapDatabaseInstructions">
+            <div class="mapDatabaseInstructionsCols">
+                <h2>1) Select one or more databases by clicking the "Upload File(s)" button.</h2>
+            </div>
+
+            <div class="mapDatabaseInstructionsCols">
+                <h2>2) Submit the database(s) by clicking the "Map Database" button.</h2>
+            </div>
+
+            <div class="mapDatabaseInstructionsCols">
+                <h2>3) Once the image generates, right click to save it locally.</h2>
+            </div>
+        </div>
+
+        <br><br><br>
+        
+        <map-database/>
+    </div>
+    
+    <div id="staticBackground"></div>
+    <div id="staticBackgroundImage"></div>
+    <main-menu/>
+</body>
+</html>
