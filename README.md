@@ -2,9 +2,6 @@
 
 A tool for mapping and generating visualizations of anything.
 
-![Data Prometheus as Mapped by Data Prometheus](/documentation/dp0505.png)
-
-
 ## Before Running...
 
 Ensure you have [Python](https://www.python.org/downloads/) and [Graphviz](https://graphviz.org/download/) installed and in your PATH.

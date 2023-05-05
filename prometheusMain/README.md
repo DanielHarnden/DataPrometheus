@@ -1,5 +1,8 @@
 ## Core of Data Prometheus
 
+Below is a visualization of the function interactions of Data Prometheus as mapped by Data Prometheus. 
+![Data Prometheus as Mapped by Data Prometheus](../documentation/dp0505.png)
+
 This directory contains the core code of Data Prometheus. Data Prometheus is structured in a three step process:
 1) Parse an inputted file for relevant information.
 2) Map the parsed information to itself to find relationships between "keys" and "tables."
