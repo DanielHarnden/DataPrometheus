@@ -1,6 +1,8 @@
 # Data Prometheus
 
-A tool for mapping and generating visualizations of databases.
+A tool for mapping and generating visualizations of anything.
+
+![Data Prometheus as Mapped by Data Prometheus](/documentation/dp0505.png)
 
 
 ## Before Running...

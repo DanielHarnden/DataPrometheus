@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route("/mapDatabase/<db>", methods=["GET", "POST"])
-def mapDatabase(db):
+def APImapDatabase(db):
     # Checks to see if the file was sent properly and can be read
     if request.method != 'POST':
         return 0
