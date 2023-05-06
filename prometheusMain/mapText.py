@@ -22,14 +22,17 @@ def mapText(inputKeys):
 
     for fileTables in inputKeys:
         # Only get unique keys (minus table names)
-        fileTables = list(set(item for sublist in fileTables for item in sublist[1:]))
+        fileTables = list(set(tuple(item) for sublist in fileTables for item in sublist[1:]))
 
         # Add new keys to dataDict
         for key in fileTables:
 
             # Checks if the new key exists before attempting any of the complex stuff
-            if key not in dataDict and key not in dataDict.values():
-                dataDict = addKey(key, None, dataDict)
+            if key[0] not in dataDict and key[0] not in dataDict.values():
+                dataDict = addKey(key[0], None, dataDict)
+
+            if "Built-In" in key[1] and key[0] not in bannedWords:
+                bannedWords.append(key[0])
 
         # Write updated data back to json and banned word files
         with open(os.getcwd() + "\prometheusMain\keyInformation\keyList.json", 'w') as f:
