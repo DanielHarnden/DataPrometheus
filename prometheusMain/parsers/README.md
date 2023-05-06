@@ -1,31 +1,29 @@
 # The parsers in this folder should return a list of list of strings in the following format:
 ```
-[ 
-    [
-        ["fileOneName"],
-        ["tableOneName", "key1", "key2", ... "keyN"], 
-        ["tableTwoName", "key1", "key2", ... "keyN"], 
-        ... 
-        ["tableNName", "key1", "key2", ... "keyN"] 
-    ],
+[
+    ["fileOneName"],
+    ["tableOneName", "key1", "key2", ... "keyN"], 
+    ["tableTwoName", "key1", "key2", ... "keyN"], 
+    ... 
+    ["tableNName", "key1", "key2", ... "keyN"] 
+],
 
-    [
-        ["fileTwoName"],
-        ["tableOneName", "key1", "key2", ... "keyN"], 
-        ["tableTwoName", "key1", "key2", ... "keyN"], 
-        ... 
-        ["tableNName", "key1", "key2", ... "keyN"] 
-    ],
+[
+    ["fileTwoName"],
+    ["tableOneName", "key1", "key2", ... "keyN"], 
+    ["tableTwoName", "key1", "key2", ... "keyN"], 
+    ... 
+    ["tableNName", "key1", "key2", ... "keyN"] 
+],
 
-    ...
+...
 
-    [
-        ["fileNName"],
-        ["tableOneName", "key1", "key2", ... "keyN"], 
-        ["tableTwoName", "key1", "key2", ... "keyN"], 
-        ... 
-        ["tableNName", "key1", "key2", ... "keyN"] 
-    ]
+[
+    ["fileNName"],
+    ["tableOneName", "key1", "key2", ... "keyN"], 
+    ["tableTwoName", "key1", "key2", ... "keyN"], 
+    ... 
+    ["tableNName", "key1", "key2", ... "keyN"] 
 ]
 ```
 
