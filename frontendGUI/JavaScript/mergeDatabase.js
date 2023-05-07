@@ -1,5 +1,5 @@
 /* Function for generating the input field, upload button, and API interaction on the mapDatabase page */
-class mapDatabase extends HTMLElement {
+class mergeDatabase extends HTMLElement {
     /* Sets initial values of element variables */
     constructor() {
         super();
@@ -12,7 +12,7 @@ class mapDatabase extends HTMLElement {
             <form method="POST" enctype="multipart/form-data">
                 <label for="fileInput" id="fileInputLabel">Upload File(s)</label>
                 <input id="fileInput" type="file" multiple name="file" onchange="updateLabel">
-                <label for="fileUpload">Map Database(s)</label>
+                <label for="fileUpload">Merge Database(s)</label>
                 <input id="fileUpload" type="submit">
             </form>
             <br><br><br>
@@ -78,4 +78,4 @@ class mapDatabase extends HTMLElement {
     }
 }
 
-customElements.define('map-database', mapDatabase);
+customElements.define('merge-database', mergeDatabase);

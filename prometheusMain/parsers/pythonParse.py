@@ -40,19 +40,21 @@ def pythonParse(file, originalFileName):
                 line = line.split(" ")[-1]
                 if line != cleanedTables[i][0] and line != "":
                     if line in builtInPythonFunctions:
-                        cleanedTables[i].append([line, "Built-In Python Function"])
+                        cleanedTables[i].append([line, "Python - Built-In"])
                     elif line in setFunctions:
-                        cleanedTables[i].append([line, "Built-In Python Set Function"])
+                        cleanedTables[i].append([line, "Set (Py) - Built-In"])
                     elif line in listFunctions:
-                        cleanedTables[i].append([line, "Built-In Python List Function"])
+                        cleanedTables[i].append([line, "List (Py) - Built-In"])
                     elif line in osFunctions:
-                        cleanedTables[i].append([line, "Built-In Python OS Function"])
+                        cleanedTables[i].append([line, "OS (Py) - Built-In"])
                     elif line in tempFileFunctions:
-                        cleanedTables[i].append([line, "Built-In Python TempFile Function"])
+                        cleanedTables[i].append([line, "TempFile (Py) - Built-In"])
                     elif line in tempFileFunctions:
-                        cleanedTables[i].append([line, "Built-In Python Time Function"])
+                        cleanedTables[i].append([line, "Time (Py) - Built-In"])
                     else:
                         cleanedTables[i].append([line, "FUNCTION CALL"])
                         
+
+    print(cleanedTables)
 
     return cleanedTables

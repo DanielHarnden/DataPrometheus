@@ -2,7 +2,7 @@
 #include <cmath>
 
 // Function to calculate the area of a circle given its radius
-double calculateCircleArea(double radius) {
+double calculateCircleArea(double radius, int test) {
     return M_PI * pow(radius, 2);
 }
 

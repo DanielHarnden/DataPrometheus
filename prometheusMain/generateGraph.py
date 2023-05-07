@@ -145,9 +145,16 @@ def addForeignKeys(parsedText, tableNames, tablesVisited, edgesToAdd, keyList, p
                         cleanedTableName = cleanedTableName.replace("_", "")
                         tableStem = stemmer.stemWord(cleanedTableName)
                     
+                        #print(key[0], table, tableStem, primaryKeys[key[0]])
+
+                        # TODO: Make this not terrible
                         if key[0] + " [table]" in tableNames:
                             if tableStem in key[0].lower():
-                                tempEdge = (primaryKeys[key[0]], primaryKeys[key[0]], table, key[0], True)
+                                if key[0] == table.replace(" [table]", ""):
+                                    tempEdge = (primaryKeys[key[0]], key[0], table, table, True)
+                                else:
+                                    print("yay")
+                                    tempEdge = (primaryKeys[key[0]], primaryKeys[key[0]], table, key[0], True)
                             else:
                                 tempEdge = (table, key[0], primaryKeys[key[0]], primaryKeys[key[0]], True)
                         else:

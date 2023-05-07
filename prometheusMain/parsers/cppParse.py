@@ -8,8 +8,12 @@ def cppParse(file, originalFileName):
     with open(file.name, 'r') as f:
         cppText = f.read()
 
+    # [0] = return type, [1] = function name, [2] = input
     matches = re.findall(cppFunctionStyle, cppText, re.MULTILINE)
 
-    print(matches)
+    for function in matches:
+        cleanedTables.append([[function[1], function[0]]])
 
-    return 0
+    print(cleanedTables)
+
+    return cleanedTables

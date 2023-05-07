@@ -9,7 +9,6 @@ from parsers.pythonParse import pythonParse
 from parsers.cppParse import cppParse
 
 # Lists containing the files that Data Prometheus can read. The first item is the name of the  function that will be called and the following items are the extensions that that function supports
-#TODO: Determine all file types supported by sqlite3
 sqLiteReadable = [sqliteParse, "db", "db3", "s3db", "sqlite", "sqlite3", "sqlitedb", "sl3"]
 sqlParseReadable = [sqlParse, "sql"]
 pythonParseReadable = [pythonParse, "py"]

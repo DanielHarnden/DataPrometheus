@@ -14,3 +14,6 @@ replace
 reverse
 list
 write
+Name
+input
+check_call

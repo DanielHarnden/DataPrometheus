@@ -2,32 +2,67 @@
 ```
 [
     ["fileOneName"],
-    ["tableOneName", "key1", "key2", ... "keyN"], 
-    ["tableTwoName", "key1", "key2", ... "keyN"], 
-    ... 
-    ["tableNName", "key1", "key2", ... "keyN"] 
-],
-
+    [
+        ["tableOneName", "tableOneType"],
+        ["key1", "key1Type"],
+        ["key2", "key2Type"],
+        ...
+        ["keyN", "keyNType"]
+    ],
+    [
+        ["tableTwoName", "tableTwoType"],
+        ["key1", "key1Type"],
+        ["key2", "key2Type"],
+        ...
+        ["keyN", "keyNType"]
+    ],
+    ...
+    [
+        ["tableNName", "tableNType"],
+        ["key1", "key1Type"],
+        ["key2", "key2Type"],
+        ...
+        ["keyN", "keyNType"]
+    ]
+]
+```
+# By this logic, runDataPrometheus.py looks like this:
+```
 [
-    ["fileTwoName"],
-    ["tableOneName", "key1", "key2", ... "keyN"], 
-    ["tableTwoName", "key1", "key2", ... "keyN"], 
-    ... 
-    ["tableNName", "key1", "key2", ... "keyN"] 
-],
-
-...
-
-[
-    ["fileNName"],
-    ["tableOneName", "key1", "key2", ... "keyN"], 
-    ["tableTwoName", "key1", "key2", ... "keyN"], 
-    ... 
-    ["tableNName", "key1", "key2", ... "keyN"] 
+    ['runDataPrometheus.py'], 
+    [
+        ['main', 'FUNCTION'], 
+        ['checkForPackages', 'FUNCTION CALL'], 
+        ['openFrontend', 'FUNCTION CALL'], 
+        ['attemptFlask', 'FUNCTION CALL']
+    ], 
+    [
+        ['checkForPackages', 'FUNCTION'], 
+        ['print', 'Python - Built-In'], 
+        ['import_module', 'FUNCTION CALL'], 
+        ['import_module', 'FUNCTION CALL'], 
+        ['import_module', 'FUNCTION CALL'], 
+        ['print', 'Python - Built-In'], 
+        ['check_call', 'FUNCTION CALL'], 
+        ['print', 'Python - Built-In'], 
+        ['input', 'Python - Built-In'], 
+        ['exit', 'FUNCTION CALL'], 
+        ['print', 'Python - Built-In']
+    ], 
+    [
+        ['openFrontend', 'FUNCTION'], 
+        ['open', 'Python - Built-In']
+    ], 
+    [
+        ['attemptFlask', 'FUNCTION'], 
+        ['print', 'Python - Built-In'], 
+        ['check_call', 'FUNCTION CALL'], 
+        ['main', 'FUNCTION CALL']
+    ]
 ]
 ```
 
-# VERY IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# VERY IMPORTANT!
 ### Keys are saved in the format:
 ```
 {key: [value1, value2, value3]}
