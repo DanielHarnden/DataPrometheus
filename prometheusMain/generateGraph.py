@@ -25,7 +25,7 @@ def generateGraph(parsedText, keyList, bannedWords):
         nodes = addKeys(file, keyList, newTables, fileTableNames, fileNames[i], nodes)
         
     
-    # Searches for relationships between foreign keys
+    # Searches for relationships between keys
     tablesVisited = {}
     edgesToAdd = []
     edgesToAdd, tablesVisited = addForeignKeys(parsedText, tableNames, tablesVisited, edgesToAdd, keyList, primaryKeys, bannedWords)
@@ -33,12 +33,12 @@ def generateGraph(parsedText, keyList, bannedWords):
     # Adds the found relationships as edges on the graph
     generateForeignKeys(edgesToAdd, nodes)
 
-    graphCreation = datetime.now()
-    graphCreation = graphCreation.strftime("%m/%d/%Y %I:%M %p")
-    # Does some settings to make it look pwetty
+    # Does some settings to make it look pwetty uwu
+    graphCreationTime = datetime.now()
+    graphCreationTime = graphCreationTime.strftime("%m/%d/%Y %I:%M %p")
     dot.graph_attr.update({
         'table': 'style=invis',
-        'label': f'Parsed by Data Prometheus at {graphCreation}',
+        'label': f'Parsed by Data Prometheus at {graphCreationTime}',
         'labelloc': 't',
         'rankdir': 'LR',
         'dpi': '200'
@@ -49,15 +49,13 @@ def generateGraph(parsedText, keyList, bannedWords):
 
 
 
-
-
 def initializeGraphGeneration(parsedText, fileNames):
-    for i, file in enumerate(parsedText):
+    for fileIterator, file in enumerate(parsedText):
         fileNames.append(file[0][0])
         # Sorts the parsed text from biggest to smallest table
         file = sorted(file[1:], key=lambda x: len(x))
         file.reverse()
-        parsedText[i] = file
+        parsedText[fileIterator] = file
 
     return parsedText, fileNames
 
@@ -81,33 +79,27 @@ def addKeys(file, keyList, newTables, tableNames, fileName, nodes):
     global dot
 
     # Iterates through all of the tables from the original txt of the inputted database
-    for i, tableList in enumerate(file):
-        # A temp list of added keys to avoid duplicates
-        tempKeys = set()
-        # Iterates through each table from the original text of the inputted database
+    for tableIterator, tableList in enumerate(file):
         for key in tableList[1:]:
-            # Determines if they key has to be renamed based on the mapping
-            # Iterates through each key...
-            for keySynonym in keyList:
-                # ...compares the current key to the values. If the key is a synonym...
-                if key[0] in keyList[keySynonym]:
-                    # ...the current key is replaced with the synonym (the key from the table)
-                    key[0] = keySynonym
+            keyName = key[0]
+            keyType = key[1]
 
-            # Prevents duplicate keys
-            #if key[0] not in tempKeys:
-            #    tempKeys.add(key[0])
-            newTables[i] += generateKey(key[0], key[1])
-            nodes.append(f"{tableNames[i]}:{key[0]}")
+            # Determines if they key has to be renamed based on the mapping
+            for keySynonym in keyList:
+                if keyName in keyList[keySynonym]:
+                    keyName = keySynonym
+
+            newTables[tableIterator] += generateKey(keyName, keyType)
+            nodes.append(f"{tableNames[tableIterator]}:{keyName}")
 
         # Finishes the table then adds the node using the temporary information
-        newTables[i] += "</table>\n>"
+        newTables[tableIterator] += "</table>\n>"
 
     # The cluster needs a random int because clusters can't be named the same
     with dot.subgraph(name=f'Cluster-{random.randint(1,1000)}') as subDot:
-        for i, tableList in enumerate(file):
+        for tableIterator, tableList in enumerate(file):
             subDot.attr(label=fileName, color='#FFA07A', bgcolor='#FFC6A5', style='solid')
-            subDot.node(tableNames[i], shape='none', label=newTables[i])
+            subDot.node(tableNames[tableIterator], shape='none', label=newTables[tableIterator])
 
     return nodes
 
@@ -115,60 +107,46 @@ def addKeys(file, keyList, newTables, tableNames, fileName, nodes):
 
 def addForeignKeys(parsedText, tableNames, tablesVisited, edgesToAdd, keyList, primaryKeys, bannedWords):
     stemmer = snowballstemmer.stemmer('english')
-
-    i = 0
-    # Iterates through each key (again)
+    tableIterator = 0
+    
     for file in parsedText:
-
         for tableList in file:
+            currentTable = tableNames[tableIterator]
+            tableIterator += 1
 
-            # The name of the table is stored
-            table = tableNames[i]
-            i += 1
-            if table not in tablesVisited:
-                tablesVisited[table] = []
+            if currentTable not in tablesVisited:
+                tablesVisited[currentTable] = []
 
             for key in tableList:
-                # Checks to see if this key has appeared before in the new database. If not, it is set as the primary key of the new database, and any subsequent mentions of the key will reference the key/table it first appears
+                currentKey = key[0]
+
                 for keySynonym in keyList:
-                    if key[0] in keyList[keySynonym]:
-                        key[0] = keySynonym
+                    if currentKey in keyList[keySynonym]:
+                        currentKey = keySynonym
 
-                if key[0] in primaryKeys and table is not primaryKeys[key[0]]:
-                    # Checks to see if there are any foreign key additions left for this table and checks to ensure the table is not referencing itself
-                    if primaryKeys[key[0]] not in tablesVisited[table] and key[0] not in bannedWords:
-
-                        # Determines if the key is a substring of the stem of the table name it is going to be referencing. e.g. if MusicLabel is the current key and finds Artists as a key to reference, MusicLabel/ArtistId would be added as the primary key referencing Artists. However, Artists/ArtistId is clearly the primary key, and since Arist (the stem of Artists) is in ArtistId, the it is correctly label as the primary key.
-                        #       Artists [table] | MusicLabel [table]
-                        #       ArtistId        | ArtistId
-                        cleanedTableName = table.replace(" [table]", "")
-                        cleanedTableName = cleanedTableName.replace("_", "")
-                        tableStem = stemmer.stemWord(cleanedTableName)
-                    
-                        #print(key[0], table, tableStem, primaryKeys[key[0]])
-
-                        # TODO: Make this not terrible
-                        if key[0] + " [table]" in tableNames:
-                            if tableStem in key[0].lower():
-                                if key[0] == table.replace(" [table]", ""):
-                                    tempEdge = (primaryKeys[key[0]], key[0], table, table, True)
-                                else:
-                                    print("yay")
-                                    tempEdge = (primaryKeys[key[0]], primaryKeys[key[0]], table, key[0], True)
+                if currentKey in primaryKeys and currentTable is not primaryKeys[currentKey]:  
+                    if primaryKeys[currentKey] not in tablesVisited[currentTable] and currentKey not in bannedWords:
+                        referencedTable = primaryKeys[currentKey]
+                        # Used to determine if the current key is part of the table name (if so, it is assumed that the relationship start/end are swapped) 
+                        cleanedTableName = currentTable.replace(" [table]", "").replace("_", "")
+                        tableStem = stemmer.stemWord(cleanedTableName).lower()
+                        
+                        if currentKey + " [table]" in tableNames:
+                            if tableStem in currentKey.lower():
+                                tempEdge = (referencedTable, currentKey, currentTable, currentTable)
                             else:
-                                tempEdge = (table, key[0], primaryKeys[key[0]], primaryKeys[key[0]], True)
+                                tempEdge = (currentTable, currentKey, referencedTable, referencedTable)
                         else:
-                            if tableStem in key[0].lower():
-                                tempEdge = (primaryKeys[key[0]], key[0], table, key[0], False)
+                            if tableStem in currentKey.lower():
+                                tempEdge = (referencedTable, currentKey, currentTable, currentKey)
                             else:
-                                tempEdge = (table, key[0], primaryKeys[key[0]], key[0], False)
+                                tempEdge = (currentTable, currentKey, referencedTable, currentKey)
 
                         if tempEdge not in edgesToAdd:
                             edgesToAdd.append(tempEdge)
-                            tablesVisited[table].append(primaryKeys[key[0]])
-                            
+                            tablesVisited[currentTable].append(primaryKeys[currentKey])
                 else:
-                    primaryKeys[key[0]] = table
+                    primaryKeys[currentKey] = currentTable
 
     return edgesToAdd, tablesVisited
 
@@ -182,27 +160,25 @@ def generateTable(tableName, tableNumber):
   </tr>
     '''
 
-
-
-def generateKey(keyName, varType):
+def generateKey(keyName, keyType):
     return f'''
   <tr>
     <td colspan='2' bgcolor='#C43131' port="{keyName}.start" align='left'><font color="#FFFFEB"><b><i>{keyName}</i></b></font></td>
-    <td bgcolor='#C43131' port="{keyName}.end" align='right'><font color="#FFFFEB">{varType}</font></td>
+    <td bgcolor='#C43131' port="{keyName}.end" align='right'><font color="#FFFFEB">{keyType}</font></td>
   </tr>
     '''
-
-
 
 def generateForeignKeys(edgesToAdd, nodes):
     global dot
 
-    for tableReferencing, keyReferencing, referencedTable, referencedKey, referencingTable in edgesToAdd:
-        if referencedTable != tableReferencing:
-            if f"{tableReferencing}:{keyReferencing}" in nodes:
-                dot.edge(f"{tableReferencing}:{keyReferencing}.end", f"{referencedTable}:{referencedKey}.start", arrowhead='normal', arrowtail='odot', dir='both', style='solid', color='#141414', penwidth='1.5')
-            elif f"{referencedTable}:{keyReferencing}" in nodes and referencingTable:
-                dot.edge(f"{referencedTable}:{keyReferencing}.end", f"{tableReferencing}:{tableReferencing}.start", arrowhead='normal', arrowtail='odot', dir='both', style='solid', color='#141414', penwidth='1.5')
-            else:
-                print(f"{referencedTable}:{keyReferencing}.end {tableReferencing}:{tableReferencing}.start")
-                print("Node does not exist.")
+    for startTable, startKey, endTable, endKey in edgesToAdd:
+        if startTable != endTable and f"{startTable}:{startKey}" in nodes:
+            dot.edge(
+                # .end means the right side of the table (it is referencing another table)
+                f"{startTable}:{startKey}.end", 
+                # .start means the left side of the table (it is being referenced)
+                f"{endTable}:{endKey}.start", 
+                arrowhead='normal', arrowtail='odot', dir='both', style='solid', color='#141414', penwidth='1.5'
+            )
+        else:
+            print(f"{startTable}:{startKey} referencing {endTable}:{endKey}\t\tError: Node does not exist.")
