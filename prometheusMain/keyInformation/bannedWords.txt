@@ -18,3 +18,5 @@ Name
 input
 check_call
 Title
+time
+strftime
