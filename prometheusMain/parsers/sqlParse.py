@@ -3,62 +3,68 @@ import re
 def sqlParse(file, originalFileName):
 
     cleanedTables = [[originalFileName]]
-    sqlInsertStyles = [r"`(.*?)`", r"\[(.*?)\]"]
 
-    with open(file.name, 'r') as f:
+    with open(file.name, 'r', encoding='utf-8') as f:
         sqlText = f.read()
 
-
     cleanedText = sqlText.split("\n")
-    cleanedText = [line for line in cleanedText if "--" not in line]
-    insertInto = [line for line in cleanedText if "INSERT INTO" in line]
+    cleanedText = [line for line in cleanedText if "--" not in line and line != "" and "/*" not in line and "*/" not in line]
 
-    # Finding keys using INSERT INTO is far more convenient so it's checked first
-    if insertInto:
-        for line in insertInto:
-            results = []
-            for style in sqlInsertStyles:
-                results += re.findall(style, line)
-            cleanedTables.append(results)
+    tables = []
+    inserts = []
+    tempLine = []
+    for line in cleanedText:
+        tempLine.append(line)
 
+        if ";" in line:
+            if any("CREATE TABLE" in s for s in tempLine):
+                tables.append(tempLine)
+            tempLine = []
+
+        if "INSERT INTO" in line:
+            inserts.append(tempLine)
+            tempLine = []
+
+    if len(tables) != 0:
+        print(tables)
+        return parseTables(cleanedTables, tables)
     else:
-        
-        temporaryTables = []
-        temporaryLine = []
+        return parseInsertStatements(cleanedTables, inserts)
 
-        # Finds each table using some basic logic
-        for line in cleanedText:
-            inTable = False
 
-            if not inTable:
-                if ";" in line:
-                    inTable = False
-                    temporaryTables.append(temporaryLine)
-                    temporaryLine = []
-                else:
-                    temporaryLine.append(line)
-            else:
-                if "TABLE" in line:
-                    inTable = True
-                    temporaryLine.append(line)
 
-        # Cleans the results from each table
-        for table in temporaryTables:
+def parseTables(cleanedTables, tables):
+    for table in tables:
             results = []
-            
-            for line in table:
-                line = re.sub(r'[^a-zA-Z0-9\s]', '', line)
-                
-                if "TABLE" in line:
-                    print(line.split()[-1])
-                    results.append(line.split()[-1])
-                else:
-                    if line != "":
-                        print(line.strip().split()[0])
-                        results.append(line.strip().split()[0])
+            for i, line in enumerate(table):
+                if i == 0:
+                    line = re.sub(r'[^a-zA-Z0-9\s]', '', line)
+                    results.append([line.split()[-1], "TABLE"])
+                elif ";" not in line and "KEY" not in line and "ENGINE" not in line and "CONSTRAINT" not in line:
+                    lineSplit = line.split()
+                    keyName = re.sub(r'[^a-zA-Z0-9\s]', '', lineSplit[0])
+                    results.append([keyName, lineSplit[1]])
 
             cleanedTables.append(results)
 
+    return cleanedTables
 
 
+
+def parseInsertStatements(cleanedTables, inserts):
+    for statement in inserts:
+            for line in statement:
+                results = []
+                line = line.split("VALUES")[0]
+                line = line.split("INSERT INTO")[1]
+                line = re.sub(r'[^a-zA-Z0-9\s]', ' ', line)
+                line = line.split()
+
+                for i, item in enumerate(line):
+                    if i == 0:
+                        results.append([item, "TABLE"])
+                    else:
+                        results.append([item, "TYPE UNKNOWN"])
+
+                cleanedTables.append(results)
     return cleanedTables
