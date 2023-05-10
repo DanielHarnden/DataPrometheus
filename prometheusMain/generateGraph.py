@@ -24,7 +24,6 @@ def generateGraph(parsedText, keyList, bannedWords):
         # ...then adds each key to the new tables
         nodes = addKeys(file, keyList, newTables, fileTableNames, fileNames[i], nodes)
         
-    
     # Searches for relationships between keys
     tablesVisited = {}
     edgesToAdd = []
@@ -52,9 +51,13 @@ def generateGraph(parsedText, keyList, bannedWords):
 def initializeGraphGeneration(parsedText, fileNames):
     for fileIterator, file in enumerate(parsedText):
         fileNames.append(file[0][0])
-        # Sorts the parsed text from biggest to smallest table
-        file = sorted(file[1:], key=lambda x: len(x))
-        file.reverse()
+        # Sorts the parsed text from biggest to smallest table ONLY IF it is not a programming file
+        # Programming files retain their original structure to avoid errors
+        if file[0][0].split(".")[-1] not in ["py", "java", "cpp"]:
+            file = sorted(file[1:], key=lambda x: len(x))
+            file.reverse()
+        else:
+            file = file[1:]
         parsedText[fileIterator] = file
 
     return parsedText, fileNames
@@ -124,7 +127,7 @@ def addForeignKeys(parsedText, tableNames, tablesVisited, edgesToAdd, keyList, p
                     if currentKey in keyList[keySynonym]:
                         currentKey = keySynonym
 
-                if currentKey in primaryKeys and currentTable is not primaryKeys[currentKey]:  
+                if currentKey in primaryKeys and currentTable is not primaryKeys[currentKey]:
                     if primaryKeys[currentKey] not in tablesVisited[currentTable] and currentKey not in bannedWords:
                         referencedTable = primaryKeys[currentKey]
                         # Used to determine if the current key is part of the table name (if so, it is assumed that the relationship start/end are swapped) 
