@@ -1,3 +1,13 @@
+# Parsers
+
+Data Prometheus currently supports five file types, listed below in development priority (the higher the item is, the more attention has been paid to it).
+
+1. SQLite
+2. Python
+3. SQL
+4. CPP
+5. Java
+
 # The parsers in this folder should return a list of list of strings in the following format:
 ```
 [
