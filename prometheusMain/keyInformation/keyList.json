@@ -1,405 +1,167 @@
 {
-    "e": [
-        "e"
-    ],
-    "i": [
-        "i",
-        "P"
-    ],
-    "a": [
-        "a"
-    ],
-    "o": [
-        "o"
-    ],
-    "u": [
-        "u"
-    ],
-    "_": [
-        "_"
-    ],
-    "y": [
-        "y"
-    ],
-    "I": [
-        "I"
-    ],
-    "O": [
-        "O"
-    ],
-    "A": [
-        "A"
-    ],
-    "split": [
-        "split"
-    ],
-    "add": [
-        "add"
-    ],
-    "determineFileType": [
-        "determineFileType"
-    ],
-    "unlink": [
-        "unlink"
-    ],
-    "generateGraph": [
-        "generateGraph"
-    ],
-    "happened": [
-        "happened",
-        "append"
-    ],
-    "mapText": [
-        "mapText"
-    ],
-    "set": [
-        "set"
-    ],
     "close": [
         "close"
-    ],
-    "len": [
-        "len"
-    ],
-    "NamedTemporaryFile": [
-        "NamedTemporaryFile"
-    ],
-    "print": [
-        "print"
     ],
     "time": [
         "time"
     ],
+    "add": [
+        "add"
+    ],
+    "append": [
+        "append"
+    ],
     "save": [
         "save"
     ],
-    "BytesIO": [
-        "BytesIO",
-        "BytesIO",
-        null,
-        "BytesIO",
-        null,
-        "BytesIO",
-        null,
-        "BytesIO",
-        null,
-        "BytesIO",
-        null,
-        "BytesIO",
-        null
+    "mapText": [
+        "mapText"
     ],
-    "open": [
-        "open"
+    "split": [
+        "split"
     ],
-    "enlist": [
-        "enlist",
-        "getlist"
+    "set": [
+        "set"
     ],
-    "getcwd": [
-        "getcwd",
-        "getcwd",
-        null,
-        "getcwd",
-        null,
-        "getcwd",
-        null,
-        "getcwd",
-        null,
-        "getcwd",
-        null,
-        "getcwd",
-        null
-    ],
-    "send_file": [
-        "send_file"
-    ],
-    "seek": [
-        "seek"
-    ],
-    "run": [
-        "run"
+    "NamedTemporaryFile": [
+        "NamedTemporaryFile"
     ],
     "enumerate": [
         "enumerate"
     ],
-    "exit": [
-        "exit"
+    "generateGraph": [
+        "generateGraph"
     ],
-    "checkForPackages": [
-        "checkForPackages"
+    "print": [
+        "print"
     ],
-    "check_call": [
-        "check_call"
+    "unlink": [
+        "unlink"
     ],
-    "find": [
-        "find"
+    "len": [
+        "len"
     ],
-    "openFrontend": [
-        "openFrontend"
+    "determineFileType": [
+        "determineFileType"
     ],
-    "attemptFlask": [
-        "attemptFlask"
+    "send_file": [
+        "send_file"
     ],
-    "main": [
-        "main"
-    ],
-    "import_module": [
-        "import_module"
-    ],
-    "input": [
-        "input"
-    ],
-    "download": [
-        "download"
-    ],
-    "mapDatabase": [
-        "mapDatabase"
-    ],
-    "generateTable": [
-        "generateTable"
-    ],
-    "archer": [
-        "archer",
-        "varchar"
-    ],
-    "Digraph": [
-        "Digraph",
-        "Digraph",
-        null,
-        "Digraph",
-        null,
-        "Digraph",
-        null,
-        "Digraph",
-        null,
-        "Digraph",
-        null,
-        "Digraph",
-        null
-    ],
-    "generateForeignKeys": [
-        "generateForeignKeys"
-    ],
-    "attr": [
-        "attr",
-        "attr",
-        null,
-        "attr",
-        null,
-        "attr",
-        null,
-        "attr",
-        null,
-        "attr",
-        null,
-        "attr",
-        null
-    ],
-    "subgraph": [
-        "subgraph"
-    ],
-    "initializeGraphGeneration": [
-        "initializeGraphGeneration"
-    ],
-    "addTables": [
-        "addTables"
-    ],
-    "addKeys": [
-        "addKeys"
-    ],
-    "sorted": [
-        "sorted"
-    ],
-    "reverse": [
-        "reverse"
-    ],
-    "list": [
-        "list"
-    ],
-    "render": [
-        "render"
-    ],
-    "node": [
-        "node"
-    ],
-    "update": [
-        "update"
-    ],
-    "generateKey": [
-        "generateKey"
-    ],
-    "edge": [
-        "edge"
-    ],
-    "addForeignKeys": [
-        "addForeignKeys"
-    ],
-    "SpellChecker": [
-        "SpellChecker"
-    ],
-    "dump": [
-        "dump"
-    ],
-    "FreqDist": [
-        "FreqDist"
-    ],
-    "addKey": [
-        "addKey"
-    ],
-    "strip": [
-        "strip"
-    ],
-    "values": [
-        "values"
-    ],
-    "write": [
-        "write"
-    ],
-    "getFreqDist": [
-        "getFreqDist"
-    ],
-    "@lru_cache": [
-        "@lru_cache"
-    ],
-    "correction": [
-        "correction"
-    ],
-    "load": [
-        "load"
-    ],
-    "route": [
-        "route"
-    ],
-    "CORS": [
-        "CORS",
-        "CORS",
-        null,
-        "CORS",
-        null,
-        "CORS",
-        null,
-        "CORS",
-        null
+    "open": [
+        "open"
     ],
     "Flask": [
         "Flask"
     ],
-    "TrackId": [
-        "TrackId"
+    "route": [
+        "route"
     ],
-    "BillingCity": [
-        "BillingCity"
+    "getlist": [
+        "getlist"
     ],
-    "InvoiceLineId": [
-        "InvoiceLineId"
+    "mapDatabase": [
+        "mapDatabase"
     ],
-    "LastName": [
-        "LastName"
+    "run": [
+        "run"
     ],
-    "CustomerId": [
-        "CustomerId"
+    "seek": [
+        "seek"
     ],
-    "ArtistId": [
-        "ArtistId"
+    "CORS": [
+        "CORS"
     ],
-    "City": [
-        "City"
+    "getcwd": [
+        "getcwd"
     ],
-    "InvoiceDate": [
-        "InvoiceDate"
+    "BytesIO": [
+        "BytesIO"
     ],
-    "Quantity": [
-        "Quantity"
+    "Digraph": [
+        "Digraph"
     ],
-    "BillingState": [
-        "BillingState"
+    "generateTable": [
+        "generateTable"
     ],
-    "InvoiceId": [
-        "InvoiceId"
+    "lower": [
+        "lower"
     ],
-    "EmployeeId": [
-        "EmployeeId"
+    "reverse": [
+        "reverse"
     ],
-    "Total": [
-        "Total"
+    "sorted": [
+        "sorted"
     ],
-    "reports": [
-        "reports",
-        "ReportsTo"
+    "update": [
+        "update"
     ],
-    "Composer": [
-        "Composer"
+    "attr": [
+        "attr"
     ],
-    "PostalCode": [
-        "PostalCode"
+    "addKeys": [
+        "addKeys"
     ],
-    "UnitPrice": [
-        "UnitPrice"
+    "addForeignKeys": [
+        "addForeignKeys"
     ],
-    "GenreId": [
-        "GenreId"
+    "edge": [
+        "edge"
     ],
-    "Fax": [
-        "Fax"
+    "node": [
+        "node"
     ],
-    "Phone": [
-        "Phone"
+    "replace": [
+        "replace"
     ],
-    "Email": [
-        "Email"
+    "stemmer": [
+        "stemmer"
     ],
-    "HireDate": [
-        "HireDate"
+    "initializeGraphGeneration": [
+        "initializeGraphGeneration"
     ],
-    "BillingCountry": [
-        "BillingCountry"
+    "generateKey": [
+        "generateKey"
     ],
-    "BillingAddress": [
-        "BillingAddress"
+    "stemWord": [
+        "stemWord"
     ],
-    "FirstName": [
-        "FirstName"
+    "generateForeignKeys": [
+        "generateForeignKeys"
     ],
-    "BirthDate": [
-        "BirthDate"
+    "subgraph": [
+        "subgraph"
     ],
-    "PlaylistId": [
-        "PlaylistId"
+    "addTables": [
+        "addTables"
     ],
-    "BillingPostalCode": [
-        "BillingPostalCode"
+    "now": [
+        "now"
     ],
-    "Title": [
-        "Title"
+    "strftime": [
+        "strftime"
     ],
-    "Milliseconds": [
-        "Milliseconds"
+    "render": [
+        "render"
     ],
-    "Bytes": [
-        "Bytes"
+    "load": [
+        "load"
     ],
-    "Company": [
-        "Company"
+    "values": [
+        "values"
     ],
-    "MediaTypeId": [
-        "MediaTypeId"
+    "strip": [
+        "strip"
     ],
-    "Address": [
-        "Address"
+    "dump": [
+        "dump"
     ],
-    "Country": [
-        "Country"
+    "write": [
+        "write"
     ],
-    "Name": [
-        "Name"
+    "addKey": [
+        "addKey"
     ],
-    "AlbumId": [
-        "AlbumId"
-    ],
-    "State": [
-        "State"
-    ],
-    "SupportRepId": [
-        "SupportRepId"
+    "list": [
+        "list"
     ]
 }

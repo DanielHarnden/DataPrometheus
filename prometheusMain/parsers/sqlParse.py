@@ -1,38 +1,69 @@
-import sqlparse, re
+import re
 
-def sqlParse(file):
+def sqlParse(file, originalFileName):
 
-    with open(file.name, 'r') as f:
-        sql_text = f.read()
+    cleanedTables = [[originalFileName]]
 
-    # parse SQL into statement list
-    statements = sqlparse.parse(sql_text)
+    with open(file.name, 'r', encoding='utf-8') as f:
+        sqlText = f.read()
 
-    cols = []
-    for statement in statements:
-        statement = str(statement)
+    cleanedText = sqlText.split("\n")
+    cleanedText = [line for line in cleanedText if "--" not in line and line != "" and "/*" not in line and "*/" not in line]
 
-        if "INSERT INTO" in statement:
-            splitStatement = statement.split("INSERT INTO")
+    tables = []
+    inserts = []
+    tempLine = []
+    for line in cleanedText:
+        tempLine.append(line)
 
-            styleOne = r"`(.*?)`"
-            styleTwo = r"\[(.*?)\]"
+        if ";" in line:
+            if any("CREATE TABLE" in s for s in tempLine):
+                tables.append(tempLine)
+            tempLine = []
 
-            for insert in splitStatement:
-                resultsOne = re.findall(styleOne, insert)
-                resultsTwo = re.findall(styleTwo, insert)
-                results = resultsOne + resultsTwo
+        if "INSERT INTO" in line:
+            inserts.append(tempLine)
+            tempLine = []
 
-                if results != [] and len(results) > 1:
-                    cols.append(results)
-        elif "TABLE" in statement:
-            print(statement)
-            results = re.findall(r"(.*?)\s", statement)
-            print(results)
-
-            if results != [] and len(results) > 1:
-                cols.append(results)
+    if len(tables) != 0:
+        return parseTables(cleanedTables, tables)
+    else:
+        return parseInsertStatements(cleanedTables, inserts)
 
 
-    print(cols)
-    return cols
+
+def parseTables(cleanedTables, tables):
+    for table in tables:
+            results = []
+            for i, line in enumerate(table):
+                if i == 0:
+                    line = re.sub(r'[^a-zA-Z0-9\s]', '', line)
+                    results.append([line.split()[-1], "TABLE"])
+                elif ";" not in line and "KEY" not in line and "ENGINE" not in line and "CONSTRAINT" not in line:
+                    lineSplit = line.split()
+                    keyName = re.sub(r'[^a-zA-Z0-9\s]', '', lineSplit[0])
+                    results.append([keyName, lineSplit[1]])
+
+            cleanedTables.append(results)
+
+    return cleanedTables
+
+
+
+def parseInsertStatements(cleanedTables, inserts):
+    for statement in inserts:
+            for line in statement:
+                results = []
+                line = line.split("VALUES")[0]
+                line = line.split("INSERT INTO")[1]
+                line = re.sub(r'[^a-zA-Z0-9\s]', ' ', line)
+                line = line.split()
+
+                for i, item in enumerate(line):
+                    if i == 0:
+                        results.append([item, "TABLE"])
+                    else:
+                        results.append([item, "TYPE UNKNOWN"])
+
+                cleanedTables.append(results)
+    return cleanedTables

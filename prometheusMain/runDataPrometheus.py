@@ -10,7 +10,7 @@ def checkForPackages():
     print("Determining if the correct Python packages are installed...")
 
     # The list of packages that should be installed using pip
-    packages = ['flask', 'flask-cors', 'Pillow', 'graphviz', 'snowballstemmer', 'sqlparse']
+    packages = ['flask', 'flask-cors', 'Pillow', 'graphviz', 'snowballstemmer']
 
     for package in packages:
         # Attempts to import the module; if it can not, that means it is not installed.

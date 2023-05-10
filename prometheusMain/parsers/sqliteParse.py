@@ -22,8 +22,17 @@ def sqliteParse(file, originalFileName):
         if not table[0].startswith("sqlite_"):
             tempTable = []
             cur.execute("SELECT * FROM {} LIMIT 0;".format(table[0]))
-            tempTable += table
-            tempTable += [column[0] for column in cur.description]
+            tempTable += [[', '.join(table), "TABLE"]]
+
+            # Use PRAGMA statement to retrieve column metadata
+            pragmaQuery = "PRAGMA table_info({})".format(table[0])
+            pragmaResults = cur.execute(pragmaQuery).fetchall()
+
+            for column in pragmaResults:
+                if column[2] != "":
+                    tempTable += [[column[1], column[2]]]
+                else:
+                    tempTable += [[column[1], "TYPE UNKNOWN"]]
             cleanedTables.append(tempTable)
 
     # Closes the connection and returns the list of cleaned tables

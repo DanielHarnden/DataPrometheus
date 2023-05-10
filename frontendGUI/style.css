@@ -59,6 +59,11 @@ body {
 
 .center { text-align: center; }
 
+.about {
+    margin: 5vh 10vw;
+    text-indent: 24px;
+}
+
 h1 {
     display: flex;
     align-items: center;
@@ -197,7 +202,7 @@ label[for="fileUpload"] {
     font-size: 32px;
     background-color: var(--light-orange);
     color: var(--dark-cream);
-    width: 300px;
+    width: 350px;
     padding: 1rem;
     height: 30px;
     border-radius: 5px;

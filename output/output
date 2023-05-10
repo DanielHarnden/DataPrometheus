@@ -1,469 +1,674 @@
 digraph {
-	graph [dpi=200 label=" LABEL TEMPORARY NAME!!!!!!!!!!!!! as parsed by Data Prometheus (copyright me do not steal!!!)" labelloc=t rankdir=LR table="style=invis"]
-	subgraph "Cluster-945" {
-		bgcolor=lightblue color=blue label="chinook.db" style=solid
-		"employees [table]" [label=<
+	graph [dpi=200 label="Parsed by Data Prometheus at 05/06/2023 04:54 PM" labelloc=t rankdir=LR table="style=invis"]
+	subgraph "Cluster-887" {
+		bgcolor="#FFC6A5" color="#FFA07A" label="dataPrometheus.py" style=solid
+		"mapDatabase [table]" [label=<
 
 
 
-<table border="1" cellborder="1" cellspacing="0" color="#973835">
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
   <tr>
-    <td colspan='2' bgcolor='#B0413E' port="employees [table].start" align='left'><font color="#FFFFEB"><b><i>employees [table]</i></b></font></td>
-    <td bgcolor='#B0413E' align='right' port="employees [table].end" ><font color="#FFFFEB"><b><i>0</i></b></font></td>
+    <td colspan='2' bgcolor='#932525' port="mapDatabase [table].start" align='left'><font color="#FFFFEB"><b><i>mapDatabase [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="mapDatabase [table].end" ><font color="#FFFFEB"><b><i>0</i></b></font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="EmployeeId.start" align='left'><font color="#FFFFEB"><b><i>EmployeeId</i></b></font></td>
-    <td bgcolor='#973835' port="EmployeeId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="time.start" align='left'><font color="#FFFFEB"><b><i>time</i></b></font></td>
+    <td bgcolor='#C43131' port="time.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="LastName.start" align='left'><font color="#FFFFEB"><b><i>LastName</i></b></font></td>
-    <td bgcolor='#973835' port="LastName.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="set.start" align='left'><font color="#FFFFEB"><b><i>set</i></b></font></td>
+    <td bgcolor='#C43131' port="set.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="FirstName.start" align='left'><font color="#FFFFEB"><b><i>FirstName</i></b></font></td>
-    <td bgcolor='#973835' port="FirstName.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="determineFileType.start" align='left'><font color="#FFFFEB"><b><i>determineFileType</i></b></font></td>
+    <td bgcolor='#C43131' port="determineFileType.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="Title.start" align='left'><font color="#FFFFEB"><b><i>Title</i></b></font></td>
-    <td bgcolor='#973835' port="Title.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="add.start" align='left'><font color="#FFFFEB"><b><i>add</i></b></font></td>
+    <td bgcolor='#C43131' port="add.end" align='right'><font color="#FFFFEB">Built-In Python Set Function</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="reports.start" align='left'><font color="#FFFFEB"><b><i>reports</i></b></font></td>
-    <td bgcolor='#973835' port="reports.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="len.start" align='left'><font color="#FFFFEB"><b><i>len</i></b></font></td>
+    <td bgcolor='#C43131' port="len.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="BirthDate.start" align='left'><font color="#FFFFEB"><b><i>BirthDate</i></b></font></td>
-    <td bgcolor='#973835' port="BirthDate.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="HireDate.start" align='left'><font color="#FFFFEB"><b><i>HireDate</i></b></font></td>
-    <td bgcolor='#973835' port="HireDate.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="Address.start" align='left'><font color="#FFFFEB"><b><i>Address</i></b></font></td>
-    <td bgcolor='#973835' port="Address.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="enumerate.start" align='left'><font color="#FFFFEB"><b><i>enumerate</i></b></font></td>
+    <td bgcolor='#C43131' port="enumerate.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="City.start" align='left'><font color="#FFFFEB"><b><i>City</i></b></font></td>
-    <td bgcolor='#973835' port="City.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="NamedTemporaryFile.start" align='left'><font color="#FFFFEB"><b><i>NamedTemporaryFile</i></b></font></td>
+    <td bgcolor='#C43131' port="NamedTemporaryFile.end" align='right'><font color="#FFFFEB">Built-In Python TempFile Function</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="State.start" align='left'><font color="#FFFFEB"><b><i>State</i></b></font></td>
-    <td bgcolor='#973835' port="State.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="save.start" align='left'><font color="#FFFFEB"><b><i>save</i></b></font></td>
+    <td bgcolor='#C43131' port="save.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="Country.start" align='left'><font color="#FFFFEB"><b><i>Country</i></b></font></td>
-    <td bgcolor='#973835' port="Country.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="time.start" align='left'><font color="#FFFFEB"><b><i>time</i></b></font></td>
+    <td bgcolor='#C43131' port="time.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="PostalCode.start" align='left'><font color="#FFFFEB"><b><i>PostalCode</i></b></font></td>
-    <td bgcolor='#973835' port="PostalCode.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="Phone.start" align='left'><font color="#FFFFEB"><b><i>Phone</i></b></font></td>
-    <td bgcolor='#973835' port="Phone.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="append.start" align='left'><font color="#FFFFEB"><b><i>append</i></b></font></td>
+    <td bgcolor='#C43131' port="append.end" align='right'><font color="#FFFFEB">Built-In Python List Function</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="Fax.start" align='left'><font color="#FFFFEB"><b><i>Fax</i></b></font></td>
-    <td bgcolor='#973835' port="Fax.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="Email.start" align='left'><font color="#FFFFEB"><b><i>Email</i></b></font></td>
-    <td bgcolor='#973835' port="Email.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="close.start" align='left'><font color="#FFFFEB"><b><i>close</i></b></font></td>
+    <td bgcolor='#C43131' port="close.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="unlink.start" align='left'><font color="#FFFFEB"><b><i>unlink</i></b></font></td>
+    <td bgcolor='#C43131' port="unlink.end" align='right'><font color="#FFFFEB">Built-In Python OS Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="time.start" align='left'><font color="#FFFFEB"><b><i>time</i></b></font></td>
+    <td bgcolor='#C43131' port="time.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="mapText.start" align='left'><font color="#FFFFEB"><b><i>mapText</i></b></font></td>
+    <td bgcolor='#C43131' port="mapText.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="time.start" align='left'><font color="#FFFFEB"><b><i>time</i></b></font></td>
+    <td bgcolor='#C43131' port="time.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="generateGraph.start" align='left'><font color="#FFFFEB"><b><i>generateGraph</i></b></font></td>
+    <td bgcolor='#C43131' port="generateGraph.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
   </tr>
     </table>
 > shape=none]
-		bgcolor=lightblue color=blue label="chinook.db" style=solid
-		"customers [table]" [label=<
+		bgcolor="#FFC6A5" color="#FFA07A" label="dataPrometheus.py" style=solid
+		"determineFileType [table]" [label=<
 
 
 
-<table border="1" cellborder="1" cellspacing="0" color="#973835">
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
   <tr>
-    <td colspan='2' bgcolor='#B0413E' port="customers [table].start" align='left'><font color="#FFFFEB"><b><i>customers [table]</i></b></font></td>
-    <td bgcolor='#B0413E' align='right' port="customers [table].end" ><font color="#FFFFEB"><b><i>1</i></b></font></td>
+    <td colspan='2' bgcolor='#932525' port="determineFileType [table].start" align='left'><font color="#FFFFEB"><b><i>determineFileType [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="determineFileType [table].end" ><font color="#FFFFEB"><b><i>1</i></b></font></td>
   </tr>
     
   <tr>
-    <td colspan='2' bgcolor='#973835' port="CustomerId.start" align='left'><font color="#FFFFEB"><b><i>CustomerId</i></b></font></td>
-    <td bgcolor='#973835' port="CustomerId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="FirstName.start" align='left'><font color="#FFFFEB"><b><i>FirstName</i></b></font></td>
-    <td bgcolor='#973835' port="FirstName.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="LastName.start" align='left'><font color="#FFFFEB"><b><i>LastName</i></b></font></td>
-    <td bgcolor='#973835' port="LastName.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Company.start" align='left'><font color="#FFFFEB"><b><i>Company</i></b></font></td>
-    <td bgcolor='#973835' port="Company.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Address.start" align='left'><font color="#FFFFEB"><b><i>Address</i></b></font></td>
-    <td bgcolor='#973835' port="Address.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="City.start" align='left'><font color="#FFFFEB"><b><i>City</i></b></font></td>
-    <td bgcolor='#973835' port="City.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="State.start" align='left'><font color="#FFFFEB"><b><i>State</i></b></font></td>
-    <td bgcolor='#973835' port="State.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Country.start" align='left'><font color="#FFFFEB"><b><i>Country</i></b></font></td>
-    <td bgcolor='#973835' port="Country.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="PostalCode.start" align='left'><font color="#FFFFEB"><b><i>PostalCode</i></b></font></td>
-    <td bgcolor='#973835' port="PostalCode.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Phone.start" align='left'><font color="#FFFFEB"><b><i>Phone</i></b></font></td>
-    <td bgcolor='#973835' port="Phone.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Fax.start" align='left'><font color="#FFFFEB"><b><i>Fax</i></b></font></td>
-    <td bgcolor='#973835' port="Fax.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Email.start" align='left'><font color="#FFFFEB"><b><i>Email</i></b></font></td>
-    <td bgcolor='#973835' port="Email.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="SupportRepId.start" align='left'><font color="#FFFFEB"><b><i>SupportRepId</i></b></font></td>
-    <td bgcolor='#973835' port="SupportRepId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    </table>
-> shape=none]
-		bgcolor=lightblue color=blue label="chinook.db" style=solid
-		"tracks [table]" [label=<
-
-
-
-<table border="1" cellborder="1" cellspacing="0" color="#973835">
-  <tr>
-    <td colspan='2' bgcolor='#B0413E' port="tracks [table].start" align='left'><font color="#FFFFEB"><b><i>tracks [table]</i></b></font></td>
-    <td bgcolor='#B0413E' align='right' port="tracks [table].end" ><font color="#FFFFEB"><b><i>2</i></b></font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="TrackId.start" align='left'><font color="#FFFFEB"><b><i>TrackId</i></b></font></td>
-    <td bgcolor='#973835' port="TrackId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
-    <td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="AlbumId.start" align='left'><font color="#FFFFEB"><b><i>AlbumId</i></b></font></td>
-    <td bgcolor='#973835' port="AlbumId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="MediaTypeId.start" align='left'><font color="#FFFFEB"><b><i>MediaTypeId</i></b></font></td>
-    <td bgcolor='#973835' port="MediaTypeId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="GenreId.start" align='left'><font color="#FFFFEB"><b><i>GenreId</i></b></font></td>
-    <td bgcolor='#973835' port="GenreId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Composer.start" align='left'><font color="#FFFFEB"><b><i>Composer</i></b></font></td>
-    <td bgcolor='#973835' port="Composer.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Milliseconds.start" align='left'><font color="#FFFFEB"><b><i>Milliseconds</i></b></font></td>
-    <td bgcolor='#973835' port="Milliseconds.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Bytes.start" align='left'><font color="#FFFFEB"><b><i>Bytes</i></b></font></td>
-    <td bgcolor='#973835' port="Bytes.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="UnitPrice.start" align='left'><font color="#FFFFEB"><b><i>UnitPrice</i></b></font></td>
-    <td bgcolor='#973835' port="UnitPrice.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    </table>
-> shape=none]
-		bgcolor=lightblue color=blue label="chinook.db" style=solid
-		"invoices [table]" [label=<
-
-
-
-<table border="1" cellborder="1" cellspacing="0" color="#973835">
-  <tr>
-    <td colspan='2' bgcolor='#B0413E' port="invoices [table].start" align='left'><font color="#FFFFEB"><b><i>invoices [table]</i></b></font></td>
-    <td bgcolor='#B0413E' align='right' port="invoices [table].end" ><font color="#FFFFEB"><b><i>3</i></b></font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="InvoiceId.start" align='left'><font color="#FFFFEB"><b><i>InvoiceId</i></b></font></td>
-    <td bgcolor='#973835' port="InvoiceId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="CustomerId.start" align='left'><font color="#FFFFEB"><b><i>CustomerId</i></b></font></td>
-    <td bgcolor='#973835' port="CustomerId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="InvoiceDate.start" align='left'><font color="#FFFFEB"><b><i>InvoiceDate</i></b></font></td>
-    <td bgcolor='#973835' port="InvoiceDate.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="BillingAddress.start" align='left'><font color="#FFFFEB"><b><i>BillingAddress</i></b></font></td>
-    <td bgcolor='#973835' port="BillingAddress.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="BillingCity.start" align='left'><font color="#FFFFEB"><b><i>BillingCity</i></b></font></td>
-    <td bgcolor='#973835' port="BillingCity.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="BillingState.start" align='left'><font color="#FFFFEB"><b><i>BillingState</i></b></font></td>
-    <td bgcolor='#973835' port="BillingState.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="BillingCountry.start" align='left'><font color="#FFFFEB"><b><i>BillingCountry</i></b></font></td>
-    <td bgcolor='#973835' port="BillingCountry.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="BillingPostalCode.start" align='left'><font color="#FFFFEB"><b><i>BillingPostalCode</i></b></font></td>
-    <td bgcolor='#973835' port="BillingPostalCode.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Total.start" align='left'><font color="#FFFFEB"><b><i>Total</i></b></font></td>
-    <td bgcolor='#973835' port="Total.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    </table>
-> shape=none]
-		bgcolor=lightblue color=blue label="chinook.db" style=solid
-		"invoice_items [table]" [label=<
-
-
-
-<table border="1" cellborder="1" cellspacing="0" color="#973835">
-  <tr>
-    <td colspan='2' bgcolor='#B0413E' port="invoice_items [table].start" align='left'><font color="#FFFFEB"><b><i>invoice_items [table]</i></b></font></td>
-    <td bgcolor='#B0413E' align='right' port="invoice_items [table].end" ><font color="#FFFFEB"><b><i>4</i></b></font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="InvoiceLineId.start" align='left'><font color="#FFFFEB"><b><i>InvoiceLineId</i></b></font></td>
-    <td bgcolor='#973835' port="InvoiceLineId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="InvoiceId.start" align='left'><font color="#FFFFEB"><b><i>InvoiceId</i></b></font></td>
-    <td bgcolor='#973835' port="InvoiceId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="TrackId.start" align='left'><font color="#FFFFEB"><b><i>TrackId</i></b></font></td>
-    <td bgcolor='#973835' port="TrackId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="UnitPrice.start" align='left'><font color="#FFFFEB"><b><i>UnitPrice</i></b></font></td>
-    <td bgcolor='#973835' port="UnitPrice.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Quantity.start" align='left'><font color="#FFFFEB"><b><i>Quantity</i></b></font></td>
-    <td bgcolor='#973835' port="Quantity.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    </table>
-> shape=none]
-		bgcolor=lightblue color=blue label="chinook.db" style=solid
-		"albums [table]" [label=<
-
-
-
-<table border="1" cellborder="1" cellspacing="0" color="#973835">
-  <tr>
-    <td colspan='2' bgcolor='#B0413E' port="albums [table].start" align='left'><font color="#FFFFEB"><b><i>albums [table]</i></b></font></td>
-    <td bgcolor='#B0413E' align='right' port="albums [table].end" ><font color="#FFFFEB"><b><i>5</i></b></font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="AlbumId.start" align='left'><font color="#FFFFEB"><b><i>AlbumId</i></b></font></td>
-    <td bgcolor='#973835' port="AlbumId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Title.start" align='left'><font color="#FFFFEB"><b><i>Title</i></b></font></td>
-    <td bgcolor='#973835' port="Title.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="ArtistId.start" align='left'><font color="#FFFFEB"><b><i>ArtistId</i></b></font></td>
-    <td bgcolor='#973835' port="ArtistId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    </table>
-> shape=none]
-		bgcolor=lightblue color=blue label="chinook.db" style=solid
-		"playlist_track [table]" [label=<
-
-
-
-<table border="1" cellborder="1" cellspacing="0" color="#973835">
-  <tr>
-    <td colspan='2' bgcolor='#B0413E' port="playlist_track [table].start" align='left'><font color="#FFFFEB"><b><i>playlist_track [table]</i></b></font></td>
-    <td bgcolor='#B0413E' align='right' port="playlist_track [table].end" ><font color="#FFFFEB"><b><i>6</i></b></font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="PlaylistId.start" align='left'><font color="#FFFFEB"><b><i>PlaylistId</i></b></font></td>
-    <td bgcolor='#973835' port="PlaylistId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="TrackId.start" align='left'><font color="#FFFFEB"><b><i>TrackId</i></b></font></td>
-    <td bgcolor='#973835' port="TrackId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    </table>
-> shape=none]
-		bgcolor=lightblue color=blue label="chinook.db" style=solid
-		"playlists [table]" [label=<
-
-
-
-<table border="1" cellborder="1" cellspacing="0" color="#973835">
-  <tr>
-    <td colspan='2' bgcolor='#B0413E' port="playlists [table].start" align='left'><font color="#FFFFEB"><b><i>playlists [table]</i></b></font></td>
-    <td bgcolor='#B0413E' align='right' port="playlists [table].end" ><font color="#FFFFEB"><b><i>7</i></b></font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="PlaylistId.start" align='left'><font color="#FFFFEB"><b><i>PlaylistId</i></b></font></td>
-    <td bgcolor='#973835' port="PlaylistId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
-    <td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    </table>
-> shape=none]
-		bgcolor=lightblue color=blue label="chinook.db" style=solid
-		"media_types [table]" [label=<
-
-
-
-<table border="1" cellborder="1" cellspacing="0" color="#973835">
-  <tr>
-    <td colspan='2' bgcolor='#B0413E' port="media_types [table].start" align='left'><font color="#FFFFEB"><b><i>media_types [table]</i></b></font></td>
-    <td bgcolor='#B0413E' align='right' port="media_types [table].end" ><font color="#FFFFEB"><b><i>8</i></b></font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="MediaTypeId.start" align='left'><font color="#FFFFEB"><b><i>MediaTypeId</i></b></font></td>
-    <td bgcolor='#973835' port="MediaTypeId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
-    <td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    </table>
-> shape=none]
-		bgcolor=lightblue color=blue label="chinook.db" style=solid
-		"genres [table]" [label=<
-
-
-
-<table border="1" cellborder="1" cellspacing="0" color="#973835">
-  <tr>
-    <td colspan='2' bgcolor='#B0413E' port="genres [table].start" align='left'><font color="#FFFFEB"><b><i>genres [table]</i></b></font></td>
-    <td bgcolor='#B0413E' align='right' port="genres [table].end" ><font color="#FFFFEB"><b><i>9</i></b></font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="GenreId.start" align='left'><font color="#FFFFEB"><b><i>GenreId</i></b></font></td>
-    <td bgcolor='#973835' port="GenreId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
-    <td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    </table>
-> shape=none]
-		bgcolor=lightblue color=blue label="chinook.db" style=solid
-		"artists [table]" [label=<
-
-
-
-<table border="1" cellborder="1" cellspacing="0" color="#973835">
-  <tr>
-    <td colspan='2' bgcolor='#B0413E' port="artists [table].start" align='left'><font color="#FFFFEB"><b><i>artists [table]</i></b></font></td>
-    <td bgcolor='#B0413E' align='right' port="artists [table].end" ><font color="#FFFFEB"><b><i>10</i></b></font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="ArtistId.start" align='left'><font color="#FFFFEB"><b><i>ArtistId</i></b></font></td>
-    <td bgcolor='#973835' port="ArtistId.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
-  </tr>
-    
-  <tr>
-    <td colspan='2' bgcolor='#973835' port="Name.start" align='left'><font color="#FFFFEB"><b><i>Name</i></b></font></td>
-    <td bgcolor='#973835' port="Name.end" align='right'><font color="#FFFFEB">VARCHAR(50)</font></td>
+    <td colspan='2' bgcolor='#C43131' port="split.start" align='left'><font color="#FFFFEB"><b><i>split</i></b></font></td>
+    <td bgcolor='#C43131' port="split.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
   </tr>
     </table>
 > shape=none]
 	}
-	"customers [table]":"FirstName.end" -> "employees [table]":"FirstName.start" [label="customers [table] ref.  employees [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"invoices [table]":"CustomerId.end" -> "customers [table]":"CustomerId.start" [label="invoices [table] ref.  customers [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"invoice_items [table]":"InvoiceId.end" -> "invoices [table]":"InvoiceId.start" [label="invoice_items [table] ref.  invoices [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"invoice_items [table]":"TrackId.end" -> "tracks [table]":"TrackId.start" [label="invoice_items [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"albums [table]":"AlbumId.end" -> "tracks [table]":"AlbumId.start" [label="albums [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"playlist_track [table]":"TrackId.end" -> "tracks [table]":"TrackId.start" [label="playlist_track [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"playlists [table]":"PlaylistId.end" -> "playlist_track [table]":"PlaylistId.start" [label="playlists [table] ref.  playlist_track [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"media_types [table]":"MediaTypeId.end" -> "tracks [table]":"MediaTypeId.start" [label="media_types [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"genres [table]":"GenreId.end" -> "tracks [table]":"GenreId.start" [label="genres [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"artists [table]":"ArtistId.end" -> "albums [table]":"ArtistId.start" [label="artists [table] ref.  albums [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"customers [table]":"LastName.end" -> "employees [table]":"LastName.start" [label="customers [table] ref.  employees [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
-	"invoice_items [table]":"UnitPrice.end" -> "tracks [table]":"UnitPrice.start" [label="invoice_items [table] ref.  tracks [table]" arrowhead=vee arrowtail=odot dir=both style=solid]
+	subgraph "Cluster-118" {
+		bgcolor="#FFC6A5" color="#FFA07A" label="flaskAPI.py" style=solid
+		"APImapDatabase [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
+  <tr>
+    <td colspan='2' bgcolor='#932525' port="APImapDatabase [table].start" align='left'><font color="#FFFFEB"><b><i>APImapDatabase [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="APImapDatabase [table].end" ><font color="#FFFFEB"><b><i>0</i></b></font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="getlist.start" align='left'><font color="#FFFFEB"><b><i>getlist</i></b></font></td>
+    <td bgcolor='#C43131' port="getlist.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="mapDatabase.start" align='left'><font color="#FFFFEB"><b><i>mapDatabase</i></b></font></td>
+    <td bgcolor='#C43131' port="mapDatabase.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="getcwd.start" align='left'><font color="#FFFFEB"><b><i>getcwd</i></b></font></td>
+    <td bgcolor='#C43131' port="getcwd.end" align='right'><font color="#FFFFEB">Built-In Python OS Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="open.start" align='left'><font color="#FFFFEB"><b><i>open</i></b></font></td>
+    <td bgcolor='#C43131' port="open.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="BytesIO.start" align='left'><font color="#FFFFEB"><b><i>BytesIO</i></b></font></td>
+    <td bgcolor='#C43131' port="BytesIO.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="open.start" align='left'><font color="#FFFFEB"><b><i>open</i></b></font></td>
+    <td bgcolor='#C43131' port="open.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="BytesIO.start" align='left'><font color="#FFFFEB"><b><i>BytesIO</i></b></font></td>
+    <td bgcolor='#C43131' port="BytesIO.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="save.start" align='left'><font color="#FFFFEB"><b><i>save</i></b></font></td>
+    <td bgcolor='#C43131' port="save.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="seek.start" align='left'><font color="#FFFFEB"><b><i>seek</i></b></font></td>
+    <td bgcolor='#C43131' port="seek.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="send_file.start" align='left'><font color="#FFFFEB"><b><i>send_file</i></b></font></td>
+    <td bgcolor='#C43131' port="send_file.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="run.start" align='left'><font color="#FFFFEB"><b><i>run</i></b></font></td>
+    <td bgcolor='#C43131' port="run.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    </table>
+> shape=none]
+	}
+	subgraph "Cluster-981" {
+		bgcolor="#FFC6A5" color="#FFA07A" label="generateGraph.py" style=solid
+		"generateGraph [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
+  <tr>
+    <td colspan='2' bgcolor='#932525' port="generateGraph [table].start" align='left'><font color="#FFFFEB"><b><i>generateGraph [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="generateGraph [table].end" ><font color="#FFFFEB"><b><i>0</i></b></font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="Digraph.start" align='left'><font color="#FFFFEB"><b><i>Digraph</i></b></font></td>
+    <td bgcolor='#C43131' port="Digraph.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="initializeGraphGeneration.start" align='left'><font color="#FFFFEB"><b><i>initializeGraphGeneration</i></b></font></td>
+    <td bgcolor='#C43131' port="initializeGraphGeneration.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="enumerate.start" align='left'><font color="#FFFFEB"><b><i>enumerate</i></b></font></td>
+    <td bgcolor='#C43131' port="enumerate.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="addTables.start" align='left'><font color="#FFFFEB"><b><i>addTables</i></b></font></td>
+    <td bgcolor='#C43131' port="addTables.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="update.start" align='left'><font color="#FFFFEB"><b><i>update</i></b></font></td>
+    <td bgcolor='#C43131' port="update.end" align='right'><font color="#FFFFEB">Built-In Python Set Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="addKeys.start" align='left'><font color="#FFFFEB"><b><i>addKeys</i></b></font></td>
+    <td bgcolor='#C43131' port="addKeys.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="addForeignKeys.start" align='left'><font color="#FFFFEB"><b><i>addForeignKeys</i></b></font></td>
+    <td bgcolor='#C43131' port="addForeignKeys.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="generateForeignKeys.start" align='left'><font color="#FFFFEB"><b><i>generateForeignKeys</i></b></font></td>
+    <td bgcolor='#C43131' port="generateForeignKeys.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="now.start" align='left'><font color="#FFFFEB"><b><i>now</i></b></font></td>
+    <td bgcolor='#C43131' port="now.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="strftime.start" align='left'><font color="#FFFFEB"><b><i>strftime</i></b></font></td>
+    <td bgcolor='#C43131' port="strftime.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="update.start" align='left'><font color="#FFFFEB"><b><i>update</i></b></font></td>
+    <td bgcolor='#C43131' port="update.end" align='right'><font color="#FFFFEB">Built-In Python Set Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="render.start" align='left'><font color="#FFFFEB"><b><i>render</i></b></font></td>
+    <td bgcolor='#C43131' port="render.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    </table>
+> shape=none]
+		bgcolor="#FFC6A5" color="#FFA07A" label="generateGraph.py" style=solid
+		"addKeys [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
+  <tr>
+    <td colspan='2' bgcolor='#932525' port="addKeys [table].start" align='left'><font color="#FFFFEB"><b><i>addKeys [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="addKeys [table].end" ><font color="#FFFFEB"><b><i>1</i></b></font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="enumerate.start" align='left'><font color="#FFFFEB"><b><i>enumerate</i></b></font></td>
+    <td bgcolor='#C43131' port="enumerate.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="set.start" align='left'><font color="#FFFFEB"><b><i>set</i></b></font></td>
+    <td bgcolor='#C43131' port="set.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="add.start" align='left'><font color="#FFFFEB"><b><i>add</i></b></font></td>
+    <td bgcolor='#C43131' port="add.end" align='right'><font color="#FFFFEB">Built-In Python Set Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="generateKey.start" align='left'><font color="#FFFFEB"><b><i>generateKey</i></b></font></td>
+    <td bgcolor='#C43131' port="generateKey.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="append.start" align='left'><font color="#FFFFEB"><b><i>append</i></b></font></td>
+    <td bgcolor='#C43131' port="append.end" align='right'><font color="#FFFFEB">Built-In Python List Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="subgraph.start" align='left'><font color="#FFFFEB"><b><i>subgraph</i></b></font></td>
+    <td bgcolor='#C43131' port="subgraph.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="enumerate.start" align='left'><font color="#FFFFEB"><b><i>enumerate</i></b></font></td>
+    <td bgcolor='#C43131' port="enumerate.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="attr.start" align='left'><font color="#FFFFEB"><b><i>attr</i></b></font></td>
+    <td bgcolor='#C43131' port="attr.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="node.start" align='left'><font color="#FFFFEB"><b><i>node</i></b></font></td>
+    <td bgcolor='#C43131' port="node.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    </table>
+> shape=none]
+		bgcolor="#FFC6A5" color="#FFA07A" label="generateGraph.py" style=solid
+		"addForeignKeys [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
+  <tr>
+    <td colspan='2' bgcolor='#932525' port="addForeignKeys [table].start" align='left'><font color="#FFFFEB"><b><i>addForeignKeys [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="addForeignKeys [table].end" ><font color="#FFFFEB"><b><i>2</i></b></font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="stemmer.start" align='left'><font color="#FFFFEB"><b><i>stemmer</i></b></font></td>
+    <td bgcolor='#C43131' port="stemmer.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="replace.start" align='left'><font color="#FFFFEB"><b><i>replace</i></b></font></td>
+    <td bgcolor='#C43131' port="replace.end" align='right'><font color="#FFFFEB">Built-In Python OS Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="replace.start" align='left'><font color="#FFFFEB"><b><i>replace</i></b></font></td>
+    <td bgcolor='#C43131' port="replace.end" align='right'><font color="#FFFFEB">Built-In Python OS Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="stemWord.start" align='left'><font color="#FFFFEB"><b><i>stemWord</i></b></font></td>
+    <td bgcolor='#C43131' port="stemWord.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="lower.start" align='left'><font color="#FFFFEB"><b><i>lower</i></b></font></td>
+    <td bgcolor='#C43131' port="lower.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="lower.start" align='left'><font color="#FFFFEB"><b><i>lower</i></b></font></td>
+    <td bgcolor='#C43131' port="lower.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="append.start" align='left'><font color="#FFFFEB"><b><i>append</i></b></font></td>
+    <td bgcolor='#C43131' port="append.end" align='right'><font color="#FFFFEB">Built-In Python List Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="append.start" align='left'><font color="#FFFFEB"><b><i>append</i></b></font></td>
+    <td bgcolor='#C43131' port="append.end" align='right'><font color="#FFFFEB">Built-In Python List Function</font></td>
+  </tr>
+    </table>
+> shape=none]
+		bgcolor="#FFC6A5" color="#FFA07A" label="generateGraph.py" style=solid
+		"generateForeignKeys [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
+  <tr>
+    <td colspan='2' bgcolor='#932525' port="generateForeignKeys [table].start" align='left'><font color="#FFFFEB"><b><i>generateForeignKeys [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="generateForeignKeys [table].end" ><font color="#FFFFEB"><b><i>3</i></b></font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="edge.start" align='left'><font color="#FFFFEB"><b><i>edge</i></b></font></td>
+    <td bgcolor='#C43131' port="edge.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="edge.start" align='left'><font color="#FFFFEB"><b><i>edge</i></b></font></td>
+    <td bgcolor='#C43131' port="edge.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    </table>
+> shape=none]
+		bgcolor="#FFC6A5" color="#FFA07A" label="generateGraph.py" style=solid
+		"addTables [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
+  <tr>
+    <td colspan='2' bgcolor='#932525' port="addTables [table].start" align='left'><font color="#FFFFEB"><b><i>addTables [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="addTables [table].end" ><font color="#FFFFEB"><b><i>4</i></b></font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="enumerate.start" align='left'><font color="#FFFFEB"><b><i>enumerate</i></b></font></td>
+    <td bgcolor='#C43131' port="enumerate.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="append.start" align='left'><font color="#FFFFEB"><b><i>append</i></b></font></td>
+    <td bgcolor='#C43131' port="append.end" align='right'><font color="#FFFFEB">Built-In Python List Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="append.start" align='left'><font color="#FFFFEB"><b><i>append</i></b></font></td>
+    <td bgcolor='#C43131' port="append.end" align='right'><font color="#FFFFEB">Built-In Python List Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="generateTable.start" align='left'><font color="#FFFFEB"><b><i>generateTable</i></b></font></td>
+    <td bgcolor='#C43131' port="generateTable.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    </table>
+> shape=none]
+		bgcolor="#FFC6A5" color="#FFA07A" label="generateGraph.py" style=solid
+		"initializeGraphGeneration [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
+  <tr>
+    <td colspan='2' bgcolor='#932525' port="initializeGraphGeneration [table].start" align='left'><font color="#FFFFEB"><b><i>initializeGraphGeneration [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="initializeGraphGeneration [table].end" ><font color="#FFFFEB"><b><i>5</i></b></font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="enumerate.start" align='left'><font color="#FFFFEB"><b><i>enumerate</i></b></font></td>
+    <td bgcolor='#C43131' port="enumerate.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="append.start" align='left'><font color="#FFFFEB"><b><i>append</i></b></font></td>
+    <td bgcolor='#C43131' port="append.end" align='right'><font color="#FFFFEB">Built-In Python List Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="sorted.start" align='left'><font color="#FFFFEB"><b><i>sorted</i></b></font></td>
+    <td bgcolor='#C43131' port="sorted.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="reverse.start" align='left'><font color="#FFFFEB"><b><i>reverse</i></b></font></td>
+    <td bgcolor='#C43131' port="reverse.end" align='right'><font color="#FFFFEB">Built-In Python List Function</font></td>
+  </tr>
+    </table>
+> shape=none]
+		bgcolor="#FFC6A5" color="#FFA07A" label="generateGraph.py" style=solid
+		"generateKey [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
+  <tr>
+    <td colspan='2' bgcolor='#932525' port="generateKey [table].start" align='left'><font color="#FFFFEB"><b><i>generateKey [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="generateKey [table].end" ><font color="#FFFFEB"><b><i>6</i></b></font></td>
+  </tr>
+    </table>
+> shape=none]
+		bgcolor="#FFC6A5" color="#FFA07A" label="generateGraph.py" style=solid
+		"generateTable [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
+  <tr>
+    <td colspan='2' bgcolor='#932525' port="generateTable [table].start" align='left'><font color="#FFFFEB"><b><i>generateTable [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="generateTable [table].end" ><font color="#FFFFEB"><b><i>7</i></b></font></td>
+  </tr>
+    </table>
+> shape=none]
+	}
+	subgraph "Cluster-620" {
+		bgcolor="#FFC6A5" color="#FFA07A" label="mapText.py" style=solid
+		"mapText [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
+  <tr>
+    <td colspan='2' bgcolor='#932525' port="mapText [table].start" align='left'><font color="#FFFFEB"><b><i>mapText [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="mapText [table].end" ><font color="#FFFFEB"><b><i>0</i></b></font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="open.start" align='left'><font color="#FFFFEB"><b><i>open</i></b></font></td>
+    <td bgcolor='#C43131' port="open.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="load.start" align='left'><font color="#FFFFEB"><b><i>load</i></b></font></td>
+    <td bgcolor='#C43131' port="load.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="open.start" align='left'><font color="#FFFFEB"><b><i>open</i></b></font></td>
+    <td bgcolor='#C43131' port="open.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="strip.start" align='left'><font color="#FFFFEB"><b><i>strip</i></b></font></td>
+    <td bgcolor='#C43131' port="strip.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="list.start" align='left'><font color="#FFFFEB"><b><i>list</i></b></font></td>
+    <td bgcolor='#C43131' port="list.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="values.start" align='left'><font color="#FFFFEB"><b><i>values</i></b></font></td>
+    <td bgcolor='#C43131' port="values.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="addKey.start" align='left'><font color="#FFFFEB"><b><i>addKey</i></b></font></td>
+    <td bgcolor='#C43131' port="addKey.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="append.start" align='left'><font color="#FFFFEB"><b><i>append</i></b></font></td>
+    <td bgcolor='#C43131' port="append.end" align='right'><font color="#FFFFEB">Built-In Python List Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="open.start" align='left'><font color="#FFFFEB"><b><i>open</i></b></font></td>
+    <td bgcolor='#C43131' port="open.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="dump.start" align='left'><font color="#FFFFEB"><b><i>dump</i></b></font></td>
+    <td bgcolor='#C43131' port="dump.end" align='right'><font color="#FFFFEB">FUNCTION CALL</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="open.start" align='left'><font color="#FFFFEB"><b><i>open</i></b></font></td>
+    <td bgcolor='#C43131' port="open.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="write.start" align='left'><font color="#FFFFEB"><b><i>write</i></b></font></td>
+    <td bgcolor='#C43131' port="write.end" align='right'><font color="#FFFFEB">Built-In Python OS Function</font></td>
+  </tr>
+    </table>
+> shape=none]
+		bgcolor="#FFC6A5" color="#FFA07A" label="mapText.py" style=solid
+		"addKey [table]" [label=<
+
+
+
+<table border="1" cellborder="1" cellspacing="0" color="#932525">
+  <tr>
+    <td colspan='2' bgcolor='#932525' port="addKey [table].start" align='left'><font color="#FFFFEB"><b><i>addKey [table]</i></b></font></td>
+    <td bgcolor='#932525' align='right' port="addKey [table].end" ><font color="#FFFFEB"><b><i>1</i></b></font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="update.start" align='left'><font color="#FFFFEB"><b><i>update</i></b></font></td>
+    <td bgcolor='#C43131' port="update.end" align='right'><font color="#FFFFEB">Built-In Python Set Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="append.start" align='left'><font color="#FFFFEB"><b><i>append</i></b></font></td>
+    <td bgcolor='#C43131' port="append.end" align='right'><font color="#FFFFEB">Built-In Python List Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="print.start" align='left'><font color="#FFFFEB"><b><i>print</i></b></font></td>
+    <td bgcolor='#C43131' port="print.end" align='right'><font color="#FFFFEB">Built-In Python Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="append.start" align='left'><font color="#FFFFEB"><b><i>append</i></b></font></td>
+    <td bgcolor='#C43131' port="append.end" align='right'><font color="#FFFFEB">Built-In Python List Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="append.start" align='left'><font color="#FFFFEB"><b><i>append</i></b></font></td>
+    <td bgcolor='#C43131' port="append.end" align='right'><font color="#FFFFEB">Built-In Python List Function</font></td>
+  </tr>
+    
+  <tr>
+    <td colspan='2' bgcolor='#C43131' port="update.start" align='left'><font color="#FFFFEB"><b><i>update</i></b></font></td>
+    <td bgcolor='#C43131' port="update.end" align='right'><font color="#FFFFEB">Built-In Python Set Function</font></td>
+  </tr>
+    </table>
+> shape=none]
+	}
+	"mapDatabase [table]":"determineFileType.end" -> "determineFileType [table]":"determineFileType [table].start" [arrowhead=normal arrowtail=odot color="#141414" dir=both penwidth=1.5 style=solid]
+	"APImapDatabase [table]":"mapDatabase.end" -> "mapDatabase [table]":"mapDatabase [table].start" [arrowhead=normal arrowtail=odot color="#141414" dir=both penwidth=1.5 style=solid]
+	"mapDatabase [table]":"generateGraph.end" -> "generateGraph [table]":"generateGraph [table].start" [arrowhead=normal arrowtail=odot color="#141414" dir=both penwidth=1.5 style=solid]
+	"generateGraph [table]":"addKeys.end" -> "addKeys [table]":"addKeys [table].start" [arrowhead=normal arrowtail=odot color="#141414" dir=both penwidth=1.5 style=solid]
+	"generateGraph [table]":"addForeignKeys.end" -> "addForeignKeys [table]":"addForeignKeys [table].start" [arrowhead=normal arrowtail=odot color="#141414" dir=both penwidth=1.5 style=solid]
+	"generateGraph [table]":"generateForeignKeys.end" -> "generateForeignKeys [table]":"generateForeignKeys [table].start" [arrowhead=normal arrowtail=odot color="#141414" dir=both penwidth=1.5 style=solid]
+	"generateGraph [table]":"addTables.end" -> "addTables [table]":"addTables [table].start" [arrowhead=normal arrowtail=odot color="#141414" dir=both penwidth=1.5 style=solid]
+	"generateGraph [table]":"initializeGraphGeneration.end" -> "initializeGraphGeneration [table]":"initializeGraphGeneration [table].start" [arrowhead=normal arrowtail=odot color="#141414" dir=both penwidth=1.5 style=solid]
+	"addKeys [table]":"generateKey.end" -> "generateKey [table]":"generateKey [table].start" [arrowhead=normal arrowtail=odot color="#141414" dir=both penwidth=1.5 style=solid]
+	"addTables [table]":"generateTable.end" -> "generateTable [table]":"generateTable [table].start" [arrowhead=normal arrowtail=odot color="#141414" dir=both penwidth=1.5 style=solid]
+	"mapDatabase [table]":"mapText.end" -> "mapText [table]":"mapText [table].start" [arrowhead=normal arrowtail=odot color="#141414" dir=both penwidth=1.5 style=solid]
+	"mapText [table]":"addKey.end" -> "addKey [table]":"addKey [table].start" [arrowhead=normal arrowtail=odot color="#141414" dir=both penwidth=1.5 style=solid]
 }

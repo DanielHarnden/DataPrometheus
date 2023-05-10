@@ -34,4 +34,5 @@ Keys (whether or not synonyms or like keys have been found) are stored in the ke
 #### Step 3: Generate a Visualization
 
 Using the parsing and mapping information, generateGraph.py has enough information to recreate the inputted files' file structure in the form of GraphViz nodes, subgraphs, and edges. Files are created as subgraphs, which contain all of the nodes generated for each file. Each node represents a "table" (this can be a table from a database file, or a function from a programming language file) and "keys" (this can be a key from a database file, or a function call from a programming language file). Relationships between keys are found, marked, and mapped both between nodes within the current subgraph and nodes in other subgraphs (files) as edges between nodes.
+
 Once every node, subgraph, and edge are found, the output is saved as a GraphViz dot file and a PNG of that dot file is generated. Both are stored in the output directory (in the base DataPrometheus directory). The GUI is then updated with the newly generated image.
