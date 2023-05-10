@@ -8,6 +8,18 @@ def b():
 
 def c():
     print("Function C is called")
+
+    def cIn():
+        def cInTwo():
+            print("a")
+            print("b")
+
+        cInTwo()
+
+
+    def cInThree():
+        print("c")
+        
     d()
 
 def d():
@@ -15,14 +27,19 @@ def d():
     e()
 
 def e():
+
     def inside():
-        print("We're so in")
+
         def insider():
-            print("Wow...?")
+
             def insidiest():
                 print("Comically nested functions.")
 
             insidiest()
+            print("We're so in")
+
         insider()
+        print("Wow...?")
+
     inside()
     print("Function E is called")
