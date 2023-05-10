@@ -26,7 +26,6 @@ def sqlParse(file, originalFileName):
             tempLine = []
 
     if len(tables) != 0:
-        print(tables)
         return parseTables(cleanedTables, tables)
     else:
         return parseInsertStatements(cleanedTables, inserts)

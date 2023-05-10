@@ -1,12 +1,12 @@
 public class ExampleFunctions {
     
     // Function to add two integers
-    public static int add(int a, int b) {
+    public int add(int a, int b) {
         return a + b;
     }
     
     // Function to calculate the area of a rectangle
-    public static int calculateRectangleArea(int length, int width) {
+    static int calculateRectangleArea(int length, int width) {
         return length * width;
     }
     

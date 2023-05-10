@@ -23,8 +23,6 @@ def pythonParse(file, originalFileName):
             temp = [[line, "FUNCTION"]]
             cleanedTables.append(temp)
 
-    print(cleanedTables)
-
     # 0 is the file name, 1 is the first function
     functionNumber = 0
     subFunctionDepth = 0
@@ -57,11 +55,4 @@ def pythonParse(file, originalFileName):
                     if not added:
                         cleanedTables[functionNumber + subFunctionDepth].append([tempLine, "FUNCTION CALL"])
 
-            
-            print(line)
-            print("Leading whitespace real = ", len(line) - len(line.lstrip()))
-            print("Leading spaces check = ", leadingSpaces)
-            print("subfunctiondepth =", subFunctionDepth)
-            print("function number = ", functionNumber, "\n\n\n")
-                        
     return cleanedTables

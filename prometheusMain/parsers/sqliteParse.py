@@ -29,7 +29,6 @@ def sqliteParse(file, originalFileName):
             pragmaResults = cur.execute(pragmaQuery).fetchall()
 
             for column in pragmaResults:
-                print(column[2])
                 if column[2] != "":
                     tempTable += [[column[1], column[2]]]
                 else:
@@ -38,7 +37,5 @@ def sqliteParse(file, originalFileName):
 
     # Closes the connection and returns the list of cleaned tables
     conn.close()
-
-    print(cleanedTables)
 
     return cleanedTables
