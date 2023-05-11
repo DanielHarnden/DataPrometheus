@@ -1,6 +1,7 @@
 import os, tempfile, time
 from generateGraph import generateGraph
 from mapText import mapText
+from combineFiles import combineFiles
 
 # Import the various parsers from the parsers folder
 from parsers.sqliteParse import sqliteParse
@@ -24,28 +25,6 @@ supportedMergeFileTypes = [sqLiteReadable, sqlParseReadable]
 
 def mapDatabase(files):
     beginTime = time.time()
-    function = None
-    functionSet = set()
-
-    # Checks the extensions to see if they're compatable
-    for file in files:
-        extension = determineFileType(file.filename)
-
-    # Goes through the list of supported files. If the extension is supported, the function is marked
-    for typeList in supportedFileTypes:
-        if extension in typeList:
-            function = typeList[0]
-            functionSet.add(extension)
-
-    # If the extensions are not compatable, exit the program
-    if len(functionSet) != 1:
-        print("Multi file type parsing is not yet supported by Data Prometheus.")
-        return 0
-
-    # If no supported function is found, exit the program
-    if function is None:
-        print("That file type is not yet supported by the Data Prometheus mapper.")
-        return 0
 
     parsedText = []
     # Parse each of the sent files and append it to parsedText
@@ -53,6 +32,17 @@ def mapDatabase(files):
         # Saves a temporary file for the parsers to use
         temp_file = tempfile.NamedTemporaryFile(delete=False)
         file.save(temp_file.name)
+
+        function = None
+        extension = determineFileType(file.filename)
+
+        for typeList in supportedFileTypes:
+            if extension in typeList:
+                function = typeList[0]
+
+        if function is None:
+            print(f"File types of extension .{extension} are not currently supported.")
+            return 0
 
         # The file is sent to its designated parser
         tempStartTime = time.time()
@@ -79,28 +69,7 @@ def mapDatabase(files):
 
 
 def mergeDatabase(files):
-    function = None
-    functionSet = set()
 
-    # Checks the extensions to see if they're compatable
-    for file in files:
-        extension = determineFileType(file.filename)
-
-    # Goes through the list of supported files. If the extension is supported, the function is marked
-    for typeList in supportedMergeFileTypes:
-        if extension in typeList:
-            function = typeList[0]
-            functionSet.add(extension)
-
-    # If the extensions are not compatable, exit the program
-    if len(functionSet) != 1:
-        print("Multi file type parsing is not yet supported by Data Prometheus.")
-        return 0
-
-    # If no supported function is found, exit the program
-    if function is None:
-        print("That file type is not yet supported by the Data Prometheus merger.")
-        return 0
 
     parsedText = []
     # Parse each of the sent files and append it to parsedText
@@ -108,6 +77,17 @@ def mergeDatabase(files):
         # Saves a temporary file for the parsers to use
         temp_file = tempfile.NamedTemporaryFile(delete=False)
         file.save(temp_file.name)
+
+        function = None
+        extension = determineFileType(file.filename)
+
+        for typeList in supportedMergeFileTypes:
+            if extension in typeList:
+                function = typeList[0]
+
+        if function is None:
+            print(f"File types of extension .{extension} are not currently supported.")
+            return 0
 
         # The file is sent to its designated parser
         parsedText.append(function(temp_file, file.filename))
@@ -117,9 +97,10 @@ def mergeDatabase(files):
         os.unlink(temp_file.name)
 
     keyList, bannedWords = mapText(parsedText)
-    
-    generateGraph(parsedText, keyList, bannedWords)
 
+    parsedText = combineFiles(parsedText)
+
+    generateGraph(parsedText, keyList, bannedWords)
 
 
 # Determines the file's type
