@@ -18,6 +18,7 @@ javaReadable = [javaParse, "java"]
 
 # A list containing the previous lists, for streamlining later
 supportedFileTypes = [sqLiteReadable, sqlParseReadable, pythonParseReadable, cppParseReadable, javaReadable]
+supportedMergeFileTypes = [sqLiteReadable, sqlParseReadable]
 
 
 
@@ -43,7 +44,7 @@ def mapDatabase(files):
 
     # If no supported function is found, exit the program
     if function is None:
-        print("That file type is not yet supported by Data Prometheus.")
+        print("That file type is not yet supported by the Data Prometheus mapper.")
         return 0
 
     parsedText = []
@@ -74,6 +75,50 @@ def mapDatabase(files):
     print(f"PNG generated. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
     print(f"Total Operational Time: {time.time() - beginTime} seconds.\n")
+
+
+
+def mergeDatabase(files):
+    function = None
+    functionSet = set()
+
+    # Checks the extensions to see if they're compatable
+    for file in files:
+        extension = determineFileType(file.filename)
+
+    # Goes through the list of supported files. If the extension is supported, the function is marked
+    for typeList in supportedMergeFileTypes:
+        if extension in typeList:
+            function = typeList[0]
+            functionSet.add(extension)
+
+    # If the extensions are not compatable, exit the program
+    if len(functionSet) != 1:
+        print("Multi file type parsing is not yet supported by Data Prometheus.")
+        return 0
+
+    # If no supported function is found, exit the program
+    if function is None:
+        print("That file type is not yet supported by the Data Prometheus merger.")
+        return 0
+
+    parsedText = []
+    # Parse each of the sent files and append it to parsedText
+    for i, file in enumerate(files):
+        # Saves a temporary file for the parsers to use
+        temp_file = tempfile.NamedTemporaryFile(delete=False)
+        file.save(temp_file.name)
+
+        # The file is sent to its designated parser
+        parsedText.append(function(temp_file, file.filename))
+
+        # The temporary file is deleted
+        temp_file.close()
+        os.unlink(temp_file.name)
+
+    keyList, bannedWords = mapText(parsedText)
+    
+    generateGraph(parsedText, keyList, bannedWords)
 
 
 

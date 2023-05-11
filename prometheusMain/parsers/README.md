@@ -13,14 +13,14 @@ Data Prometheus currently supports five file types, listed below in development 
 [
     ["fileOneName"],
     [
-        ["tableOneName", "tableOneType"],
+        ["classOneName.tableOneName", "tableOneType"],
         ["key1", "key1Type"],
         ["key2", "key2Type"],
         ...
         ["keyN", "keyNType"]
     ],
     [
-        ["tableTwoName", "tableTwoType"],
+        ["classTwoName.tableTwoName", "tableTwoType"],
         ["key1", "key1Type"],
         ["key2", "key2Type"],
         ...
@@ -28,7 +28,7 @@ Data Prometheus currently supports five file types, listed below in development 
     ],
     ...
     [
-        ["tableNName", "tableNType"],
+        ["classNName.tableNName", "tableNType"],
         ["key1", "key1Type"],
         ["key2", "key2Type"],
         ...
@@ -36,6 +36,9 @@ Data Prometheus currently supports five file types, listed below in development 
     ]
 ]
 ```
+
+If no class exists, only the name of the table is added.
+
 # By this logic, runDataPrometheus.py looks like this:
 ```
 [

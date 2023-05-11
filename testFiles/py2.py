@@ -2,6 +2,8 @@ class A:
     def __init__(self):
         print("Function A is called")
         B()
+        F()
+        insidiest()
 
 class B:
     def __init__(self):
@@ -33,6 +35,7 @@ class E:
     def __init__(self):
         self.inside()
         print("Function E is called")
+        F()
 
     def inside(self):
         def insider():
