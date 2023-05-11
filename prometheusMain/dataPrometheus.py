@@ -1,7 +1,7 @@
 import os, tempfile, time
 from generateGraph import generateGraph
 from mapText import mapText
-from combineFiles import combineFiles
+from combineFiles import combineFiles, generateSQL
 
 # Import the various parsers from the parsers folder
 from parsers.sqliteParse import sqliteParse
@@ -98,9 +98,11 @@ def mergeDatabase(files):
 
     keyList, bannedWords = mapText(parsedText)
 
-    parsedText = combineFiles(parsedText)
+    newParsedText = combineFiles(parsedText)
 
-    generateGraph(parsedText, keyList, bannedWords)
+    edgesToAdd = generateGraph(newParsedText, keyList, bannedWords)
+
+    generateSQL(parsedText, edgesToAdd)
 
 
 # Determines the file's type

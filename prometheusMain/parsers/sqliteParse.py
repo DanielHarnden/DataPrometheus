@@ -32,7 +32,7 @@ def sqliteParse(file, originalFileName):
                 if column[2] != "":
                     tempTable += [[column[1], column[2]]]
                 else:
-                    tempTable += [[column[1], "TYPE UNKNOWN"]]
+                    tempTable += [[column[1], "NULL"]]
             cleanedTables.append(tempTable)
 
     # Closes the connection and returns the list of cleaned tables

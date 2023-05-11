@@ -63,7 +63,7 @@ def parseInsertStatements(cleanedTables, inserts):
                     if i == 0:
                         results.append([item, "TABLE"])
                     else:
-                        results.append([item, "TYPE UNKNOWN"])
+                        results.append([item, "NULL"])
 
                 cleanedTables.append(results)
     return cleanedTables

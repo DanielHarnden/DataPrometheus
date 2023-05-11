@@ -27,7 +27,7 @@ def generateGraph(parsedText, keyList, bannedWords):
     edgesToAdd, tablesVisited = findForeignKeys(parsedText, tableNames, tablesVisited, edgesToAdd, keyList, primaryKeys, bannedWords)
 
     # Adds the found relationships as edges on the graph
-    dot = generateForeignKeys(edgesToAdd, nodes, dot)
+    dot, edgesToAdd = generateForeignKeys(edgesToAdd, nodes, dot)
 
     # Does some settings to make it look pwetty uwu
     graphCreationTime = datetime.now()
@@ -42,6 +42,8 @@ def generateGraph(parsedText, keyList, bannedWords):
 
     # Renders the graph as a PNG to the output folder
     dot.render('./output/output', format='png')
+
+    return edgesToAdd
 
 
 
@@ -237,5 +239,6 @@ def generateForeignKeys(edgesToAdd, nodes, dot):
             )
         else:
             print(f"{startTable}:{startKey} referencing {endTable}:{endKey}\t\tError: Node does not exist.")
+            edgesToAdd.remove((startTable, startKey, endTable, endKey))
     
-    return dot
+    return dot, edgesToAdd
