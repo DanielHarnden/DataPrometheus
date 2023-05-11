@@ -69,9 +69,19 @@ def addTables(file, primaryKeys, newTables, tableNames):
     for i, tableList in enumerate(file):
         newTables.append('''<\n\n\n\n<table border="1" cellborder="1" cellspacing="0" color="#932525">''')
 
-        # Generates the table using the table name
-        tableNames.append(tableList[0][0] + " [table]")
-        newTables[i] += generateTable(tableNames[i], i)
+        tableDescriptor = i
+
+        if "." in tableList[0][0]:
+            if tableList[0][0].split(".")[0] + " [table]" not in tableNames:
+                tableNames.append(tableList[0][0].split(".")[0] + " [table]")
+                tableDescriptor = "Class " + tableList[0][0].split(".")[0] + " Initializer"
+            else:
+                tableNames.append(tableList[0][0].split(".")[1] + " [table]")
+                tableDescriptor = "Class " + tableList[0][0].split(".")[0]
+        else:
+            tableNames.append(tableList[0][0] + " [table]")
+
+        newTables[i] += generateTable(tableNames[i], tableDescriptor)
         primaryKeys[tableNames[i]] = tableNames[i]
 
     return primaryKeys, newTables, tableNames
@@ -99,7 +109,7 @@ def addKeys(file, keyList, newTables, tableNames, fileName, nodes):
         newTables[tableIterator] += "</table>\n>"
 
     # The cluster needs a random int because clusters can't be named the same
-    with dot.subgraph(name=f'Cluster-{random.randint(1,1000)}') as subDot:
+    with dot.subgraph(name=f'Cluster-{fileName}') as subDot:
         for tableIterator, tableList in enumerate(file):
             subDot.attr(label=fileName, color='#FFA07A', bgcolor='#FFC6A5', style='solid')
             subDot.node(tableNames[tableIterator], shape='none', label=newTables[tableIterator])
@@ -121,7 +131,22 @@ def addForeignKeys(parsedText, tableNames, tablesVisited, edgesToAdd, keyList, p
                 tablesVisited[currentTable] = []
 
             for key in tableList:
-                currentKey = key[0]
+                removeClass = key[0].split(".")
+
+                # Determines the class and key names
+                if len(removeClass) == 1:
+                    currentClass = key[0]
+                    currentKey = key[0]
+                else:
+                    currentClass = key[0].split(".")[0] + " [table]"
+                    currentKey = key[0].split(".")[1]
+
+                    # Replaces __init__ with class name
+                    # TODO: Make this language independent
+                    if "_" in currentKey:
+                        currentKey = key[0].split(".")[0]
+
+
 
                 for keySynonym in keyList:
                     if currentKey in keyList[keySynonym]:
@@ -133,14 +158,17 @@ def addForeignKeys(parsedText, tableNames, tablesVisited, edgesToAdd, keyList, p
                         # Used to determine if the current key is part of the table name (if so, it is assumed that the relationship start/end are swapped) 
                         cleanedTableName = currentTable.replace(" [table]", "").replace("_", "")
                         tableStem = stemmer.stemWord(cleanedTableName).lower()
-                        
+
                         if currentKey + " [table]" in tableNames:
                             if tableStem in currentKey.lower():
                                 tempEdge = (referencedTable, currentKey, currentTable, currentTable)
                             else:
                                 tempEdge = (currentTable, currentKey, referencedTable, referencedTable)
                         else:
-                            if tableStem in currentKey.lower():
+
+                            if currentClass in tableNames:
+                                tempEdge = (referencedTable, currentTable.rstrip(" [table]"), currentTable, currentTable)
+                            elif tableStem in currentKey.lower():
                                 tempEdge = (referencedTable, currentKey, currentTable, currentKey)
                             else:
                                 tempEdge = (currentTable, currentKey, referencedTable, currentKey)
