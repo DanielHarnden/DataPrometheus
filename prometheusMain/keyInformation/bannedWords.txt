@@ -20,3 +20,6 @@ check_call
 Title
 time
 strftime
+split
+lower
+rstrip
