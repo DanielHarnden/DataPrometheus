@@ -1,13 +1,6 @@
 import sqlite3
 
-#TODO: This code is able to get all data stored in the database. This information is relevant if we want to retain data and copy them between databases
-#for table in tables:
-#    table_name = table[0]
-#    rows = cur.execute(f"SELECT * FROM {table_name}").fetchall()
-#    print(f"Data from {table_name}: {rows}")
-
 def sqliteParse(file, originalFileName):
-
     # Connect to the sqlite3 database. file is a FileObject type or something like that, so the .name is necessary 
     conn = sqlite3.connect(file.name)
     cur = conn.cursor()
@@ -32,10 +25,29 @@ def sqliteParse(file, originalFileName):
                 if column[2] != "":
                     tempTable += [[column[1], column[2]]]
                 else:
-                    tempTable += [[column[1], "NULL"]]
+                    tempTable += [[column[1], "VARCHAR(50)"]]
             cleanedTables.append(tempTable)
 
     # Closes the connection and returns the list of cleaned tables
     conn.close()
 
     return cleanedTables
+
+
+
+def sqliteInsertParse(file):
+    conn = sqlite3.connect(file.name)
+    cur = conn.cursor()
+
+    tables = cur.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()
+
+    insertStatements = []
+    for table in tables:
+        if not table[0].startswith("sqlite_"):
+            row = cur.execute(f"SELECT * FROM {table[0]}").fetchall()
+            for item in row:
+                values = [table[0]]
+                values.extend(item)
+                insertStatements.append(values)
+
+    return insertStatements

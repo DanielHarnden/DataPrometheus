@@ -63,7 +63,12 @@ def parseInsertStatements(cleanedTables, inserts):
                     if i == 0:
                         results.append([item, "TABLE"])
                     else:
-                        results.append([item, "NULL"])
+                        results.append([item, "VARCHAR(50)"])
 
                 cleanedTables.append(results)
     return cleanedTables
+
+
+
+def sqlInsertParse(file):
+    print("a")
