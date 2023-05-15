@@ -303,3 +303,8 @@ body.static {
     background-color: var(--dark-red);
     box-shadow: 0 0 10px 5px var(--dark-peach);
 }
+
+#loading {
+    font-size: 24px;
+    padding: 1rem
+}

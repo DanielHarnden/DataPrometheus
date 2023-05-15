@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file
+from flask import Flask, request, send_file, jsonify
 from flask_cors import CORS
 import dataPrometheus
 from PIL import Image
@@ -8,14 +8,17 @@ import os, io
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/mapDatabase/<db>", methods=["GET", "POST"])
-def APImapDatabase(db):
+@app.route("/mapDatabase", methods=["GET", "POST"])
+def APImapDatabase():
     # Checks to see if the file was sent properly and can be read
     if request.method != 'POST':
-        return 0
+        return jsonify('Invalid request method'), 200
 
     files = request.files.getlist('file')
-    dataPrometheus.mapDatabase(files)
+    status, errorMessage = dataPrometheus.mapDatabase(files)
+
+    if status == 0:
+        return jsonify(errorMessage), 200
         
     # Gets the path of the resulting image
     imgPath = os.getcwd() + "\output\output.png"
@@ -33,18 +36,21 @@ def APImapDatabase(db):
     output_buffer.seek(0)
 
     # Returns the image from the new buffer
-    return send_file(output_buffer, mimetype='image/png')
+    return send_file(output_buffer, mimetype='image/png'), 200
 
 
 
-@app.route("/mergeDatabase/<db>", methods=["GET", "POST"])
-def APImergeDatabase(db):
+@app.route("/mergeDatabase", methods=["GET", "POST"])
+def APImergeDatabase():
     # Checks to see if the file was sent properly and can be read
     if request.method != 'POST':
-        return 0
+         return jsonify('Invalid request method'), 200
 
     files = request.files.getlist('file')
-    dataPrometheus.mergeDatabase(files)
+    status, errorMessage = dataPrometheus.mergeDatabase(files)
+
+    if status == 0:
+        return jsonify(errorMessage), 200
         
     # Gets the path of the resulting image
     imgPath = os.getcwd() + "\output\output.png"
@@ -62,7 +68,7 @@ def APImergeDatabase(db):
     output_buffer.seek(0)
 
     # Returns the image from the new buffer
-    return send_file(output_buffer, mimetype='image/png')
+    return send_file(output_buffer, mimetype='image/png'), 200
 
 
     

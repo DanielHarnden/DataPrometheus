@@ -39,8 +39,8 @@ def mapDatabase(files):
                 function = typeList[0]
 
         if function is None:
-            print(f"File types of extension .{extension} are not currently supported.")
-            return 0
+            errorMessage = f"Files of extension .{extension} are not currently supported by Data Prometheus's mapping function."
+            return 0, errorMessage
 
         tempStartTime = time.time()
         print(f"Beginning parse {i+1} of {len(files)}...")
@@ -61,6 +61,7 @@ def mapDatabase(files):
     print(f"PNG generated. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
     print(f"Total Operational Time: {time.time() - beginTime} seconds.\n")
+    return 1, "Successful operation."
 
 
 
@@ -82,8 +83,8 @@ def mergeDatabase(files):
                 insertParser = typeList[1]
 
         if function is None:
-            print(f"File types of extension .{extension} are not currently supported.")
-            return 0
+            errorMessage = f"File types of extension .{extension} are not currently supported by Data Prometheus's database merging function. If you want to view a graph visualization of this file, please try Data Prometheus's mapper."
+            return 0, errorMessage
 
         tempStartTime = time.time()
         print(f"Beginning parse and copying values {i+1} of {len(files)}...")
@@ -111,6 +112,7 @@ def mergeDatabase(files):
     print(f"SQL generated. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
     print(f"Total Operational Time: {time.time() - beginTime} seconds.\n")
+    return 1, "Successful operation."
 
 
 # Determines the file's type

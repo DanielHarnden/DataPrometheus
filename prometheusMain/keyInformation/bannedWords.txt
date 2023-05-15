@@ -23,3 +23,7 @@ strftime
 split
 lower
 rstrip
+isinstance
+join
+format
+strip

@@ -631,5 +631,20 @@
     ],
     "School_Type": [
         "School_Type"
+    ],
+    "isinstance": [
+        "isinstance"
+    ],
+    "join": [
+        "join"
+    ],
+    "format": [
+        "format"
+    ],
+    "combineFiles": [
+        "combineFiles"
+    ],
+    "generateSQL": [
+        "generateSQL"
     ]
 }
