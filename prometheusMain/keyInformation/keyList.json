@@ -646,5 +646,29 @@
     ],
     "generateSQL": [
         "generateSQL"
+    ],
+    "mergeDatabase": [
+        "mergeDatabase"
+    ],
+    "jsonify": [
+        "jsonify"
+    ],
+    "lastname": [
+        "lastname"
+    ],
+    "userid": [
+        "userid"
+    ],
+    "password": [
+        "password"
+    ],
+    "username": [
+        "username"
+    ],
+    "firstname": [
+        "firstname"
+    ],
+    "status": [
+        "status"
     ]
 }

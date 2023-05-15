@@ -15,9 +15,10 @@ def APImapDatabase():
         return jsonify('Invalid request method'), 200
 
     files = request.files.getlist('file')
-    status, errorMessage = dataPrometheus.mapDatabase(files)
+    status, errorMessage, operationalTime = dataPrometheus.mapDatabase(files)
 
     if status == 0:
+        print(errorMessage, "\n", f"Total Operational Time before error: {operationalTime}")
         return jsonify(errorMessage), 200
         
     # Gets the path of the resulting image
@@ -47,9 +48,10 @@ def APImergeDatabase():
          return jsonify('Invalid request method'), 200
 
     files = request.files.getlist('file')
-    status, errorMessage = dataPrometheus.mergeDatabase(files)
+    status, errorMessage, operationalTime = dataPrometheus.mapDatabase(files)
 
     if status == 0:
+        print(errorMessage, "\n", f"Total Operational Time before error: {operationalTime}")
         return jsonify(errorMessage), 200
         
     # Gets the path of the resulting image

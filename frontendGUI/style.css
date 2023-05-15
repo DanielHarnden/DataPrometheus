@@ -40,7 +40,7 @@
     height: 12px;
 }
 ::-webkit-scrollbar-track {
-    background: var(--light-red);
+    background: var(--red);
 }
 ::-webkit-scrollbar-thumb {
     background-color: var(--cream);
@@ -51,10 +51,10 @@
 /* For Firefox */
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--cream) var(--light-red);
+    scrollbar-color: var(--cream) var(--red);
 }
 *::-moz-scrollbar-track {
-    background-color: var(--light-red);
+    background-color: var(--red);
 }
 *::-moz-scrollbar-thumb {
     background-color: var(--cream);
@@ -282,7 +282,7 @@ label[for="fileUpload"]:hover {
 
 /* Modified main menu background to work with pages with scrolling */
 body.static {
-    background: linear-gradient(150deg, var(--dark-peach), var(--light-red) 25%, var(--dark-red));
+    background: linear-gradient(90deg, var(--light-red) 5%, var(--red));
     margin: 0px;
     min-height: 100vh;
     padding: 0px;

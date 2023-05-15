@@ -40,11 +40,15 @@ def mapDatabase(files):
 
         if function is None:
             errorMessage = f"Files of extension .{extension} are not currently supported by Data Prometheus's mapping function."
-            return 0, errorMessage
+            return 0, errorMessage, time.time() - beginTime
 
         tempStartTime = time.time()
         print(f"Beginning parse {i+1} of {len(files)}...")
-        parsedText.append(function(temp_file, file.filename))
+        try:
+            parsedText.append(function(temp_file, file.filename))
+        except:
+            errorMessage = f"There was an error parsing {file.filename}. Please make sure that the file is a valid {extension} file or that Data Prometheus is in a stable build."
+            return 0, errorMessage, time.time() - beginTime
         print(f"Parse {i+1} completed. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
         temp_file.close()
@@ -52,16 +56,24 @@ def mapDatabase(files):
 
     tempStartTime = time.time()
     print("Beginning mapping...")
-    keyList, bannedWords = mapText(parsedText)
+    try:
+        keyList, bannedWords = mapText(parsedText)
+    except:
+        errorMessage = f"There was an error while mapping keys. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
+        return 0, errorMessage, time.time() - beginTime 
     print(f"Mapping completed. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
     tempStartTime = time.time()
     print("Generating GraphViz PNG...")
-    generateGraph(parsedText, keyList, bannedWords)
+    try:
+        generateGraph(parsedText, keyList, bannedWords)
+    except:
+        errorMessage = f"There was an error while generating the graph output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
+        return 0, errorMessage, time.time() - beginTime
     print(f"PNG generated. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
     print(f"Total Operational Time: {time.time() - beginTime} seconds.\n")
-    return 1, "Successful operation."
+    return 1, "Successful operation.", -1
 
 
 
@@ -84,12 +96,16 @@ def mergeDatabase(files):
 
         if function is None:
             errorMessage = f"Files of extension .{extension} are not currently supported by Data Prometheus's database merging function. If you want to view a graph visualization of this file, please try Data Prometheus's mapper."
-            return 0, errorMessage
+            return 0, errorMessage, time.time() - beginTime
 
         tempStartTime = time.time()
         print(f"Beginning parse and copying values {i+1} of {len(files)}...")
-        parsedText.append(function(temp_file, file.filename))
-        parsedInserts.append(insertParser(temp_file))
+        try:
+            parsedText.append(function(temp_file, file.filename))
+            parsedInserts.append(insertParser(temp_file))
+        except:
+            errorMessage = f"There was an error parsing {file.filename}. Please make sure that the file is a valid {extension} file or that Data Prometheus is in a stable build."
+            return 0, errorMessage, time.time() - beginTime 
         print(f"Parse and copying {i+1} completed. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
         temp_file.close()
@@ -97,22 +113,35 @@ def mergeDatabase(files):
 
     tempStartTime = time.time()
     print("Beginning mapping...")
-    keyList, bannedWords = mapText(parsedText)
+    try:
+        keyList, bannedWords = mapText(parsedText)
+    except:
+        errorMessage = f"There was an error while mapping keys. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
+        return 0, errorMessage, time.time() - beginTime
     print(f"Mapping completed. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
     tempStartTime = time.time()
     print("Generating GraphViz PNG...")
-    newParsedText = combineFiles(parsedText)
-    edgesToAdd = generateGraph(newParsedText, keyList, bannedWords)
+    try:
+        newParsedText = combineFiles(parsedText)
+        edgesToAdd = generateGraph(newParsedText, keyList, bannedWords)
+    except:
+        errorMessage = f"There was an error while generating the graph output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
+        return 0, errorMessage, time.time() - beginTime 
+    
     print(f"PNG generated. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
     tempStartTime = time.time()
     print("Generating SQL file...")
-    generateSQL(parsedText, parsedInserts, edgesToAdd)
+    try:
+        generateSQL(parsedText, parsedInserts, edgesToAdd)
+    except:
+        errorMessage = f"There was an error while generating the SQL output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
+        return 0, errorMessage, time.time() - beginTime
     print(f"SQL generated. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
     print(f"Total Operational Time: {time.time() - beginTime} seconds.\n")
-    return 1, "Successful operation."
+    return 1, "Successful operation.", -1
 
 
 # Determines the file's type
