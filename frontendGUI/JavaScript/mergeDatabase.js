@@ -10,9 +10,9 @@ class mergeDatabase extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <form method="POST" enctype="multipart/form-data">
-                <label for="fileInput" id="fileInputLabel">Upload File(s)</label>
+                <label for="fileInput" id="fileInputLabel">Upload Databases</label>
                 <input id="fileInput" type="file" multiple name="file" onchange="updateLabel">
-                <label for="fileUpload">Merge Database(s)</label>
+                <label for="fileUpload">Merge Databases</label>
                 <input id="fileUpload" type="submit">
             </form>
             <br><br><br>
@@ -40,7 +40,7 @@ class mergeDatabase extends HTMLElement {
         const dbFiles = document.querySelector('#fileInput').files;
         this.showLoading();
 
-        fetch(`http://localhost:5000/mapDatabase/${dbFiles}`, {
+        fetch(`http://localhost:5000/mergeDatabase/${dbFiles}`, {
             method: 'POST',
             body: formData
         })

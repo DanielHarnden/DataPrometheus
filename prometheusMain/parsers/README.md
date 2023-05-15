@@ -39,6 +39,16 @@ Data Prometheus currently supports five file types, listed below in development 
 
 If no class exists, only the name of the table is added.
 
+# When merging databases, the data for insert statements are saved in the format:
+```
+    [
+        [tableOneName, key1, key2, ... keyN],
+        [tableTwoName, key1, key2, ... keyN],
+        ...
+        [tableNName, key1, key2, ... keyN]
+    ]
+```
+
 # By this logic, runDataPrometheus.py looks like this:
 ```
 [
