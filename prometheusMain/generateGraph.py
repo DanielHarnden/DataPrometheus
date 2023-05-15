@@ -81,15 +81,15 @@ def addTables(file, primaryKeys, newTables, tableNames):
         tableName = tableList[0][0]
         # Determines if this table has a class
         if "." in tableName:
-            # Adds initializer as className [table]
-            if tableName.split(".")[0] + " [table]" not in tableNames:
-                tableNames.append(tableName.split(".")[0] + " [table]")
+            # Adds initializer as className
+            if tableName.split(".")[0] not in tableNames:
+                tableNames.append(tableName.split(".")[0])
                 tableDescriptor = "Class " + tableName.split(".")[0] + " Initializer"
             else:
-                tableNames.append(tableName.split(".")[1] + " [table]")
+                tableNames.append(tableName.split(".")[1])
                 tableDescriptor = "Class " + tableName.split(".")[0]
         else:
-            tableNames.append(tableName + " [table]")
+            tableNames.append(tableName)
             tableDescriptor = " "
 
         newTables[i] += generateTable(tableNames[i], tableDescriptor)
@@ -163,10 +163,10 @@ def determineEdgeToAdd(currentClass, currentKey, currentTable, primaryKeys, tabl
         if primaryKeys[currentKey] not in tablesVisited[currentTable] and currentKey not in bannedWords:
             referencedTable = primaryKeys[currentKey]
             # Used to determine if the current key is part of the table name (if so, it is assumed that the relationship start/end are swapped) 
-            cleanedTableName = currentTable.replace(" [table]", "").replace("_", "")
+            cleanedTableName = currentTable.replace("_", "")
             tableStem = stemmer.stemWord(cleanedTableName).lower()
 
-            if currentKey + " [table]" in tableNames:
+            if currentKey in tableNames:
                 if tableStem in currentKey.lower():
                     tempEdge = (referencedTable, currentKey, currentTable, currentTable)
                 else:
@@ -174,7 +174,7 @@ def determineEdgeToAdd(currentClass, currentKey, currentTable, primaryKeys, tabl
             else:
 
                 if currentClass in tableNames:
-                    tempEdge = (referencedTable, currentTable.rstrip(" [table]"), currentTable, currentTable)
+                    tempEdge = (referencedTable, currentTable, currentTable)
                 elif tableStem in currentKey.lower():
                     tempEdge = (referencedTable, currentKey, currentTable, currentKey)
                 else:
@@ -197,7 +197,7 @@ def splitClassAndKey(key):
     if len(removeClass) == 1:
         return key, key
     else:
-        currentClass = key.split(".")[0] + " [table]"
+        currentClass = key.split(".")[0]
         currentKey = key.split(".")[1]
 
         # Replaces __init__ with class name

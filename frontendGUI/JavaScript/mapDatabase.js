@@ -11,11 +11,11 @@ class mapDatabase extends HTMLElement {
         this.innerHTML = `
             <form method="POST" enctype="multipart/form-data">
                 <label for="fileInput" id="fileInputLabel">Upload File(s)</label>
-                <input id="fileInput" type="file" multiple name="file" onchange="updateLabel">
+                <input id="fileInput" type="file" multiple name="file">
                 <label for="fileUpload">Map File(s)</label>
                 <input id="fileUpload" type="submit">
             </form>
-            <br><br><br>
+            <br>
             <div id="returnedImage">
                 <img id="resultImage" src="">
             </div>
@@ -30,7 +30,6 @@ class mapDatabase extends HTMLElement {
         this.loadingContainer = this.querySelector('#loading');
         this.formElement.addEventListener('submit', this.handleFormSubmit);
         this.formElement.addEventListener('submit', this.removeImage.bind(this));
-        /* TODO: Solve caught ReferenceError: updateLabel is not defined error. It doesn't break anything though, just clogs the console*/
         this.selectElement.addEventListener('change', this.updateLabel.bind(this));
     }
 
@@ -40,20 +39,34 @@ class mapDatabase extends HTMLElement {
         const dbFiles = document.querySelector('#fileInput').files;
         this.showLoading();
 
-        fetch(`http://localhost:5000/mapDatabase/${dbFiles}`, {
+        fetch(`http://localhost:5000/mapDatabase`, {
             method: 'POST',
             body: formData
         })
-        .then(response => response.blob())
-        .then(imageBlob => {
-            const imageUrl = URL.createObjectURL(imageBlob);
-            const resultImage = this.querySelector('#resultImage');
-            resultImage.src = imageUrl;
-            this.hideLoading();
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(response.statusText);
+            }
+            const contentType = response.headers.get('Content-Type');
+            if (contentType && contentType.startsWith('image')) {
+                return response.blob();
+            } else {
+                return response.text();
+            }
+        })
+        .then(data => {
+            if (typeof data === 'string') {
+                console.log(data);
+                this.updateLoadingError(data);
+            } else if (data instanceof Blob) {
+                const imageUrl = URL.createObjectURL(data);
+                const resultImage = document.querySelector('#resultImage');
+                resultImage.src = imageUrl;
+                this.hideLoading();
+            }          
         })
         .catch(error => {
-            console.error('Error when handling the image:', error);
-            this.hideLoading();
+            console.error(error);
         });
     };
 
@@ -64,17 +77,36 @@ class mapDatabase extends HTMLElement {
 
     /* Handles the loading text */
     showLoading() {
+        this.loadingContainer.textContent = "Loading...";
         this.loadingContainer.style.display = 'block';
     }
     hideLoading() {
         this.loadingContainer.style.display = 'none';
+    }
+
+    updateLoadingError(errorMessage) {
+        this.loadingContainer.textContent = errorMessage;
     }
   
     /* Updates the input field updating to show the name of the selected file */
     updateLabel(event) {
         const fileInput = event.target;
         const fileInputLabel = document.getElementById("fileInputLabel");
-        fileInputLabel.innerText = fileInput.files[0].name;
+        
+        if (fileInput.files.length === 1) {
+            fileInputLabel.innerText = fileInput.files[0].name;
+        } else if (fileInput.files.length > 1) {
+            let fileNames = '';
+            for (let i = 0; i < fileInput.files.length; i++) {
+                fileNames += fileInput.files[i].name;
+                if (i !== fileInput.files.length - 1) {
+                    fileNames += ', ';
+                }
+            }
+            fileInputLabel.innerText = fileNames;
+        } else {
+            fileInputLabel.innerText = 'Upload File(s)';
+        }
     }
 }
 

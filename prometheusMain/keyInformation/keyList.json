@@ -631,5 +631,44 @@
     ],
     "School_Type": [
         "School_Type"
+    ],
+    "isinstance": [
+        "isinstance"
+    ],
+    "join": [
+        "join"
+    ],
+    "format": [
+        "format"
+    ],
+    "combineFiles": [
+        "combineFiles"
+    ],
+    "generateSQL": [
+        "generateSQL"
+    ],
+    "mergeDatabase": [
+        "mergeDatabase"
+    ],
+    "jsonify": [
+        "jsonify"
+    ],
+    "lastname": [
+        "lastname"
+    ],
+    "userid": [
+        "userid"
+    ],
+    "password": [
+        "password"
+    ],
+    "username": [
+        "username"
+    ],
+    "firstname": [
+        "firstname"
+    ],
+    "status": [
+        "status"
     ]
 }
