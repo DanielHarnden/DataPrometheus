@@ -83,7 +83,7 @@ def mergeDatabase(files):
                 insertParser = typeList[1]
 
         if function is None:
-            errorMessage = f"File types of extension .{extension} are not currently supported by Data Prometheus's database merging function. If you want to view a graph visualization of this file, please try Data Prometheus's mapper."
+            errorMessage = f"Files of extension .{extension} are not currently supported by Data Prometheus's database merging function. If you want to view a graph visualization of this file, please try Data Prometheus's mapper."
             return 0, errorMessage
 
         tempStartTime = time.time()

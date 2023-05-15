@@ -92,7 +92,21 @@ class mapDatabase extends HTMLElement {
     updateLabel(event) {
         const fileInput = event.target;
         const fileInputLabel = document.getElementById("fileInputLabel");
-        fileInputLabel.innerText = fileInput.files[0].name;
+        
+        if (fileInput.files.length === 1) {
+            fileInputLabel.innerText = fileInput.files[0].name;
+        } else if (fileInput.files.length > 1) {
+            let fileNames = '';
+            for (let i = 0; i < fileInput.files.length; i++) {
+                fileNames += fileInput.files[i].name;
+                if (i !== fileInput.files.length - 1) {
+                    fileNames += ', ';
+                }
+            }
+            fileInputLabel.innerText = fileNames;
+        } else {
+            fileInputLabel.innerText = 'Upload File(s)';
+        }
     }
 }
 

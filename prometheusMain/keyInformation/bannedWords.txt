@@ -27,3 +27,6 @@ isinstance
 join
 format
 strip
+remove
+save
+close
