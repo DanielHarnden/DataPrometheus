@@ -3,15 +3,13 @@ def combineFiles(parsedText):
     newParsedText = [["output.sql"]]
 
     for file in parsedText:
-        newParsedText += file[1:]
+        newParsedText.extend(file[1:])
 
-    newParsedText = [newParsedText]
+    return [newParsedText]
 
-    return newParsedText
-
-def generateSQL(parsedText, parsedInserts, edgesToAdd):
+def generateSQL(parsedText, parsedInserts, keyList, edgesToAdd):
     allSqlTables = ""
-    tableDict = {}
+    tableColumnDict = {}
 
     # Add each table with keys
     for file in parsedText:
@@ -19,17 +17,25 @@ def generateSQL(parsedText, parsedInserts, edgesToAdd):
             tableName = table[0][0]
             keys = table[1:]
             keyStatements = []
+            addedKeys = []
 
             # Append each key and key type
             for key in keys:
                 keyName = key[0]
                 keyType = key[1]
-                statement = "\t{} {}".format(keyName, keyType)
-                keyStatements.append(statement)
+
+                for keySynonym in keyList:
+                    if keyName in keyList[keySynonym]:
+                        keyName = keySynonym
+
+                if keyName not in addedKeys:
+                    statement = f"\t{keyName} {keyType}"
+                    keyStatements.append(statement)
+                    addedKeys.append(keyName)
 
             # Keys for each table are stored in a dictionary
             keyNames = ", ".join([keyName for keyName, keyType in keys])
-            tableDict[tableName] = keyNames
+            tableColumnDict[tableName] = keyNames
 
             # Add foreign key relationships
             for startTable, startKey, endTable, endKey in edgesToAdd:
@@ -40,12 +46,12 @@ def generateSQL(parsedText, parsedInserts, edgesToAdd):
                     endTable = endTable.replace("[table]", "").strip()
                     endKey = endKey.replace("[table]", "").strip()
 
-                    statement = "\tFOREIGN KEY ({}) REFERENCES {}({})".format(startKey, endTable, endKey)
+                    statement = f"\tFOREIGN KEY ({startKey}) REFERENCES {endTable}({endKey})"
                     keyStatements.append(statement)
 
             # Finalize table statement and append to allSqlTables string
             joinedStatements = ",\n".join(keyStatements)
-            sqlTable = "CREATE TABLE IF NOT EXISTS {} (\n{}\n);\n\n".format(tableName, joinedStatements)
+            sqlTable = f"CREATE TABLE IF NOT EXISTS {tableName} (\n{joinedStatements}\n);\n\n"
             allSqlTables += (sqlTable)
 
 
@@ -72,7 +78,7 @@ def generateSQL(parsedText, parsedInserts, edgesToAdd):
             joinedInserts = ", ".join(insertStatements)
 
             # Adds everything to a single string, then adds that to the string of inserts
-            newStatement = "INSERT INTO {} ({}) VALUES ({});\n".format(tableName, tableDict[tableName], joinedInserts)
+            newStatement = f"INSERT INTO {tableName} ({tableColumnDict[tableName]}) VALUES ({joinedInserts});\n"
             allInserts += (newStatement)
 
 

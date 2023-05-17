@@ -145,7 +145,7 @@ def mergeDatabase(files):
     tempStartTime = time.time()
     print("Generating SQL file...")
     try:
-        generateSQL(parsedText, parsedInserts, edgesToAdd)
+        generateSQL(parsedText, parsedInserts, keyList, edgesToAdd)
     except:
         errorMessage = f"There was an error while generating the SQL output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
         return 0, errorMessage, time.time() - beginTime
