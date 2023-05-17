@@ -108,7 +108,7 @@ def addTables(file, primaryKeys, newTables, tableNames):
 def addKeys(file, keyList, newTables, tableNames, fileName, nodes, dot):
     # Iterates through all of the tables from the original txt of the inputted database
     for tableIterator, tableList in enumerate(file):
-        addedKeys = []
+        addedKeys = set()
 
         for key in tableList[1:]:
             keyName = key[0]
@@ -122,7 +122,7 @@ def addKeys(file, keyList, newTables, tableNames, fileName, nodes, dot):
             if keyName not in addedKeys:
                 newTables[tableIterator] += generateKey(keyName, keyType)
                 nodes.append(f"{tableNames[tableIterator]}:{keyName}")
-                addedKeys.append(keyName)
+                addedKeys.add(keyName)
 
         # Finishes the table then adds the node using the temporary information
         newTables[tableIterator] += "</table>\n>"

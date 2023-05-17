@@ -17,7 +17,7 @@ def generateSQL(parsedText, parsedInserts, keyList, edgesToAdd):
             tableName = table[0][0]
             keys = table[1:]
             keyStatements = []
-            addedKeys = []
+            addedKeys = set()
 
             # Append each key and key type
             for key in keys:
@@ -31,7 +31,7 @@ def generateSQL(parsedText, parsedInserts, keyList, edgesToAdd):
                 if keyName not in addedKeys:
                     statement = f"\t{keyName} {keyType}"
                     keyStatements.append(statement)
-                    addedKeys.append(keyName)
+                    addedKeys.add(keyName)
 
             # Keys for each table are stored in a dictionary
             keyNames = ", ".join([keyName for keyName, keyType in keys])
