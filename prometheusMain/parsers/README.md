@@ -1,26 +1,25 @@
 # Parsers
 
-Data Prometheus currently supports five file types, listed below in development priority (the higher the item is, the more attention has been paid to it).
+Data Prometheus currently supports four file types, listed below in development priority (the higher the item is, the more attention has been paid to it).
 
 1. SQLite
 2. Python
 3. SQL
-4. CPP
-5. Java
+4. Java
 
 # The parsers in this folder should return a list of list of strings in the following format:
 ```
 [
     ["fileOneName"],
     [
-        ["tableOneName", "tableOneType"],
+        ["classOneName.tableOneName", "tableOneType"],
         ["key1", "key1Type"],
         ["key2", "key2Type"],
         ...
         ["keyN", "keyNType"]
     ],
     [
-        ["tableTwoName", "tableTwoType"],
+        ["classTwoName.tableTwoName", "tableTwoType"],
         ["key1", "key1Type"],
         ["key2", "key2Type"],
         ...
@@ -28,7 +27,7 @@ Data Prometheus currently supports five file types, listed below in development 
     ],
     ...
     [
-        ["tableNName", "tableNType"],
+        ["classNName.tableNName", "tableNType"],
         ["key1", "key1Type"],
         ["key2", "key2Type"],
         ...
@@ -36,6 +35,19 @@ Data Prometheus currently supports five file types, listed below in development 
     ]
 ]
 ```
+
+If no class exists, only the name of the table is added.
+
+# When merging databases, the data for insert statements are saved in the format:
+```
+    [
+        [tableOneName, key1, key2, ... keyN],
+        [tableTwoName, key1, key2, ... keyN],
+        ...
+        [tableNName, key1, key2, ... keyN]
+    ]
+```
+
 # By this logic, runDataPrometheus.py looks like this:
 ```
 [

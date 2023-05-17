@@ -14,7 +14,6 @@
 
 /* Initialize custom color variables */
 :root {
-
     --active-index: 0;
 
     --light-red: #D65C5C;
@@ -35,14 +34,36 @@
 }
 
 /* Customizes the scrollbar */
+/* Webkit supported*/
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
+}
+::-webkit-scrollbar-track {
+    background: var(--red);
 }
 ::-webkit-scrollbar-thumb {
-    border-radius: 50px;
+    background-color: var(--cream);
+}
+::-webkit-scrollbar-thumb:hover {
     background-color: var(--dark-cream);
 }
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cream) var(--red);
+}
+*::-moz-scrollbar-track {
+    background-color: var(--red);
+}
+*::-moz-scrollbar-thumb {
+    background-color: var(--cream);
+}
+*::-moz-scrollbar-thumb:hover {
+    background-color: var(--dark-cream);
+}
+  
+
 
 /* Initializes some global visuals */
 * {
@@ -182,9 +203,9 @@ label[for="fileInput"] {
     font-size: 32px;
     background-color: var(--peach);
     color: var(--dark-cream);
-    width: 500px;
+    width: 75vw;
     padding: 1rem;
-    height: 50px;
+    height: 100px;
     border-radius: 5px;
     margin-bottom: 20px;
     cursor: pointer;
@@ -202,9 +223,9 @@ label[for="fileUpload"] {
     font-size: 32px;
     background-color: var(--light-orange);
     color: var(--dark-cream);
-    width: 350px;
+    width: 25vw;
     padding: 1rem;
-    height: 30px;
+    height: 50px;
     border-radius: 5px;
     margin-bottom: 20px;
     cursor: pointer;
@@ -261,7 +282,7 @@ label[for="fileUpload"]:hover {
 
 /* Modified main menu background to work with pages with scrolling */
 body.static {
-    background: linear-gradient(150deg, var(--dark-peach), var(--light-red) 25%, var(--dark-red));
+    background: linear-gradient(90deg, var(--light-red) 5%, var(--red));
     margin: 0px;
     min-height: 100vh;
     padding: 0px;
@@ -302,4 +323,9 @@ body.static {
 .menuButton:hover {
     background-color: var(--dark-red);
     box-shadow: 0 0 10px 5px var(--dark-peach);
+}
+
+#loading {
+    font-size: 24px;
+    padding: 1rem
 }
