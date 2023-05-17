@@ -18,7 +18,7 @@ cppParseReadable = [cppParse, None, "cpp"]
 javaReadable = [javaParse, None, "java"]
 
 # A list containing the previous lists, for streamlining later
-supportedFileTypes = [sqLiteReadable, sqlParseReadable, pythonParseReadable, cppParseReadable, javaReadable]
+supportedFileTypes = [sqLiteReadable, sqlParseReadable, pythonParseReadable, javaReadable]
 supportedMergeFileTypes = [sqLiteReadable, sqlParseReadable]
 
 
@@ -144,11 +144,11 @@ def mergeDatabase(files):
 
     tempStartTime = time.time()
     print("Generating SQL file...")
-    try:
-        generateSQL(parsedText, parsedInserts, keyList, edgesToAdd)
-    except:
-        errorMessage = f"There was an error while generating the SQL output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
-        return 0, errorMessage, time.time() - beginTime
+    #try:
+    generateSQL(parsedText, parsedInserts, keyList, edgesToAdd)
+    #except:
+    #    errorMessage = f"There was an error while generating the SQL output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
+    #    return 0, errorMessage, time.time() - beginTime
     print(f"SQL generated. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
     print(f"Total Operational Time: {time.time() - beginTime} seconds.\n")

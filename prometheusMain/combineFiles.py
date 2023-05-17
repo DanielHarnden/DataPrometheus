@@ -74,7 +74,11 @@ def generateSQL(parsedText, parsedInserts, keyList, edgesToAdd):
             
             # Turns the list into a single string separated by commas
             joinedInserts = ", ".join(insertStatements)
-            tableName = tableName.replace("_", "")
+
+            try:
+                newStatement = f"INSERT INTO {tableName} ({tableColumnDict[tableName]}) VALUES ({joinedInserts});\n"
+            except:
+                tableName = tableName.replace("_", "")
 
             # Adds everything to a single string, then adds that to the string of inserts
             newStatement = f"INSERT INTO {tableName} ({tableColumnDict[tableName]}) VALUES ({joinedInserts});\n"

@@ -119,7 +119,7 @@ def addKeys(file, keyList, newTables, tableNames, fileName, nodes, dot):
                 if keyName in keyList[keySynonym]:
                     keyName = keySynonym
 
-            if keyName not in addedKeys:
+            if keyName not in addedKeys and "Built-In" not in keyType:
                 newTables[tableIterator] += generateKey(keyName, keyType)
                 nodes.append(f"{tableNames[tableIterator]}:{keyName}")
                 addedKeys.add(keyName)
@@ -210,7 +210,7 @@ def splitClassAndKey(key):
 
         # Replaces __init__ with class name
         # TODO: Make this language independent (only works with Python right now)
-        if "__init__" in currentKey:
+        if "__init__" or "main" in currentKey:
             currentKey = key.split(".")[0]
 
         return currentClass, currentKey
