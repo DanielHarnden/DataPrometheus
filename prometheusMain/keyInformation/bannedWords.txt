@@ -30,3 +30,8 @@ strip
 remove
 save
 close
+jsonify
+getlist
+BytesIO
+seek
+send_file

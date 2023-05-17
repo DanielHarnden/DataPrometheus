@@ -48,7 +48,7 @@ def APImergeDatabase():
          return jsonify('Invalid request method'), 200
 
     files = request.files.getlist('file')
-    status, errorMessage, operationalTime = dataPrometheus.mapDatabase(files)
+    status, errorMessage, operationalTime = dataPrometheus.mergeDatabase(files)
 
     if status == 0:
         print(errorMessage, "\n", f"Total Operational Time before error: {operationalTime}")

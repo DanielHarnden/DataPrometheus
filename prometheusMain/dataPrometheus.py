@@ -25,11 +25,18 @@ supportedMergeFileTypes = [sqLiteReadable, sqlParseReadable]
 
 def mapDatabase(files):
     beginTime = time.time()
-    parsedText = []
+    parsedText = []  
     
     for i, file in enumerate(files):
         temp_file = tempfile.NamedTemporaryFile(delete=False)
         file.save(temp_file.name)
+
+        print(file.filename)
+
+        if len(files) == 1 and file.filename == "":
+            errorMessage = f"No file(s) chosen."
+            return 0, errorMessage, time.time() - beginTime
+
 
         function = None
         extension = determineFileType(file.filename)
@@ -81,7 +88,11 @@ def mergeDatabase(files):
     beginTime = time.time()
     parsedText = []
     parsedInserts = []
-    
+
+    if len(files) < 2:
+        errorMessage = f"Please choose two or more files to merge."
+        return 0, errorMessage, time.time() - beginTime
+
     for i, file in enumerate(files):
         temp_file = tempfile.NamedTemporaryFile(delete=False)
         file.save(temp_file.name)

@@ -33,10 +33,14 @@ def generateGraph(parsedText, keyList, bannedWords):
     graphCreationTime = datetime.now()
     graphCreationTime = graphCreationTime.strftime("%m/%d/%Y %I:%M %p")
     dot.graph_attr.update({
+        'bgcolor': '#FFDAB9',
         'table': 'style=invis',
         'label': f'Parsed by Data Prometheus at {graphCreationTime}',
         'labelloc': 't',
         'rankdir': 'LR',
+        'ranksep': '2',
+        'nodesep': '0.5',
+        'sep': '10',
         'dpi': '200'
     })
 
@@ -228,15 +232,19 @@ def generateKey(keyName, keyType):
     '''
 
 def generateForeignKeys(edgesToAdd, nodes, dot):
+    lineColors = ["#22052D","#361941","#4B2C54","#5F4068","#73547B","#88678F","#9C7BA2"]
+    i = 0
     for startTable, startKey, endTable, endKey in edgesToAdd:
+        i = i % len(lineColors)
         if startTable != endTable and f"{startTable}:{startKey}" in nodes:
             dot.edge(
                 # .end means the right side of the table (it is referencing another table)
                 f"{startTable}:{startKey}.end", 
                 # .start means the left side of the table (it is being referenced)
                 f"{endTable}:{endKey}.start", 
-                arrowhead='normal', arrowtail='odot', dir='both', style='solid', color='#141414', penwidth='1.5'
+                arrowhead='normal', arrowtail='odot', dir='both', style='solid', color=lineColors[i], penwidth='2.5'
             )
+            i += 1
         else:
             print(f"{startTable}:{startKey} referencing {endTable}:{endKey}\t\tError: Node does not exist.")
             edgesToAdd.remove((startTable, startKey, endTable, endKey))

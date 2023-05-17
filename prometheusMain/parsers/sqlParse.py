@@ -42,7 +42,8 @@ def parseTables(cleanedTables, tables):
                 elif ";" not in line and "KEY" not in line and "ENGINE" not in line and "CONSTRAINT" not in line:
                     lineSplit = line.split()
                     keyName = re.sub(r'[^a-zA-Z0-9\s]', '', lineSplit[0])
-                    results.append([keyName, lineSplit[1]])
+                    keyType = re.sub(r'[^a-zA-Z0-9\s()]', '', lineSplit[1])
+                    results.append([keyName, keyType])
 
             cleanedTables.append(results)
 
@@ -71,4 +72,8 @@ def parseInsertStatements(cleanedTables, inserts):
 
 
 def sqlInsertParse(file):
-    print("a")
+    with open(file.name, 'r', encoding='utf-8') as f:
+        sqlText = f.read()
+
+    insertStatements = re.findall(r'VALUES\s*(.*?);', sqlText)
+    print(insertStatements)
