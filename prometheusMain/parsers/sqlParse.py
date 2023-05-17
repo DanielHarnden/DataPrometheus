@@ -75,5 +75,32 @@ def sqlInsertParse(file):
     with open(file.name, 'r', encoding='utf-8') as f:
         sqlText = f.read()
 
-    insertStatements = re.findall(r'VALUES\s*(.*?);', sqlText)
-    print(insertStatements)
+    cleanedText = sqlText.split("\n")
+    cleanedText = [line for line in cleanedText if "--" not in line and line != "" and "/*" not in line and "*/" not in line]
+
+
+
+    tempCleanedText = " ".join(cleanedText)
+    patternOne = r'(?<=VALUES).*?(?=;)'
+    matches = re.findall(patternOne, tempCleanedText)
+    tableNames = re.findall(r'INSERT INTO (\S+)\s', tempCleanedText)
+
+    if matches == []:
+        tempCleanedText = "\n".join(cleanedText)
+        patternTwo = r'(?<=VALUES).*?(?=\n)'
+        matches = re.findall(patternTwo, tempCleanedText)
+        tableNames += re.findall(r'INSERT INTO (\S+)\s', tempCleanedText)
+
+    if matches == []:
+        print("Unable to find insert statements in this SQL file.")
+        return []
+    
+    tableNames = [string[1:-1] for string in tableNames]
+    finalMatches = re.findall(r'\((.*?)\)', str(matches))
+
+    results = []
+    for i, line in enumerate(finalMatches):
+        items = line.split(',')
+        results.append([tableNames[i % len(tableNames)]] + [re.sub(r'\W+', '', item.strip()) for item in items])
+
+    return results

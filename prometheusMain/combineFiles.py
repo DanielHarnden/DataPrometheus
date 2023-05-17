@@ -54,8 +54,6 @@ def generateSQL(parsedText, parsedInserts, keyList, edgesToAdd):
             sqlTable = f"CREATE TABLE IF NOT EXISTS {tableName} (\n{joinedStatements}\n);\n\n"
             allSqlTables += (sqlTable)
 
-
-
     # Add insert statements (if they exist)
     allInserts = ""
     # Remove outermost []
@@ -76,6 +74,7 @@ def generateSQL(parsedText, parsedInserts, keyList, edgesToAdd):
             
             # Turns the list into a single string separated by commas
             joinedInserts = ", ".join(insertStatements)
+            tableName = tableName.replace("_", "")
 
             # Adds everything to a single string, then adds that to the string of inserts
             newStatement = f"INSERT INTO {tableName} ({tableColumnDict[tableName]}) VALUES ({joinedInserts});\n"
