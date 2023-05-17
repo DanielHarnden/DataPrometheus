@@ -33,10 +33,14 @@ def generateGraph(parsedText, keyList, bannedWords):
     graphCreationTime = datetime.now()
     graphCreationTime = graphCreationTime.strftime("%m/%d/%Y %I:%M %p")
     dot.graph_attr.update({
+        'bgcolor': '#FFDAB9',
         'table': 'style=invis',
         'label': f'Parsed by Data Prometheus at {graphCreationTime}',
         'labelloc': 't',
         'rankdir': 'LR',
+        'ranksep': '2',
+        'nodesep': '0.5',
+        'sep': '10',
         'dpi': '200'
     })
 
@@ -104,6 +108,8 @@ def addTables(file, primaryKeys, newTables, tableNames):
 def addKeys(file, keyList, newTables, tableNames, fileName, nodes, dot):
     # Iterates through all of the tables from the original txt of the inputted database
     for tableIterator, tableList in enumerate(file):
+        addedKeys = set()
+
         for key in tableList[1:]:
             keyName = key[0]
             keyType = key[1]
@@ -113,8 +119,10 @@ def addKeys(file, keyList, newTables, tableNames, fileName, nodes, dot):
                 if keyName in keyList[keySynonym]:
                     keyName = keySynonym
 
-            newTables[tableIterator] += generateKey(keyName, keyType)
-            nodes.append(f"{tableNames[tableIterator]}:{keyName}")
+            if keyName not in addedKeys and "Built-In" not in keyType:
+                newTables[tableIterator] += generateKey(keyName, keyType)
+                nodes.append(f"{tableNames[tableIterator]}:{keyName}")
+                addedKeys.add(keyName)
 
         # Finishes the table then adds the node using the temporary information
         newTables[tableIterator] += "</table>\n>"
@@ -202,7 +210,7 @@ def splitClassAndKey(key):
 
         # Replaces __init__ with class name
         # TODO: Make this language independent (only works with Python right now)
-        if "__init__" in currentKey:
+        if "__init__" or "main" in currentKey:
             currentKey = key.split(".")[0]
 
         return currentClass, currentKey
@@ -228,15 +236,19 @@ def generateKey(keyName, keyType):
     '''
 
 def generateForeignKeys(edgesToAdd, nodes, dot):
+    lineColors = ["#22052D","#361941","#4B2C54","#5F4068","#73547B","#88678F","#9C7BA2"]
+    i = 0
     for startTable, startKey, endTable, endKey in edgesToAdd:
+        i = i % len(lineColors)
         if startTable != endTable and f"{startTable}:{startKey}" in nodes:
             dot.edge(
                 # .end means the right side of the table (it is referencing another table)
                 f"{startTable}:{startKey}.end", 
                 # .start means the left side of the table (it is being referenced)
                 f"{endTable}:{endKey}.start", 
-                arrowhead='normal', arrowtail='odot', dir='both', style='solid', color='#141414', penwidth='1.5'
+                arrowhead='normal', arrowtail='odot', dir='both', style='solid', color=lineColors[i], penwidth='2.5'
             )
+            i += 1
         else:
             print(f"{startTable}:{startKey} referencing {endTable}:{endKey}\t\tError: Node does not exist.")
             edgesToAdd.remove((startTable, startKey, endTable, endKey))

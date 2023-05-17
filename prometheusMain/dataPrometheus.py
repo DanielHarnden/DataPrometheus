@@ -18,18 +18,25 @@ cppParseReadable = [cppParse, None, "cpp"]
 javaReadable = [javaParse, None, "java"]
 
 # A list containing the previous lists, for streamlining later
-supportedFileTypes = [sqLiteReadable, sqlParseReadable, pythonParseReadable, cppParseReadable, javaReadable]
+supportedFileTypes = [sqLiteReadable, sqlParseReadable, pythonParseReadable, javaReadable]
 supportedMergeFileTypes = [sqLiteReadable, sqlParseReadable]
 
 
 
 def mapDatabase(files):
     beginTime = time.time()
-    parsedText = []
+    parsedText = []  
     
     for i, file in enumerate(files):
         temp_file = tempfile.NamedTemporaryFile(delete=False)
         file.save(temp_file.name)
+
+        print(file.filename)
+
+        if len(files) == 1 and file.filename == "":
+            errorMessage = f"No file(s) chosen."
+            return 0, errorMessage, time.time() - beginTime
+
 
         function = None
         extension = determineFileType(file.filename)
@@ -81,7 +88,11 @@ def mergeDatabase(files):
     beginTime = time.time()
     parsedText = []
     parsedInserts = []
-    
+
+    if len(files) < 2:
+        errorMessage = f"Please choose two or more files to merge."
+        return 0, errorMessage, time.time() - beginTime
+
     for i, file in enumerate(files):
         temp_file = tempfile.NamedTemporaryFile(delete=False)
         file.save(temp_file.name)
@@ -133,11 +144,11 @@ def mergeDatabase(files):
 
     tempStartTime = time.time()
     print("Generating SQL file...")
-    try:
-        generateSQL(parsedText, parsedInserts, edgesToAdd)
-    except:
-        errorMessage = f"There was an error while generating the SQL output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
-        return 0, errorMessage, time.time() - beginTime
+    #try:
+    generateSQL(parsedText, parsedInserts, keyList, edgesToAdd)
+    #except:
+    #    errorMessage = f"There was an error while generating the SQL output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
+    #    return 0, errorMessage, time.time() - beginTime
     print(f"SQL generated. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
     print(f"Total Operational Time: {time.time() - beginTime} seconds.\n")
