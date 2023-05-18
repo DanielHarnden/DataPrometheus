@@ -1,23 +1,30 @@
-import importlib, webbrowser, subprocess, sys, os
+import importlib, webbrowser, subprocess, sys
 
 def main():
     checkForPackages()
-    openFrontend()
-    attemptFlask()
+
+    print("Opening GUI in user's web browser...")
+    webbrowser.open("http://localhost:8000/")
+    
+    print("Attempting to start the Flask API...")
+    try:
+        subprocess.check_call("python .\\prometheusMain\\flaskAPI.py")
+    except:
+        print("There was an error starting the Flask API.")
+        sys.exit()
+
 
 # Checks to see if the proper Python packages exist
 def checkForPackages():
     print("Determining if the correct Python packages are installed...")
 
     # The list of packages that should be installed using pip
-    packages = ['flask', 'flask-cors', 'Pillow', 'graphviz', 'snowballstemmer']
+    packages = ['flask', 'flask-cors', 'graphviz', 'snowballstemmer']
 
     for package in packages:
         # Attempts to import the module; if it can not, that means it is not installed.
         try:
-            if package == "Pillow":
-                importlib.import_module("PIL")
-            elif package == "flask-cors":
+            if package == "flask-cors":
                 importlib.import_module("flask_cors")
             else:
                 importlib.import_module(package)
@@ -34,16 +41,6 @@ def checkForPackages():
                 sys.exit()
             
     print("All packages installed!\n")
-
-# Opens the frontend page in the user's web browser
-def openFrontend():
-    webbrowser.open("http://localhost:8000/")
-
-# Attempts to start the Flask API
-def attemptFlask():
-    print("Attempting to start the Flask API...")
-    subprocess.check_call("python .\\prometheusMain\\flaskAPI.py")
-
 
 if __name__ == "__main__":
     main()

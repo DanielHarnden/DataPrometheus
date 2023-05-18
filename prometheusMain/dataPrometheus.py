@@ -31,8 +31,6 @@ def mapDatabase(files):
         temp_file = tempfile.NamedTemporaryFile(delete=False)
         file.save(temp_file.name)
 
-        print(file.filename)
-
         if len(files) == 1 and file.filename == "":
             errorMessage = f"No file(s) chosen."
             return 0, errorMessage, time.time() - beginTime

@@ -1,4 +1,4 @@
-import graphviz, os, random, snowballstemmer
+import graphviz, snowballstemmer
 from datetime import datetime
 
 def generateGraph(parsedText, keyList, bannedWords):
