@@ -14,6 +14,7 @@ def dataPrometheusAPI(requestEndpoint):
 
     files = request.files.getlist('file')
 
+    # Calls various functions depending on the request endpoint
     if requestEndpoint == 'mapDatabase':
         status, errorMessage, operationalTime = dataPrometheus.mapDatabase(files)
     elif requestEndpoint == 'mergeDatabase':
@@ -23,6 +24,7 @@ def dataPrometheusAPI(requestEndpoint):
         print(errorMessage, "\n", f"Total Operational Time before error: {operationalTime}")
         return jsonify(errorMessage), 200
         
+    # Sends the image to the frontend
     with open("output/output.png", "rb") as outputImage:
         encodedImage = outputImage.read()
         return encodedImage, 200,  {'Content-Type': 'image/png'}
