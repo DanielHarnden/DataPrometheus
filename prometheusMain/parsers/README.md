@@ -84,7 +84,7 @@ If no class exists, only the name of the table is added.
 ]
 ```
 
-# VERY IMPORTANT!
+# Key Synonyms
 ### Keys are saved in the format:
 ```
 {key: [value1, value2, value3]}

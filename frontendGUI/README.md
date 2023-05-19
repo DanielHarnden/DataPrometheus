@@ -1,3 +1,5 @@
-## Data Prometheus Frontend 
+# Data Prometheus Frontend 
 
-This directory contains the HTML, CSS, and JavaScript necessary to run Data Prometheus' GUI. The frontend's sole purpose is to give the end user a more accessible and convenient way to run Data Prometheus.
+This directory houses the files necessary to run Data Prometheus's GUI. This GUI is designed to provide end users with a user-friendly and convenient interface to interact with Data Prometheus.
+
+The frontend consists of HTML, CSS, and JavaScript files. The frontend utilizes JavaScript functions to call a Flask API (located in the prometheusMain directory), enabling it to interact with the underlying functionality of the Data Prometheus program. A Python http serveris used to host the frontend.

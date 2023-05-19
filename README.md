@@ -4,6 +4,18 @@ Data Prometheus is a tool that facilitates the discovery and visualization of im
 
 In addition to its database analysis capabilities, Data Prometheus can also map relationships between functions and files in Python and Java. This feature enables developers to gain a better understanding of the organization and dependencies within the codebase.
 
+# Demo
+
+An example of Data Prometheus mapping several databases and Python files:
+
+![Data Prometheus Mapping Example](/documentation/mapExample.mp4)
+
+An example of Data Prometheus merging several databases, and the SQL output generated:
+
+![Data Prometheus Merging Example](/documentation/mergeExample.mp4)
+
+---
+
 # Before Running...
 
 Ensure you have [Python](https://www.python.org/downloads/) and [Graphviz](https://graphviz.org/download/) installed and in your PATH.
