@@ -8,11 +8,13 @@ In addition to its database analysis capabilities, Data Prometheus can also map 
 
 An example of Data Prometheus mapping several databases and Python files:
 
-![Data Prometheus Mapping Example](/documentation/mapExample.mp4)
+https://github.com/DanielHarnden/DataPrometheus/assets/103148290/aebe3aa2-e58a-4711-be60-ea38c7802401
 
 An example of Data Prometheus merging several databases, and the SQL output generated:
 
-![Data Prometheus Merging Example](/documentation/mergeExample.mp4)
+https://github.com/DanielHarnden/DataPrometheus/assets/103148290/af3eb45b-3694-480e-9a28-7f1dd317d66d
+
+
 
 ---
 
