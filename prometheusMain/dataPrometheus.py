@@ -16,141 +16,158 @@ sqlParseReadable = [sqlParse, sqlInsertParse, "sql"]
 pythonParseReadable = [pythonParse, None, "py"]
 cppParseReadable = [cppParse, None, "cpp"]
 javaReadable = [javaParse, None, "java"]
-
 # A list containing the previous lists, for streamlining later
 supportedFileTypes = [sqLiteReadable, sqlParseReadable, pythonParseReadable, javaReadable]
 supportedMergeFileTypes = [sqLiteReadable, sqlParseReadable]
 
 
 
-def mapDatabase(files):
+def processDatabase(files, operation):
     beginTime = time.time()
-    parsedText = []  
     
-    for i, file in enumerate(files):
-        temp_file = tempfile.NamedTemporaryFile(delete=False)
-        file.save(temp_file.name)
+    # Checks for common errors
+    status, errorMessage = errorCheck(files, operation)
+    if status == 0:
+        return 0, errorMessage
 
-        if len(files) == 1 and file.filename == "":
-            errorMessage = f"No file(s) chosen."
-            return 0, errorMessage, time.time() - beginTime
+    # 1) Parse an inputted file for relevant information.
+    status, errorMessage, parsedText, parsedInserts = attemptParse(files, operation)
+    if status == 0:
+        return 0, errorMessage
 
+    # 2) Map the parsed information to itself to find relationships between "keys" and "tables."
+    status, errorMessage, keyList, bannedWords = attemptMap(parsedText)
+    if status == 0:
+        return 0, errorMessage
 
-        function = None
-        extension = determineFileType(file.filename)
-
-        for typeList in supportedFileTypes:
-            if extension in typeList:
-                function = typeList[0]
-
-        if function is None:
-            errorMessage = f"Files of extension .{extension} are not currently supported by Data Prometheus's mapping function."
-            return 0, errorMessage, time.time() - beginTime
-
-        tempStartTime = time.time()
-        print(f"Beginning parse {i+1} of {len(files)}...")
-        try:
-            parsedText.append(function(temp_file, file.filename))
-        except:
-            errorMessage = f"There was an error parsing {file.filename}. Please make sure that the file is a valid {extension} file or that Data Prometheus is in a stable build."
-            return 0, errorMessage, time.time() - beginTime
-        print(f"Parse {i+1} completed. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
-
-        temp_file.close()
-        os.unlink(temp_file.name)
-
-    tempStartTime = time.time()
-    print("Beginning mapping...")
-    try:
-        keyList, bannedWords = mapText(parsedText)
-    except:
-        errorMessage = f"There was an error while mapping keys. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
-        return 0, errorMessage, time.time() - beginTime 
-    print(f"Mapping completed. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
-
-    tempStartTime = time.time()
-    print("Generating GraphViz PNG...")
-    try:
-        generateGraph(parsedText, keyList, bannedWords)
-    except:
-        errorMessage = f"There was an error while generating the graph output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
-        return 0, errorMessage, time.time() - beginTime
-    print(f"PNG generated. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
-
+    # 3) Generate a visualization of the mapped information using GraphViz.
+    status, errorMessage, edgesToAdd = attemptGraph(operation, parsedText, keyList, bannedWords)
+    if status == 0:
+        return 0, errorMessage
+    
+    # 3.5) Generate SQL file (if merging)
+    if operation == "mergeDatabase":
+        status, errorMessage = attemptSQLGeneration(parsedText, parsedInserts, keyList, edgesToAdd)
+        if status == 0:
+            return 0, errorMessage
+        
     print(f"Total Operational Time: {time.time() - beginTime} seconds.\n")
-    return 1, "Successful operation.", -1
+    return 1, "Successful operation."
 
 
 
-def mergeDatabase(files):
-    beginTime = time.time()
-    parsedText = []
+def errorCheck(files, operation):
+    if len(files) == 1 and files[0].filename == "":
+        errorMessage = f"No file(s) chosen."
+        return 0, errorMessage
+    
+    if operation == "mergeDatabase" and len(files) < 2:
+        errorMessage = f"Please choose two or more files to merge."
+        return 0, errorMessage
+    
+    return None, None
+
+
+def attemptParse(files, operation):
+    parsedText = []  
     parsedInserts = []
 
-    if len(files) < 2:
-        errorMessage = f"Please choose two or more files to merge."
-        return 0, errorMessage, time.time() - beginTime
-
     for i, file in enumerate(files):
         temp_file = tempfile.NamedTemporaryFile(delete=False)
         file.save(temp_file.name)
-
-        function = None
         extension = determineFileType(file.filename)
+        parsingFunction = None
 
-        for typeList in supportedMergeFileTypes:
-            if extension in typeList:
-                function = typeList[0]
-                insertParser = typeList[1]
+        # Chooses the appropriate parser
+        if operation == "mapDatabase":
+            for typeList in supportedFileTypes:
+                if extension in typeList:
+                    parsingFunction = typeList[0]
+                    break
+                    
+        elif operation == "mergeDatabase":
+            for typeList in supportedMergeFileTypes:
+                if extension in typeList:
+                    parsingFunction = typeList[0]
+                    insertParsingFunction = typeList[1]
+                    break
 
-        if function is None:
-            errorMessage = f"Files of extension .{extension} are not currently supported by Data Prometheus's database merging function. If you want to view a graph visualization of this file, please try Data Prometheus's mapper."
-            return 0, errorMessage, time.time() - beginTime
+        # Returns an error if there is no parser
+        if parsingFunction is None:
+            if operation == "mapDatabase":
+                errorMessage = f"Files of extension .{extension} are not currently supported by Data Prometheus's mapping function."
+            elif operation == "mergeDatabase":
+                errorMessage = f"Files of extension .{extension} are not currently supported by Data Prometheus's database merging function. If you want to view a graph visualization of this file, please try Data Prometheus's mapper."
+            return 0, errorMessage, None, None
 
-        tempStartTime = time.time()
-        print(f"Beginning parse and copying values {i+1} of {len(files)}...")
+        startTime = time.time()
+        print(f"Beginning parse {i+1} of {len(files)}...")
+
         try:
-            parsedText.append(function(temp_file, file.filename))
-            parsedInserts.append(insertParser(temp_file))
+            parsedText.append(parsingFunction(temp_file, file.filename))
         except:
             errorMessage = f"There was an error parsing {file.filename}. Please make sure that the file is a valid {extension} file or that Data Prometheus is in a stable build."
-            return 0, errorMessage, time.time() - beginTime 
-        print(f"Parse and copying {i+1} completed. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
+            return 0, errorMessage, None, None
 
+        if operation == "mergeDatabase":
+            parsedInserts.append(insertParsingFunction(temp_file))
+        
         temp_file.close()
         os.unlink(temp_file.name)
+        print(f"Parse {i+1} completed. Time Elapsed: {time.time() - startTime} seconds.\n")
 
-    tempStartTime = time.time()
+    return None, None, parsedText, parsedInserts
+
+
+
+def attemptMap(parsedText):
+    startTime = time.time()
     print("Beginning mapping...")
+
     try:
         keyList, bannedWords = mapText(parsedText)
     except:
         errorMessage = f"There was an error while mapping keys. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
-        return 0, errorMessage, time.time() - beginTime
-    print(f"Mapping completed. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
+        return 0, errorMessage, None, None
+    
+    print(f"Mapping completed. Time Elapsed: {time.time() - startTime} seconds.\n")
+    return None, None, keyList, bannedWords
+    
 
-    tempStartTime = time.time()
+
+def attemptGraph(operation, parsedText, keyList, bannedWords):
+    startTime = time.time()
     print("Generating GraphViz PNG...")
+
     try:
-        newParsedText = combineFiles(parsedText)
-        edgesToAdd = generateGraph(newParsedText, keyList, bannedWords)
+        if operation == "mapDatabase":
+            generateGraph(parsedText, keyList, bannedWords)
+            print(f"PNG generated. Time Elapsed: {time.time() - startTime} seconds.\n")
+            return None, None, None
+        elif operation == "mergeDatabase":
+            tempParsedText = combineFiles(parsedText)
+            edgesToAdd = generateGraph(tempParsedText, keyList, bannedWords)
+            print(f"PNG generated. Time Elapsed: {time.time() - startTime} seconds.\n")
+            return None, None, edgesToAdd
     except:
         errorMessage = f"There was an error while generating the graph output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
-        return 0, errorMessage, time.time() - beginTime 
+        return 0, errorMessage, None, None
     
-    print(f"PNG generated. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
 
-    tempStartTime = time.time()
+
+def attemptSQLGeneration(parsedText, parsedInserts, keyList, edgesToAdd):
+    startTime = time.time()
     print("Generating SQL file...")
+
     try:
         generateSQL(parsedText, parsedInserts, keyList, edgesToAdd)
     except:
         errorMessage = f"There was an error while generating the SQL output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
-        return 0, errorMessage, time.time() - beginTime
-    print(f"SQL generated. Time Elapsed: {time.time() - tempStartTime} seconds.\n")
+        return 0, errorMessage
+    
+    print(f"SQL generated. Time Elapsed: {time.time() - startTime} seconds.\n")
+    return None, None
 
-    print(f"Total Operational Time: {time.time() - beginTime} seconds.\n")
-    return 1, "Successful operation.", -1
 
 
 # Determines the file's type

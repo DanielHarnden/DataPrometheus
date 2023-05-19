@@ -16,12 +16,14 @@ def dataPrometheusAPI(requestEndpoint):
 
     # Calls various functions depending on the request endpoint
     if requestEndpoint == 'mapDatabase':
-        status, errorMessage, operationalTime = dataPrometheus.mapDatabase(files)
+        status, errorMessage = dataPrometheus.processDatabase(files, requestEndpoint)
     elif requestEndpoint == 'mergeDatabase':
-        status, errorMessage, operationalTime = dataPrometheus.mergeDatabase(files)
+        status, errorMessage = dataPrometheus.processDatabase(files, requestEndpoint)
+    else:
+        status, errorMessage = 0, "Endpoint not recognized.", 0
 
     if status == 0:
-        print(errorMessage, "\n", f"Total Operational Time before error: {operationalTime}")
+        print(errorMessage)
         return jsonify(errorMessage), 200
         
     # Sends the image to the frontend
