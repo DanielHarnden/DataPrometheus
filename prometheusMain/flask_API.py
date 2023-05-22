@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import dataPrometheus
+from process_Files import processFiles
 
 # Flask API, called when file is run
 app = Flask(__name__)
@@ -16,9 +16,9 @@ def dataPrometheusAPI(requestEndpoint):
 
     # Calls various functions depending on the request endpoint
     if requestEndpoint == 'mapDatabase':
-        status, errorMessage = dataPrometheus.processDatabase(files, requestEndpoint)
+        status, errorMessage = processFiles(files, requestEndpoint)
     elif requestEndpoint == 'mergeDatabase':
-        status, errorMessage = dataPrometheus.processDatabase(files, requestEndpoint)
+        status, errorMessage = processFiles(files, requestEndpoint)
     else:
         status, errorMessage = 0, "Endpoint not recognized.", 0
 

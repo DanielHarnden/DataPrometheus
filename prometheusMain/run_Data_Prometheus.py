@@ -8,7 +8,7 @@ def main():
     
     print("Attempting to start the Flask API...")
     try:
-        subprocess.check_call("python .\\prometheusMain\\flaskAPI.py")
+        subprocess.check_call("python .\\prometheusMain\\flask_API.py")
     except:
         print("There was an error starting the Flask API.")
         sys.exit()

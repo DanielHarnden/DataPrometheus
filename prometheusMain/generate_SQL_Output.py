@@ -1,13 +1,4 @@
-def combineFiles(parsedText):
-
-    newParsedText = [["output.sql"]]
-
-    for file in parsedText:
-        newParsedText.extend(file[1:])
-
-    return [newParsedText]
-
-def generateSQL(parsedText, parsedInserts, keyList, edgesToAdd):
+def generateSQLOutput(parsedText, parsedInserts, keyList, edgesToAdd):
     allSqlTables = ""
     tableColumnDict = {}
 
@@ -66,12 +57,12 @@ def generateSQL(parsedText, parsedInserts, keyList, edgesToAdd):
             for key in row[1:]:
                 if key is None:
                     insertStatements.append("NULL")
-                elif isinstance (key, str):
+                elif isinstance(key, str):
                     key = key.replace("'", "''")
                     insertStatements.append(f"'{key}'")
                 else:
                     insertStatements.append(str(key))
-            
+
             # Turns the list into a single string separated by commas
             joinedInserts = ", ".join(insertStatements)
 
@@ -83,7 +74,6 @@ def generateSQL(parsedText, parsedInserts, keyList, edgesToAdd):
             # Adds everything to a single string, then adds that to the string of inserts
             newStatement = f"INSERT INTO {tableName} ({tableColumnDict[tableName]}) VALUES ({joinedInserts});\n"
             allInserts += (newStatement)
-
 
     # Writes tables and inserts to sql file
     with open("output/output.sql", "w", encoding="utf-8") as file:

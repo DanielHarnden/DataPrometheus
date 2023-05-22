@@ -1,11 +1,10 @@
-import os
-import json
-from functools import lru_cache
+# This file is used to map the parsed text upon itself. Eventually an AI will be used to determine if there are relationships between new and existing keys, creating a network of keys that can be used to find relationships between keys when graphing.
 
-commonIdentifiers = ["Key", "Id"]
+import os, json
 
-def mapText(inputKeys):
 
+
+def mapFiles(inputKeys):
     # Load existing key and banned word data
     with open(os.getcwd() + "\prometheusMain\keyInformation\keyList.json") as f:
         try:
@@ -18,7 +17,6 @@ def mapText(inputKeys):
             bannedWords = [word.strip() for word in f.readlines()]
         except:
             bannedWords = []
-
 
     for fileTables in inputKeys:
         # Only get unique keys (minus table names)
@@ -38,12 +36,11 @@ def mapText(inputKeys):
         with open(os.getcwd() + "\prometheusMain\keyInformation\keyList.json", 'w') as f:
             json.dump(dataDict, f, indent=4, separators=(',', ': '))
         with open(os.getcwd() + "\prometheusMain\keyInformation\\bannedWords.txt", 'w') as bw:
-            for item in bannedWords: 
+            for item in bannedWords:
                 bw.write(item + "\n")
 
     # Return the json file for the grapher
     return dataDict, bannedWords
-
 
 
 def addKey(primaryKey, keySynonym, dataDict):
