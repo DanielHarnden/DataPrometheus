@@ -12,7 +12,7 @@ if not exist %GRAPHVIZ_PATH% (
 
     where %GRAPHVIZ_EXE% >nul 2>nul
     if %errorlevel% equ 0 (
-        start cmd /k "python .\prometheusMain\runDataPrometheus.py"
+        start cmd /k "python .\prometheusMain\run_Data_Prometheus.py"
         cd ./frontendGUI
         start /b cmd /c "python -m http.server"
     ) else (

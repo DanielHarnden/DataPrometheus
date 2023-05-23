@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import dataPrometheus
+from process_Files import processFiles
 
 # Flask API, called when file is run
 app = Flask(__name__)
@@ -16,12 +16,14 @@ def dataPrometheusAPI(requestEndpoint):
 
     # Calls various functions depending on the request endpoint
     if requestEndpoint == 'mapDatabase':
-        status, errorMessage, operationalTime = dataPrometheus.mapDatabase(files)
+        status, errorMessage = processFiles(files, requestEndpoint)
     elif requestEndpoint == 'mergeDatabase':
-        status, errorMessage, operationalTime = dataPrometheus.mergeDatabase(files)
+        status, errorMessage = processFiles(files, requestEndpoint)
+    else:
+        status, errorMessage = 0, "Endpoint not recognized.", 0
 
     if status == 0:
-        print(errorMessage, "\n", f"Total Operational Time before error: {operationalTime}")
+        print(errorMessage)
         return jsonify(errorMessage), 200
         
     # Sends the image to the frontend
