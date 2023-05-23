@@ -10,7 +10,7 @@ import time
 
 
 def processFiles(files, operation):
-    beginTime = time.time()
+    beginTime = time.perf_counter()
 
     # Checks for common errors
     status, errorMessage = errorCheck(files, operation)
@@ -24,17 +24,17 @@ def processFiles(files, operation):
         return 0, parsedInserts
 
     # 2) Map the parsed information to itself to find relationships between "keys" and "tables."
-    startTime = time.time()
+    startTime = time.perf_counter()
     print("Beginning mapping...")
     try:
         keyList, bannedWords = mapFiles(parsedText)
     except:
         errorMessage = f"There was an error while mapping keys. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
         return 0, errorMessage
-    print(f"Mapping completed. Time Elapsed: {time.time() - startTime} seconds.\n")
+    print(f"Mapping completed. Time Elapsed: {time.perf_counter() - startTime} seconds.\n")
 
     # 3) Generate a visualization of the mapped information using GraphViz.
-    startTime = time.time()
+    startTime = time.perf_counter()
     print("Generating GraphViz PNG...")
     try:
         if operation == "mapDatabase":
@@ -45,11 +45,11 @@ def processFiles(files, operation):
     except:
         errorMessage = f"There was an error while generating the graph output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
         return 0, errorMessage
-    print(f"PNG generated. Time Elapsed: {time.time() - startTime} seconds.\n")
+    print(f"PNG generated. Time Elapsed: {time.perf_counter() - startTime} seconds.\n")
 
     # 3.5) Generate SQL file (if merging)
     if operation == "mergeDatabase":
-        startTime = time.time()
+        startTime = time.perf_counter()
         print("Generating SQL file...")
 
         try:
@@ -58,9 +58,9 @@ def processFiles(files, operation):
             errorMessage = f"There was an error while generating the SQL output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
             return 0, errorMessage
 
-        print(f"SQL generated. Time Elapsed: {time.time() - startTime} seconds.\n")
+        print(f"SQL generated. Time Elapsed: {time.perf_counter() - startTime} seconds.\n")
 
-    print(f"Total Operational Time: {time.time() - beginTime} seconds.\n")
+    print(f"Total Operational Time: {time.perf_counter() - beginTime} seconds.\n")
     return 1, "Successful operation."
 
 

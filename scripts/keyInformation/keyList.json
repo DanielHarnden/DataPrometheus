@@ -1,0 +1,743 @@
+{
+    "close": [
+        "close"
+    ],
+    "time": [
+        "time"
+    ],
+    "add": [
+        "add"
+    ],
+    "append": [
+        "append"
+    ],
+    "save": [
+        "save"
+    ],
+    "mapText": [
+        "mapText"
+    ],
+    "split": [
+        "split"
+    ],
+    "set": [
+        "set"
+    ],
+    "NamedTemporaryFile": [
+        "NamedTemporaryFile"
+    ],
+    "enumerate": [
+        "enumerate"
+    ],
+    "generateGraph": [
+        "generateGraph"
+    ],
+    "print": [
+        "print"
+    ],
+    "unlink": [
+        "unlink"
+    ],
+    "len": [
+        "len"
+    ],
+    "determineFileType": [
+        "determineFileType"
+    ],
+    "send_file": [
+        "send_file"
+    ],
+    "open": [
+        "open"
+    ],
+    "Flask": [
+        "Flask"
+    ],
+    "route": [
+        "route"
+    ],
+    "getlist": [
+        "getlist"
+    ],
+    "mapDatabase": [
+        "mapDatabase"
+    ],
+    "run": [
+        "run"
+    ],
+    "seek": [
+        "seek"
+    ],
+    "CORS": [
+        "CORS"
+    ],
+    "getcwd": [
+        "getcwd"
+    ],
+    "BytesIO": [
+        "BytesIO"
+    ],
+    "Digraph": [
+        "Digraph"
+    ],
+    "generateTable": [
+        "generateTable"
+    ],
+    "lower": [
+        "lower"
+    ],
+    "reverse": [
+        "reverse"
+    ],
+    "sorted": [
+        "sorted"
+    ],
+    "update": [
+        "update"
+    ],
+    "attr": [
+        "attr"
+    ],
+    "addKeys": [
+        "addKeys"
+    ],
+    "addForeignKeys": [
+        "addForeignKeys"
+    ],
+    "edge": [
+        "edge"
+    ],
+    "node": [
+        "node"
+    ],
+    "replace": [
+        "replace"
+    ],
+    "stemmer": [
+        "stemmer"
+    ],
+    "initializeGraphGeneration": [
+        "initializeGraphGeneration"
+    ],
+    "generateKey": [
+        "generateKey"
+    ],
+    "stemWord": [
+        "stemWord"
+    ],
+    "generateForeignKeys": [
+        "generateForeignKeys"
+    ],
+    "subgraph": [
+        "subgraph"
+    ],
+    "addTables": [
+        "addTables"
+    ],
+    "now": [
+        "now"
+    ],
+    "strftime": [
+        "strftime"
+    ],
+    "render": [
+        "render"
+    ],
+    "load": [
+        "load"
+    ],
+    "values": [
+        "values"
+    ],
+    "strip": [
+        "strip"
+    ],
+    "dump": [
+        "dump"
+    ],
+    "write": [
+        "write"
+    ],
+    "addKey": [
+        "addKey"
+    ],
+    "list": [
+        "list"
+    ],
+    "TrackId": [
+        "TrackId"
+    ],
+    "BillingAddress": [
+        "BillingAddress"
+    ],
+    "Fax": [
+        "Fax"
+    ],
+    "GenreId": [
+        "GenreId"
+    ],
+    "Quantity": [
+        "Quantity"
+    ],
+    "City": [
+        "City"
+    ],
+    "EmployeeId": [
+        "EmployeeId"
+    ],
+    "Total": [
+        "Total"
+    ],
+    "AlbumId": [
+        "AlbumId"
+    ],
+    "Name": [
+        "Name"
+    ],
+    "ArtistId": [
+        "ArtistId"
+    ],
+    "BirthDate": [
+        "BirthDate"
+    ],
+    "BillingPostalCode": [
+        "BillingPostalCode"
+    ],
+    "CustomerId": [
+        "CustomerId"
+    ],
+    "Title": [
+        "Title"
+    ],
+    "Email": [
+        "Email"
+    ],
+    "Bytes": [
+        "Bytes"
+    ],
+    "Milliseconds": [
+        "Milliseconds"
+    ],
+    "UnitPrice": [
+        "UnitPrice"
+    ],
+    "PlaylistId": [
+        "PlaylistId"
+    ],
+    "State": [
+        "State"
+    ],
+    "ReportsTo": [
+        "ReportsTo"
+    ],
+    "Phone": [
+        "Phone"
+    ],
+    "HireDate": [
+        "HireDate"
+    ],
+    "BillingState": [
+        "BillingState"
+    ],
+    "InvoiceDate": [
+        "InvoiceDate"
+    ],
+    "InvoiceLineId": [
+        "InvoiceLineId"
+    ],
+    "MediaTypeId": [
+        "MediaTypeId"
+    ],
+    "Address": [
+        "Address"
+    ],
+    "Company": [
+        "Company"
+    ],
+    "BillingCountry": [
+        "BillingCountry"
+    ],
+    "FirstName": [
+        "FirstName"
+    ],
+    "Composer": [
+        "Composer"
+    ],
+    "BillingCity": [
+        "BillingCity"
+    ],
+    "PostalCode": [
+        "PostalCode"
+    ],
+    "InvoiceId": [
+        "InvoiceId"
+    ],
+    "Country": [
+        "Country"
+    ],
+    "SupportRepId": [
+        "SupportRepId"
+    ],
+    "LastName": [
+        "LastName"
+    ],
+    "scheduleId": [
+        "scheduleId"
+    ],
+    "dbPosition1": [
+        "dbPosition1"
+    ],
+    "eventInfo_meetingDate": [
+        "eventInfo_meetingDate"
+    ],
+    "dbTsize": [
+        "dbTsize"
+    ],
+    "schedulepositionNeeded": [
+        "schedulepositionNeeded"
+    ],
+    "eventInfo_eventLocation": [
+        "eventInfo_eventLocation"
+    ],
+    "dbPositionNumber": [
+        "dbPositionNumber"
+    ],
+    "scheduleEnd": [
+        "scheduleEnd"
+    ],
+    "dbLastName": [
+        "dbLastName"
+    ],
+    "dbYearsVolunteered": [
+        "dbYearsVolunteered"
+    ],
+    "eventInfo_registrationEnd": [
+        "eventInfo_registrationEnd"
+    ],
+    "dbEmployer": [
+        "dbEmployer"
+    ],
+    "dbPositionsInitial": [
+        "dbPositionsInitial"
+    ],
+    "eventInfo_POCEmail": [
+        "eventInfo_POCEmail"
+    ],
+    "positionId": [
+        "positionId"
+    ],
+    "dbEmailAddress": [
+        "dbEmailAddress"
+    ],
+    "dbDDSUserID": [
+        "dbDDSUserID"
+    ],
+    "dbPosition4": [
+        "dbPosition4"
+    ],
+    "eventInfo_meetingStartTime": [
+        "eventInfo_meetingStartTime"
+    ],
+    "scheduleDay": [
+        "scheduleDay"
+    ],
+    "dbPositionsUsed": [
+        "dbPositionsUsed"
+    ],
+    "dbDay": [
+        "dbDay"
+    ],
+    "eventInfo_meetingLocation": [
+        "eventInfo_meetingLocation"
+    ],
+    "dbOrganization": [
+        "dbOrganization"
+    ],
+    "scheduleStart": [
+        "scheduleStart"
+    ],
+    "dbFirstName": [
+        "dbFirstName"
+    ],
+    "eventInfo_nasaOwnerEmail": [
+        "eventInfo_nasaOwnerEmail"
+    ],
+    "dbPosition2": [
+        "dbPosition2"
+    ],
+    "eventInfo_POC": [
+        "eventInfo_POC"
+    ],
+    "eventInfo_startDate": [
+        "eventInfo_startDate"
+    ],
+    "schedulepositionId": [
+        "schedulepositionId"
+    ],
+    "eventInfo_meetingEndTime": [
+        "eventInfo_meetingEndTime"
+    ],
+    "dbPosition3": [
+        "dbPosition3"
+    ],
+    "RecordKey": [
+        "RecordKey"
+    ],
+    "dbParentGuardian": [
+        "dbParentGuardian"
+    ],
+    "dbType": [
+        "dbType"
+    ],
+    "eventInfo_id": [
+        "eventInfo_id"
+    ],
+    "dbPositionName": [
+        "dbPositionName"
+    ],
+    "dbPhoneNumber": [
+        "dbPhoneNumber"
+    ],
+    "eventInfo_nasaOwner": [
+        "eventInfo_nasaOwner"
+    ],
+    "positionName": [
+        "positionName"
+    ],
+    "eventInfo_registrationStart": [
+        "eventInfo_registrationStart"
+    ],
+    "Confirmation_Date": [
+        "Confirmation_Date"
+    ],
+    "Team_forms_complete": [
+        "Team_forms_complete"
+    ],
+    "Last_Update": [
+        "Last_Update"
+    ],
+    "team_name": [
+        "team_name"
+    ],
+    "Team_Member2": [
+        "Team_Member2"
+    ],
+    "r_AA": [
+        "r_AA"
+    ],
+    "Year": [
+        "Year"
+    ],
+    "Team_Member1_forms": [
+        "Team_Member1_forms"
+    ],
+    "School_Address2": [
+        "School_Address2"
+    ],
+    "Team_Member2_forms": [
+        "Team_Member2_forms"
+    ],
+    "States": [
+        "States"
+    ],
+    "School_Address": [
+        "School_Address"
+    ],
+    "auid": [
+        "auid"
+    ],
+    "Team_Member6_forms": [
+        "Team_Member6_forms"
+    ],
+    "r_AS": [
+        "r_AS"
+    ],
+    "Team_Member1_shirt": [
+        "Team_Member1_shirt"
+    ],
+    "c_id": [
+        "c_id"
+    ],
+    "Archive": [
+        "Archive"
+    ],
+    "Special": [
+        "Special"
+    ],
+    "Team_Member6": [
+        "Team_Member6"
+    ],
+    "r_AI": [
+        "r_AI"
+    ],
+    "Team_Member1_email": [
+        "Team_Member1_email"
+    ],
+    "Did_they_show": [
+        "Did_they_show"
+    ],
+    "Team_Member4": [
+        "Team_Member4"
+    ],
+    "Team_id": [
+        "Team_id"
+    ],
+    "Team_Member1": [
+        "Team_Member1"
+    ],
+    "Team_Member6_shirt": [
+        "Team_Member6_shirt"
+    ],
+    "last_name": [
+        "last_name"
+    ],
+    "first_name": [
+        "first_name"
+    ],
+    "Team_Member3": [
+        "Team_Member3"
+    ],
+    "Team_Member4_shirt": [
+        "Team_Member4_shirt"
+    ],
+    "Team_Member5": [
+        "Team_Member5"
+    ],
+    "r_WH": [
+        "r_WH"
+    ],
+    "Acknowledge_Rules": [
+        "Acknowledge_Rules"
+    ],
+    "middle": [
+        "middle"
+    ],
+    "gender": [
+        "gender"
+    ],
+    "Team_Member2_shirt": [
+        "Team_Member2_shirt"
+    ],
+    "Team_Member5_forms": [
+        "Team_Member5_forms"
+    ],
+    "zip2": [
+        "zip2"
+    ],
+    "c_team_id": [
+        "c_team_id"
+    ],
+    "user_org": [
+        "user_org"
+    ],
+    "Race_Year": [
+        "Race_Year"
+    ],
+    "user_id": [
+        "user_id"
+    ],
+    "Abbreviation": [
+        "Abbreviation"
+    ],
+    "Advisor_fax": [
+        "Advisor_fax"
+    ],
+    "Advisor_shirt": [
+        "Advisor_shirt"
+    ],
+    "r_NH": [
+        "r_NH"
+    ],
+    "hispanic": [
+        "hispanic"
+    ],
+    "Team_Member3_forms": [
+        "Team_Member3_forms"
+    ],
+    "Advisor_email": [
+        "Advisor_email"
+    ],
+    "user_name": [
+        "user_name"
+    ],
+    "Team_Member3_shirt": [
+        "Team_Member3_shirt"
+    ],
+    "Advisor_phone": [
+        "Advisor_phone"
+    ],
+    "Paid_fees": [
+        "Paid_fees"
+    ],
+    "Declined_type": [
+        "Declined_type"
+    ],
+    "s_id": [
+        "s_id"
+    ],
+    "Team_Member5_shirt": [
+        "Team_Member5_shirt"
+    ],
+    "m_id": [
+        "m_id"
+    ],
+    "Confirmation_Sent": [
+        "Confirmation_Sent"
+    ],
+    "Status": [
+        "Status"
+    ],
+    "sd_id": [
+        "sd_id"
+    ],
+    "register_date": [
+        "register_date"
+    ],
+    "last_confirmation": [
+        "last_confirmation"
+    ],
+    "School_Name": [
+        "School_Name"
+    ],
+    "Advisor": [
+        "Advisor"
+    ],
+    "US_citizen": [
+        "US_citizen"
+    ],
+    "Status_Date": [
+        "Status_Date"
+    ],
+    "Zip": [
+        "Zip"
+    ],
+    "Initial_Race_Status": [
+        "Initial_Race_Status"
+    ],
+    "team_id": [
+        "team_id"
+    ],
+    "Team_Member4_forms": [
+        "Team_Member4_forms"
+    ],
+    "Race_Number": [
+        "Race_Number"
+    ],
+    "Communicate": [
+        "Communicate"
+    ],
+    "Initial_Race_Date": [
+        "Initial_Race_Date"
+    ],
+    "School_Type": [
+        "School_Type"
+    ],
+    "isinstance": [
+        "isinstance"
+    ],
+    "join": [
+        "join"
+    ],
+    "format": [
+        "format"
+    ],
+    "combineFiles": [
+        "combineFiles"
+    ],
+    "generateSQL": [
+        "generateSQL"
+    ],
+    "mergeDatabase": [
+        "mergeDatabase"
+    ],
+    "jsonify": [
+        "jsonify"
+    ],
+    "lastname": [
+        "lastname"
+    ],
+    "userid": [
+        "userid"
+    ],
+    "password": [
+        "password"
+    ],
+    "username": [
+        "username"
+    ],
+    "firstname": [
+        "firstname"
+    ],
+    "status": [
+        "status"
+    ],
+    "determineEdgeToAdd": [
+        "determineEdgeToAdd"
+    ],
+    "traverseFunctions": [
+        "traverseFunctions"
+    ],
+    "splitClassAndKey": [
+        "splitClassAndKey"
+    ],
+    "items": [
+        "items"
+    ],
+    "read": [
+        "read"
+    ],
+    "processFiles": [
+        "processFiles"
+    ],
+    "findForeignKeys": [
+        "findForeignKeys"
+    ],
+    "remove": [
+        "remove"
+    ],
+    "generateEdgesDOT": [
+        "generateEdgesDOT"
+    ],
+    "isProgrammingFile": [
+        "isProgrammingFile"
+    ],
+    "generateKeyDOT": [
+        "generateKeyDOT"
+    ],
+    "generateTableDOT": [
+        "generateTableDOT"
+    ],
+    "progDetermineEdge": [
+        "progDetermineEdge"
+    ],
+    "databaseDetermineEdge": [
+        "databaseDetermineEdge"
+    ],
+    "copy": [
+        "copy"
+    ],
+    "readlines": [
+        "readlines"
+    ],
+    "generateSQLOutput": [
+        "generateSQLOutput"
+    ],
+    "generateGraphOutput": [
+        "generateGraphOutput"
+    ],
+    "extend": [
+        "extend"
+    ],
+    "errorCheck": [
+        "errorCheck"
+    ],
+    "parseFiles": [
+        "parseFiles"
+    ],
+    "mapFiles": [
+        "mapFiles"
+    ],
+    "perf_counter": [
+        "perf_counter"
+    ]
+}

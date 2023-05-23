@@ -55,7 +55,7 @@ def parseFiles(files, operation):
                 errorMessage = f"Files of extension .{extension} are not currently supported by Data Prometheus's database merging function. If you want to view a graph visualization of this file, please try Data Prometheus's mapper."
             return 0, errorMessage
 
-        startTime = time.time()
+        startTime = time.perf_counter()
         print(f"Beginning parse {i+1} of {len(files)}...")
 
         try:
@@ -71,7 +71,7 @@ def parseFiles(files, operation):
         # Deletes the temporary file
         temp_file.close()
         os.unlink(temp_file.name)
-        print(f"Parse {i+1} completed. Time Elapsed: {time.time() - startTime} seconds.\n")
+        print(f"Parse {i+1} completed. Time Elapsed: {time.perf_counter() - startTime} seconds.\n")
 
     return parsedText, parsedInserts
 
