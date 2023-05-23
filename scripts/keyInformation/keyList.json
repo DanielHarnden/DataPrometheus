@@ -739,5 +739,71 @@
     ],
     "perf_counter": [
         "perf_counter"
+    ],
+    "parse_files": [
+        "parse_files"
+    ],
+    "map_files": [
+        "map_files"
+    ],
+    "error_check": [
+        "error_check"
+    ],
+    "generate_graph_output": [
+        "generate_graph_output"
+    ],
+    "combine_files": [
+        "combine_files"
+    ],
+    "generate_sql_output": [
+        "generate_sql_output"
+    ],
+    "split_class_and_key": [
+        "split_class_and_key"
+    ],
+    "database_find_edges": [
+        "database_find_edges"
+    ],
+    "traverse_functions": [
+        "traverse_functions"
+    ],
+    "process_files": [
+        "process_files"
+    ],
+    "add_tables": [
+        "add_tables"
+    ],
+    "generate_table_dot": [
+        "generate_table_dot"
+    ],
+    "initialize_graph_generation": [
+        "initialize_graph_generation"
+    ],
+    "prog_determine_edge": [
+        "prog_determine_edge"
+    ],
+    "add_keys": [
+        "add_keys"
+    ],
+    "generate_edges_dot": [
+        "generate_edges_dot"
+    ],
+    "database_determine_edge": [
+        "database_determine_edge"
+    ],
+    "is_programming_file": [
+        "is_programming_file"
+    ],
+    "generate_key_dot": [
+        "generate_key_dot"
+    ],
+    "find_foreign_keys": [
+        "find_foreign_keys"
+    ],
+    "add_key": [
+        "add_key"
+    ],
+    "determine_file_type": [
+        "determine_file_type"
     ]
 }

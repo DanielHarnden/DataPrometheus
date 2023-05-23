@@ -1,104 +1,132 @@
-import snowballstemmer
-# This function finds the edges between nodes in database files, which is much more difficult than in programming files, and liberties are taken to accurately determine edges.
-def databaseDetermineEdge(parsedText, keyList, tableNames, bannedWords):
-    primaryKeys = {}
-    tablesVisited = {}
-    edgesToAdd = set()
+"""
+This module has functions for determining edges between nodes in
+database and programming files.
+"""
+
+
+from snowballstemmer import stemmer
+
+
+def database_determine_edge(parsed_text, key_list, table_names, banned_words):
+    """
+    Prepares the given information to be sent to database_find_edges.
+    """
+    primary_keys = {}
+    tables_visited = {}
+    edges_to_add = set()
 
     # Iterates through each key
-    for file in parsedText:
-        for tableColumns in file:
-            tableName = tableNames[len(tablesVisited)]
-            tablesVisited[tableName] = []
+    for file in parsed_text:
+        for table_columns in file:
+            table_name = table_names[len(tables_visited)]
+            tables_visited[table_name] = []
 
             # Stores the key name
-            for column in tableColumns:
-                currentKey = column[0]
+            for column in table_columns:
+                current_key = column[0]
 
                 # Converts each key to its "root" key based on the keyInformation.json dictionary
-                for keySynonym, synonyms in keyList.items():
-                    if currentKey in synonyms:
-                        currentKey = keySynonym
+                for key_synonym, synonyms in key_list.items():
+                    if current_key in synonyms:
+                        current_key = key_synonym
 
-                edgesToAdd, tablesVisited, primaryKeys = determineEdgeToAdd(currentKey, primaryKeys, tableName, tableNames, tablesVisited, edgesToAdd, bannedWords)
+                edges_to_add, tables_visited, primary_keys = database_find_edges(
+                    current_key, primary_keys, table_name, table_names,
+                    tables_visited, edges_to_add, banned_words
+                )
 
-    return edgesToAdd
+    return edges_to_add
 
-def determineEdgeToAdd(currentKey, primaryKeys, tableName, tableNames, tablesVisited, edgesToAdd, bannedWords):
-    stemmer = snowballstemmer.stemmer('english')
 
-    # Does some logic using the current key / table and the referencing key / table to try and accurately determine which order the keys reference each other
-    if currentKey in primaryKeys and tableName != primaryKeys[currentKey]:
-        if primaryKeys[currentKey] not in tablesVisited[tableName] and currentKey not in bannedWords:
-            referencedTable = primaryKeys[currentKey]
-            cleanedTableName = tableName.replace("_", "")
-            tableStem = stemmer.stemWord(cleanedTableName).lower()
+def database_find_edges(
+        current_key, primary_keys, table_name, table_names,
+        tables_visited, edges_to_add, banned_words
+):
+    """
+    Finds the edges between nodes in database files, which is much more difficult 
+    than in programming files, and liberties are taken to accurately determine edges.
+    """
 
-            if currentKey in tableNames:
-                if tableStem in currentKey.lower():
-                    tempEdge = (referencedTable, currentKey, tableName, tableName)
+    snowball_stemmer = stemmer('english')
+
+    # Does some logic using the current key / table and the referencing key / table
+    # to try and accurately determine which order the keys reference each other
+    if current_key in primary_keys and table_name != primary_keys[current_key]:
+        if (
+            primary_keys[current_key] not in tables_visited[table_name] and
+            current_key not in banned_words
+        ):
+            referenced_table = primary_keys[current_key]
+            cleanedtable_name = table_name.replace("_", "")
+            table_stem = snowball_stemmer.stemWord(cleanedtable_name).lower()
+
+            if current_key in table_names:
+                if table_stem in current_key.lower():
+                    temp_edge = (referenced_table, current_key, table_name, table_name)
                 else:
-                    tempEdge = (tableName, currentKey, referencedTable, referencedTable)
+                    temp_edge = (table_name, current_key, referenced_table, referenced_table)
             else:
-                if tableStem in currentKey.lower():
-                    tempEdge = (referencedTable, currentKey, tableName, currentKey)
+                if table_stem in current_key.lower():
+                    temp_edge = (referenced_table, current_key, table_name, current_key)
                 else:
-                    tempEdge = (tableName, currentKey, referencedTable, currentKey)
+                    temp_edge = (table_name, current_key, referenced_table, current_key)
 
-            edgesToAdd.add(tempEdge)
-            tablesVisited[tableName].append(primaryKeys[currentKey])
+            edges_to_add.add(temp_edge)
+            tables_visited[table_name].append(primary_keys[current_key])
     else:
-        primaryKeys[currentKey] = tableName
+        primary_keys[current_key] = table_name
 
-    return edgesToAdd, tablesVisited, primaryKeys
-
-
+    return edges_to_add, tables_visited, primary_keys
 
 
-
-
-
-# This function finds the edges between nodes in programming files (which are more rigid and therefore easier to find edges in compared to database files)
-def progDetermineEdge(parsedText):
-    functionCalls = set()
+def prog_determine_edge(parsed_text):
+    """
+    This function finds the edges between nodes in programming files
+    (which are more rigid and therefore easier to find edges in compared to database files).
+    """
+    function_calls = set()
 
     # Recursive function
-    def traverseFunctions(parsedData, currentFunction):
-        for key in parsedData:
+    def traverse_functions(parsed_data, current_function):
+        for key in parsed_data:
             if isinstance(key, list):
                 # Determines if the key is a function call
                 if len(key) > 1 and key[1] == 'FUNCTION CALL':
-                    calledTable = splitClassAndKey(key[0])
-                    currentFunctionName = splitClassAndKey(currentFunction[0])
-                    call = (currentFunctionName, calledTable, calledTable, calledTable)
-                    functionCalls.add(call)
+                    called_table = split_class_and_key(key[0])
+                    current_function_name = split_class_and_key(current_function[0])
+                    call = (current_function_name, called_table, called_table, called_table)
+                    function_calls.add(call)
                 else:
                     # Recursively traverse nested lists
-                    nestedData = key
-                    nestedCurrentFunction = key[0]
-                    traverseFunctions(nestedData, nestedCurrentFunction)
+                    nested_data = key
+                    nested_current_function = key[0]
+                    traverse_functions(nested_data, nested_current_function)
             elif isinstance(key, str):
                 # Update the current function name
-                currentFunction = key
+                current_function = key
 
-    currentFunction = ['']
-    traverseFunctions(parsedText, currentFunction)
+    current_function = ['']
+    traverse_functions(parsed_text, current_function)
 
-    return functionCalls
+    return function_calls
 
-def splitClassAndKey(key):
-    removeClass = key.split(".")
+def split_class_and_key(key):
+    """
+    Removes the class from the current ky
+    """
+
+    remove_class = key.split(".")
 
     # Determines the class and key names
-    if len(removeClass) == 1:
+    if len(remove_class) == 1:
         return key
     else:
-        currentClass = removeClass[0]
-        currentKey = removeClass[1]
+        current_class = remove_class[0]
+        current_key = remove_class[1]
 
         # Replaces __init__ with class name
         # TODO: Make this language independent (only works with Python right now)
-        if "__init__" in currentKey or "main" in currentKey:
-            currentKey = currentClass
+        if "__init__" in current_key or "main" in current_key:
+            current_key = current_class
 
-        return currentKey
+        return current_key

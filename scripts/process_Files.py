@@ -1,84 +1,122 @@
-# This file contains the root function that calls all other functions in Data Prometheus.
-# Each call is handled for errors, which are returned to the frontend.
-
-from parse_Files import parseFiles
-from map_Files import mapFiles
-from generate_Graph_Output import generateGraphOutput
-from generate_SQL_Output import generateSQLOutput
-import time
+"""
+This module contains the root function that calls all other functions in Data Prometheus.
+Each call is handled for errors, which are returned to the frontend GUI.
+"""
 
 
+from time import perf_counter
+from parse_files import parse_files
+from map_files import map_files
+from generate_graph_output import generate_graph_output
+from generate_sql_output import generate_sql_output
 
-def processFiles(files, operation):
-    beginTime = time.perf_counter()
+
+def process_files(files, operation):
+    """
+    Checks for errors before calling the other Data Prometheus functions.
+    If an error occurs at any time, error message is printed and returned to the frontend GUI.
+    """
 
     # Checks for common errors
-    status, errorMessage = errorCheck(files, operation)
+    begin_time = perf_counter()
+    status, error_message = error_check(files, operation)
     if status == 0:
-        return 0, errorMessage
+        return 0, error_message
+
 
     # 1) Parse an inputted file for relevant information.
-    parsedText, parsedInserts = parseFiles(files, operation)
+    parsed_text, parsed_inserts = parse_files(files, operation)
     # Error message stored in parsedInserts (if there is an error)
-    if parsedText == 0:
-        return 0, parsedInserts
+    if parsed_text == 0:
+        return 0, parsed_inserts
+
 
     # 2) Map the parsed information to itself to find relationships between "keys" and "tables."
-    startTime = time.perf_counter()
+    start_time = perf_counter()
     print("Beginning mapping...")
     try:
-        keyList, bannedWords = mapFiles(parsedText)
-    except:
-        errorMessage = f"There was an error while mapping keys. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
-        return 0, errorMessage
-    print(f"Mapping completed. Time Elapsed: {time.perf_counter() - startTime} seconds.\n")
+        key_list, banned_words = map_files(parsed_text)
+    except Exception as exception:
+        print(exception)
+        error_message = (
+            "There was an error while mapping the files. "
+            "Please make sure that Data Prometheus is in a stable build, "
+            "or restart the program and try again."
+        )
+        return 0, error_message
+    print(f"Mapping completed. Time Elapsed: {perf_counter() - start_time} seconds.\n")
 
-    # 3) Generate a visualization of the mapped information using GraphViz.
-    startTime = time.perf_counter()
+
+    start_time = perf_counter()
     print("Generating GraphViz PNG...")
-    try:
-        if operation == "mapDatabase":
-            generateGraphOutput(parsedText, keyList, bannedWords)
-        elif operation == "mergeDatabase":
-            tempParsedText = combineFiles(parsedText)
-            edgesToAdd = generateGraphOutput(tempParsedText, keyList, bannedWords)
-    except:
-        errorMessage = f"There was an error while generating the graph output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
-        return 0, errorMessage
-    print(f"PNG generated. Time Elapsed: {time.perf_counter() - startTime} seconds.\n")
+    error_message = (
+        "There was an error while generating the graph output. "
+        "Please make sure that Data Prometheus is in a stable build, "
+        "or restart the program and try again."
+    )
+    # 3) (Mapping Only) Generate a visualization of the mapped information using GraphViz.
+    if operation == "mapDatabase":
+        try:
+            generate_graph_output(parsed_text, key_list, banned_words)
+        except Exception as exception:
+            print(exception)
+            return 0, error_message
+        print(f"PNG generated. Time Elapsed: {perf_counter() - start_time} seconds.\n")
 
-    # 3.5) Generate SQL file (if merging)
-    if operation == "mergeDatabase":
-        startTime = time.perf_counter()
+    # 3) (Merging Only) Generate visualization and SQL file
+    elif operation == "mergeDatabase":
+        try:
+            combined_parsed_text = combine_files(parsed_text)
+            edges_to_add = generate_graph_output(combined_parsed_text, key_list, banned_words)
+        except Exception as exception:
+            print(exception)
+            return 0, error_message
+        print(f"PNG generated. Time Elapsed: {perf_counter() - start_time} seconds.\n")
+
+        start_time = perf_counter()
         print("Generating SQL file...")
 
         try:
-            generateSQLOutput(parsedText, parsedInserts, keyList, edgesToAdd)
-        except:
-            errorMessage = f"There was an error while generating the SQL output. Please make sure that Data Prometheus is in a stable build, or restart the program and try again."
-            return 0, errorMessage
+            generate_sql_output(parsed_text, parsed_inserts, key_list, edges_to_add)
+        except Exception as exception:
+            print(exception)
+            error_message = (
+                "There was an error while generating the SQL output. "
+                "Please make sure that Data Prometheus is in a stable build, "
+                "or restart the program and try again."
+            )
+            return 0, error_message
 
-        print(f"SQL generated. Time Elapsed: {time.perf_counter() - startTime} seconds.\n")
+        print(f"SQL generated. Time Elapsed: {perf_counter() - start_time} seconds.\n")
 
-    print(f"Total Operational Time: {time.perf_counter() - beginTime} seconds.\n")
+    print(f"Total Operational Time: {perf_counter() - begin_time} seconds.\n")
     return 1, "Successful operation."
 
 
+def error_check(files, operation):
+    """
+    Checks for common errors that may be encountered when using the frontend GUI.
+    """
 
-def errorCheck(files, operation):
     if len(files) == 1 and files[0].filename == "":
-        errorMessage = f"No file(s) chosen."
-        return 0, errorMessage
+        error_message = "No file(s) chosen."
+        return 0, error_message
 
     if operation == "mergeDatabase" and len(files) < 2:
-        errorMessage = f"Please choose two or more files to merge."
-        return 0, errorMessage
+        error_message = "Please choose two or more files to merge."
+        return 0, error_message
 
     return 1, "Successful operation."
 
-def combineFiles(parsedText):
-    newParsedText = [["output.sql"]]
-    for file in parsedText:
-        newParsedText.extend(file[1:])
 
-    return [newParsedText]
+def combine_files(parsed_text):
+    """
+    When merging, combines all inputted files into one file named "output.sql".
+    This creates a single subgraph when creating the GraphViz DOT image.
+    """
+
+    new_parsed_text = [["output.sql"]]
+    for file in parsed_text:
+        new_parsed_text.extend(file[1:])
+
+    return [new_parsed_text]

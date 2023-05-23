@@ -1,81 +1,94 @@
-def generateSQLOutput(parsedText, parsedInserts, keyList, edgesToAdd):
-    allSqlTables = ""
-    tableColumnDict = {}
+def generate_sql_output(parsed_text, parsed_inserts, key_list, edges_to_add):
+    """
+    Generates a single SQL file based on the parsed text.
+    """
+
+    all_sql_tables = ""
+    table_column_dict = {}
 
     # Add each table with keys
-    for file in parsedText:
+    for file in parsed_text:
         for table in file[1:]:
-            tableName = table[0][0]
+            table_name = table[0][0]
             keys = table[1:]
-            keyStatements = []
-            addedKeys = set()
+            key_statements = []
+            added_keys = set()
 
             # Append each key and key type
             for key in keys:
-                keyName = key[0]
-                keyType = key[1]
+                key_name = key[0]
+                key_type = key[1]
 
-                for keySynonym in keyList:
-                    if keyName in keyList[keySynonym]:
-                        keyName = keySynonym
+                for key_synonym in key_list:
+                    if key_name in key_list[key_synonym]:
+                        key_name = key_synonym
 
-                if keyName not in addedKeys:
-                    statement = f"\t{keyName} {keyType}"
-                    keyStatements.append(statement)
-                    addedKeys.add(keyName)
+                if key_name not in added_keys:
+                    statement = f"\t{key_name} {key_type}"
+                    key_statements.append(statement)
+                    added_keys.add(key_name)
 
             # Keys for each table are stored in a dictionary
-            keyNames = ", ".join([keyName for keyName, keyType in keys])
-            tableColumnDict[tableName] = keyNames
+            key_names = ", ".join([key_name for key_name, key_type in keys])
+            table_column_dict[table_name] = key_names
 
             # Add foreign key relationships
-            for startTable, startKey, endTable, endKey in edgesToAdd:
-                startTable = startTable.replace("[table]", "").strip()
+            for start_table, start_key, end_table, end_key in edges_to_add:
+                start_table = start_table.replace("[table]", "").strip()
 
-                if tableName == startTable:
-                    startKey = startKey.replace("[table]", "").strip()
-                    endTable = endTable.replace("[table]", "").strip()
-                    endKey = endKey.replace("[table]", "").strip()
+                if table_name == start_table:
+                    start_key = start_key.replace("[table]", "").strip()
+                    end_table = end_table.replace("[table]", "").strip()
+                    end_key = end_key.replace("[table]", "").strip()
 
-                    statement = f"\tFOREIGN KEY ({startKey}) REFERENCES {endTable}({endKey})"
-                    keyStatements.append(statement)
+                    statement = f"\tFOREIGN KEY ({start_key}) REFERENCES {end_table}({end_key})"
+                    key_statements.append(statement)
 
-            # Finalize table statement and append to allSqlTables string
-            joinedStatements = ",\n".join(keyStatements)
-            sqlTable = f"CREATE TABLE IF NOT EXISTS {tableName} (\n{joinedStatements}\n);\n\n"
-            allSqlTables += (sqlTable)
+            # Finalize table statement and append to all_sql_tables string
+            joined_statements = ",\n".join(key_statements)
+            sql_table = f"CREATE TABLE IF NOT EXISTS {table_name} (\n{joined_statements}\n);\n\n"
+            all_sql_tables += (sql_table)
 
     # Add insert statements (if they exist)
-    allInserts = ""
+    all_inserts = ""
     # Remove outermost []
-    for outermostBrackets in parsedInserts:
-        for row in outermostBrackets:
-            insertStatements = []
-            tableName = row[0]
+    for outermost_brackets in parsed_inserts:
+        for row in outermost_brackets:
+            insert_statements = []
+            table_name = row[0]
 
             # Cleans and adds each key to a list
             for key in row[1:]:
                 if key is None:
-                    insertStatements.append("NULL")
+                    insert_statements.append("NULL")
                 elif isinstance(key, str):
                     key = key.replace("'", "''")
-                    insertStatements.append(f"'{key}'")
+                    insert_statements.append(f"'{key}'")
                 else:
-                    insertStatements.append(str(key))
+                    insert_statements.append(str(key))
 
             # Turns the list into a single string separated by commas
-            joinedInserts = ", ".join(insertStatements)
+            joined_inserts = ", ".join(insert_statements)
 
             try:
-                newStatement = f"INSERT INTO {tableName} ({tableColumnDict[tableName]}) VALUES ({joinedInserts});\n"
-            except:
-                tableName = tableName.replace("_", "")
+                new_statement = (
+                    f"INSERT INTO {table_name} "
+                    f"({table_column_dict[table_name]}) "
+                    f"VALUES ({joined_inserts});\n"
+                )
+            except Exception as exception:
+                print(exception)
+                table_name = table_name.replace("_", "")
 
             # Adds everything to a single string, then adds that to the string of inserts
-            newStatement = f"INSERT INTO {tableName} ({tableColumnDict[tableName]}) VALUES ({joinedInserts});\n"
-            allInserts += (newStatement)
+            new_statement = (
+                f"INSERT INTO {table_name} "
+                f"({table_column_dict[table_name]}) "
+                f"VALUES ({joined_inserts});\n"
+            )
+            all_inserts += (new_statement)
 
     # Writes tables and inserts to sql file
     with open("output/output.sql", "w", encoding="utf-8") as file:
-        file.write(allSqlTables)
-        file.write(allInserts)
+        file.write(all_sql_tables)
+        file.write(all_inserts)

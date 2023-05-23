@@ -12,8 +12,8 @@ if not exist %GRAPHVIZ_PATH% (
 
     where %GRAPHVIZ_EXE% >nul 2>nul
     if %errorlevel% equ 0 (
-        start cmd /k "python .\prometheusMain\run_Data_Prometheus.py"
-        cd ./frontendGUI
+        start cmd /k "python .\scripts\run_Data_Prometheus.py"
+        cd ./frontend
         start /b cmd /c "python -m http.server"
     ) else (
         echo ERROR: Graphviz is installed but not in your PATH
