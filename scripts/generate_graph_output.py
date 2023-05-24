@@ -157,7 +157,7 @@ def add_keys(file, key_list, new_tables, table_names, file_name, nodes, dot):
             key_type = key[1]
 
             if i == 0:
-                nodes.append(f"{table_names[table_iterator]}:{key_name}")
+                nodes.append(f"{table_names[table_iterator]}:{split_class_and_key(key_name)}")
                 continue
 
             # Determines if they key has to be renamed based on the mapping
@@ -167,7 +167,7 @@ def add_keys(file, key_list, new_tables, table_names, file_name, nodes, dot):
 
             if key_name not in added_keys and "Built-In" not in key_type:
                 new_tables[table_iterator] += generate_key_dot(key_name, key_type)
-                nodes.append(f"{table_names[table_iterator]}:{key_name}")
+                nodes.append(f"{table_names[table_iterator]}:{split_class_and_key(key_name)}")
                 added_keys.add(key_name)
 
         # Finishes the table then adds the node using the temporary information
@@ -183,6 +183,27 @@ def add_keys(file, key_list, new_tables, table_names, file_name, nodes, dot):
                         shape='none', label=new_tables[table_iterator])
 
     return nodes, dot
+
+def split_class_and_key(key):
+    """
+    Removes the class from the current ky
+    """
+
+    remove_class = key.split(".")
+
+    # Determines the class and key names
+    if len(remove_class) == 1:
+        return key
+
+    current_class = remove_class[0]
+    current_key = remove_class[1]
+
+    # Replaces __init__ with class name
+    # TODO: Make this language independent (only works with Python right now)
+    if "__init__" in current_key or "main" in current_key:
+        current_key = current_class
+
+    return current_key
 
 
 def generate_key_dot(key_name, key_type):

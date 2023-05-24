@@ -120,13 +120,14 @@ def split_class_and_key(key):
     # Determines the class and key names
     if len(remove_class) == 1:
         return key
-    else:
-        current_class = remove_class[0]
-        current_key = remove_class[1]
 
-        # Replaces __init__ with class name
-        # TODO: Make this language independent (only works with Python right now)
-        if "__init__" in current_key or "main" in current_key:
-            current_key = current_class
+    current_class = remove_class[0]
+    current_key = remove_class[1]
 
-        return current_key
+    # Replaces __init__ with class name
+    # TODO: Make this language independent (only works with Python right now)
+    if "__init__" in current_key or "main" in current_key:
+        current_key = current_class
+
+    return current_key
+    
