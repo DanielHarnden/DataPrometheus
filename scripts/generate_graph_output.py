@@ -154,10 +154,11 @@ def add_keys(file, key_list, new_tables, table_names, file_name, nodes, dot):
 
         for i, key in enumerate(table_list):
             key_name = key[0]
+            key_name = split_class_and_key(key_name)
             key_type = key[1]
 
             if i == 0:
-                nodes.append(f"{table_names[table_iterator]}:{split_class_and_key(key_name)}")
+                nodes.append(f"{table_names[table_iterator]}:{key_name}")
                 continue
 
             # Determines if they key has to be renamed based on the mapping
@@ -167,7 +168,7 @@ def add_keys(file, key_list, new_tables, table_names, file_name, nodes, dot):
 
             if key_name not in added_keys and "Built-In" not in key_type:
                 new_tables[table_iterator] += generate_key_dot(key_name, key_type)
-                nodes.append(f"{table_names[table_iterator]}:{split_class_and_key(key_name)}")
+                nodes.append(f"{table_names[table_iterator]}:{key_name}")
                 added_keys.add(key_name)
 
         # Finishes the table then adds the node using the temporary information
